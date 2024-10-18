@@ -6,7 +6,7 @@ import NetInfo from '@react-native-community/netinfo';
 
 import { SplashScreen } from '@screens';
 import { Notifer } from '@components';
-import { addAuth, authSelector } from '@reducers';
+import { updateUser, authSelector } from '@reducers';
 
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
@@ -43,7 +43,7 @@ const AppContainer = () => {
     const checkLogin = () => {
         const token = '';
 
-        token && dispatch(addAuth({ token }));
+        token && dispatch(updateUser({ token }));
     };
 
     return (
