@@ -2,6 +2,9 @@ const routes = {
   MainNavigator: 'MainNavigator',
   AuthNavigator: 'AuthNavigator',
 
+  // Auth Nav
+  SplashScreen: 'SplashScreen',
+
   BottomTabNavigator: 'BottomTabNavigator',
   RoutesNavigator: 'RoutesNavigator',
   CarouselScreen: 'CarouselScreen',

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { View, StatusBar, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
+import NetInfo from '@react-native-community/netinfo';
 
 import { SplashScreen } from '@screens';
+import { Notifer } from '@components';
+import { addAuth, authSelector } from '@reducers';
 
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
-
-import { addAuth, authSelector } from '@reducers';
 
 const AppContainer = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,15 @@ const AppContainer = () => {
             setShowSplash(false);
         }, 2000);
 
-        checkLogin();
+        NetInfo.addEventListener(state => {
+            if (!state?.isConnected) {
+                Notifer({
+                    alertType: 'error',
+                    title: 'Disconnected',
+                    des: 'Please check the network connect!',
+                })
+            }
+        });
 
         return () => {
             clearTimeout(timeout);
