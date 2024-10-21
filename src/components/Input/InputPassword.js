@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {StyleSheet, View, TextInput} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {hScale, scale} from '@resolutions';
 
 import Button from '../Buttons/Button';

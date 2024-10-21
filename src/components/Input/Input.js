@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, TextInput} from 'react-native';
 
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {hScale, scale} from '@resolutions';
 
 import Text from '../Text';
