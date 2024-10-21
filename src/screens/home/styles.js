@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, radius} from '@constant';
+import {colors, radius} from '@constants';
 import {scale} from '@resolutions';
 
 export default StyleSheet.create({

@@ -3,7 +3,7 @@ import {StyleSheet, View, Animated} from 'react-native';
 import {observer} from 'mobx-react';
 
 import {Text, EmptyComponent, LoadingComponent} from '@components';
-import {fontSize} from '@constant';
+import {fontSize} from '@constants';
 import {useStore} from '@context';
 import {hScale, scale} from '@resolutions';
 

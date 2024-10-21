@@ -4,7 +4,7 @@ import {observer} from 'mobx-react';
 import {useNavigation} from '@react-navigation/native';
 
 import {Text, Button, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {resolutions, limitedString} from '@utils';
 import {useStore} from '@context';
 import {hScale, wScale} from '@resolutions';

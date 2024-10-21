@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, fontSize} from '@constant';
+import {colors, fontSize} from '@constants';
 import {resolutions} from '@utils';
 
 const {scale} = resolutions;

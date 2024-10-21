@@ -16,7 +16,7 @@ const styles = StyleSheet.create({})
 // import {StyleSheet, View} from 'react-native';
 
 // import {Text} from '@components';
-// import {colors, fontSize} from '@constant';
+// import {colors, fontSize} from '@constants';
 // import {scale} from '@resolutions';
 
 // const NotificationScreen = () => {

@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFastImage from 'react-native-fast-image';
 
 import {Text, Button, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {formatCurrency} from '@utils';
 import {useStore} from '@context';
 import {hScale, wScale, scale} from '@resolutions';

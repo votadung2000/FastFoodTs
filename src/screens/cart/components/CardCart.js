@@ -5,7 +5,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import RNFastImage from 'react-native-fast-image';
 
 import {Text, Button, ChangeQuantity, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {currencyUs} from '@utils';
 import {useStore} from '@context';
 import {scale, wScale} from '@resolutions';

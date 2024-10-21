@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import {Text} from '@components';
-import {colors} from '@constant';
+import {colors} from '@constants';
 import {currencyUs} from '@utils';
 import {scale} from '@resolutions';
 

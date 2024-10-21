@@ -6,7 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {Text, Button, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {useStore} from '@context';
 import {formatCurrency, resolutions} from '@utils';
 import routes from '@routes';

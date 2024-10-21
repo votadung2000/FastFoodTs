@@ -3,7 +3,7 @@ import {StyleSheet, View, Image, FlatList} from 'react-native';
 import {observer} from 'mobx-react';
 
 import {Text} from '@components';
-import {colors, fontSize} from '@constant';
+import {colors, fontSize} from '@constants';
 import {useStore} from '@context';
 import {hScale, scale} from '@resolutions';
 
