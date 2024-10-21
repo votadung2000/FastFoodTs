@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 
 import {Button, Text} from '@components';
 import {scale, wScale} from '@resolutions';
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 
 const ItemMenu = ({isEnd, count, label, Icon, onPress}) => {
   return (

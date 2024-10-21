@@ -1,13 +1,11 @@
-import React, {useState, useCallback} from 'react';
-import {StyleSheet, View, Image, ScrollView} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {useFocusEffect} from '@react-navigation/native';
-import {observer} from 'mobx-react';
+import React, { useState, useCallback } from 'react';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
-import {colors, fontSize} from '@constant';
-import {hScale, scale, wScale} from '@resolutions';
-import {Button, Text, FastImage, Popup} from '@components';
-import {useStore} from '@context';
+import { colors, fontSize } from '@constants';
+import { hScale, scale, wScale } from '@resolutions';
+import { Button, Text, FastImage, Popup } from '@components';
+// import {useStore} from '@context';
 import {
   SVG_My_Order,
   SVG_Profile,
@@ -20,23 +18,23 @@ import {
 import routes from '@routes';
 
 import ItemMenu from './ItemMenu';
-import {clearToken} from '@storage';
+import { clearToken } from '@storage';
 
 const Menu = () => {
   const navigation = useNavigation();
 
-  const {
-    userStore: {user, updateUser},
-    orderStore: {orders, fetchApiListOrder},
-  } = useStore();
+  // const {
+  //   userStore: {user, updateUser},
+  //   orderStore: {orders, fetchApiListOrder},
+  // } = useStore();
 
   const [popup, setPopup] = useState(null);
 
-  useFocusEffect(
-    useCallback(() => {
-      fetchApiListOrder({is_upcoming: true});
-    }, []),
-  );
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     fetchApiListOrder({is_upcoming: true});
+  //   }, []),
+  // );
 
   const handleNav = route => {
     navigation.navigate(route);
@@ -58,13 +56,13 @@ const Menu = () => {
       isVisible: false,
       onModalHide: async () => {
         await clearToken();
-        updateUser(null);
+        // updateUser(null);
       },
     });
   };
 
   const handleCancel = () => {
-    setPopup({isVisible: false});
+    setPopup({ isVisible: false });
   };
 
   return (
@@ -73,7 +71,7 @@ const Menu = () => {
       style={styles.scroll}
       showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
-        {user?.avatar ? (
+        {/* {user?.avatar ? (
           <FastImage
             isPath
             source={{uri: user?.avatar?.url}}
@@ -81,17 +79,18 @@ const Menu = () => {
           />
         ) : (
           <Image source={require('@images/avatar.png')} style={styles.img} />
-        )}
+        )} */}
+        <Image source={require('@images/avatar.png')} style={styles.img} />
         <View style={styles.vwInfo}>
           <Text bold style={styles.name}>
-            {user?.name || ''}
+            {'user?.name' || ''}
           </Text>
-          <Text style={styles.email}>{user?.email || ''}</Text>
+          <Text style={styles.email}>{'user?.email' || ''}</Text>
         </View>
         <View style={styles.menu}>
           <ItemMenu
             label={'My Orders'}
-            count={orders?.length || 0}
+            count={'orders?.length' || 0}
             Icon={<SVG_My_Order />}
             onPress={() => handleNav(routes.OrderScreen)}
           />
@@ -180,4 +179,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(Menu);
+export default Menu;
