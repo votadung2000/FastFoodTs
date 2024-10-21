@@ -1,7 +1,8 @@
 import {
     authReducer,
-    authSelector,
     updateUser,
+    authSelector,
+    userSelector,
 } from './auth';
 
 import {
@@ -13,8 +14,9 @@ import {
 export {
     // auth
     authReducer,
-    authSelector,
     updateUser,
+    authSelector,
+    userSelector,
 
     // animated_menu
     animatedMenuReducer,

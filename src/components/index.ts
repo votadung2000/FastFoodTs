@@ -16,7 +16,7 @@ import {
 import { Input, InputPassword } from './Input';
 import { FastImage, ImagesViewer } from './Image';
 // import { SelectType, SelectDefault } from './Selects';
-import Menu from './Menu'
+import Menu from './Menu';
 import Text from './Text';
 // import EmptyComponent from './EmptyComponent';
 // import LoadingComponent from './LoadingComponent';

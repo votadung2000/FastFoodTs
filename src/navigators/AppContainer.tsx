@@ -6,7 +6,7 @@ import NetInfo from '@react-native-community/netinfo';
 
 import { SplashScreen } from '@screens';
 import { Notifer } from '@components';
-import { updateUser, authSelector } from '@reducers';
+import { updateUser, userSelector } from '@reducers';
 
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
@@ -14,7 +14,7 @@ import MainNavigator from './MainNavigator';
 const AppContainer = () => {
     const dispatch = useDispatch();
 
-    const auth = useSelector(authSelector);
+    const user = useSelector(userSelector);
 
     const [isShowSplash, setShowSplash] = useState(true);
 
@@ -29,7 +29,7 @@ const AppContainer = () => {
                     alertType: 'error',
                     title: 'Disconnected',
                     des: 'Please check the network connect!',
-                })
+                });
             }
         });
 
@@ -37,7 +37,7 @@ const AppContainer = () => {
             clearTimeout(timeout);
         };
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, []);
 
     const checkLogin = () => {

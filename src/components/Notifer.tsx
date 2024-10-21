@@ -50,7 +50,7 @@ const Notifer = ({ alertType, title, des, ...rest }: NotiferProps) => {
           imageSource: getInfo()?.image,
           imageStyle: styles.imageStyle,
         },
-        ...rest
+        ...rest,
       });
     } else {
       return Notifier.showNotification({
@@ -62,7 +62,7 @@ const Notifer = ({ alertType, title, des, ...rest }: NotiferProps) => {
           imageSource: getInfo()?.image,
           imageStyle: styles.imageStyle,
         },
-        ...rest
+        ...rest,
       });
     }
   }

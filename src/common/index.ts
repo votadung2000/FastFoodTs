@@ -1,3 +1,3 @@
-import { handleApiCall } from './callApi'
+import { handleApiCall } from './callApi';
 
-export { handleApiCall }
+export { handleApiCall };

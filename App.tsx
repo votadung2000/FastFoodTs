@@ -5,9 +5,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { MenuProvider } from 'react-native-popup-menu';
 import { Provider } from 'react-redux';
 
-import store from '@store';
-
 import { AppContainer } from '@navigators';
+import store from '@store';
 
 const App = () => {
   return (
