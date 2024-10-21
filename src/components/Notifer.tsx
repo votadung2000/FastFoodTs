@@ -15,25 +15,25 @@ const Notifer = ({ alertType, title, des, ...rest }: NotiferProps) => {
     if (alertType === 'error') {
       return {
         style: styles.titleError,
-        image: require('../../assets/images/notifer_error.png'),
+        image: require('@images/notifer_error.png'),
       };
     }
     if (alertType === 'success') {
       return {
         style: styles.titleSuccess,
-        image: require('../../assets/images/notifer_success.png'),
+        image: require('@images/notifer_success.png'),
       };
     }
     if (alertType === 'warn') {
       return {
         style: styles.titleWarn,
-        image: require('../../assets/images/notifer_warn.png'),
+        image: require('@images/notifer_warn.png'),
       };
     }
     if (alertType === 'info') {
       return {
         style: styles.titleInfo,
-        image: require('../../assets/images/notifer_info.png'),
+        image: require('@images/notifer_info.png'),
       };
     }
   };
