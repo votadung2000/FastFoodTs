@@ -3,8 +3,14 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "@api": [
+        "./actions/Api"
+      ],
       "@assets": [
         "./assets"
+      ],
+      "@common": [
+        "./common"
       ],
       "@components": [
         "./components"
