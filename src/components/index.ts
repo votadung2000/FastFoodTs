@@ -1,4 +1,4 @@
-// import { Modal, ModalLoading, ModalSelect } from './Modals';
+import { Modal, ModalLoading, ModalSelect } from './Modals';
 import {
     Button,
     Back,
@@ -14,14 +14,14 @@ import {
 // } from './Analytics';
 // import { Search } from './Search';
 import { Input, InputPassword } from './Input';
-// import { FastImage, ImagesViewer } from './Image';
+import { FastImage, ImagesViewer } from './Image';
 // import { SelectType, SelectDefault } from './Selects';
 import Menu from './Menu'
 import Text from './Text';
 // import EmptyComponent from './EmptyComponent';
 // import LoadingComponent from './LoadingComponent';
-// import Loading from './Loading';
-// import Popup from './Popup';
+import Loading from './Loading';
+import Popup from './Popup';
 // import PopupMenu from './PopupMenu';
 // import SignInSocial from './SignInSocial';
 import Notifer from './Notifer';
@@ -32,9 +32,9 @@ import Notifer from './Notifer';
 
 export {
     Text,
-    // Modal,
-    // ModalLoading,
-    // ModalSelect,
+    Modal,
+    ModalLoading,
+    ModalSelect,
     // EmptyComponent,
     Button,
     Back,
@@ -48,14 +48,14 @@ export {
     // Search,
     Input,
     InputPassword,
-    // FastImage,
-    // ImagesViewer,
+    FastImage,
+    ImagesViewer,
     // SelectType,
     // SelectDefault,
     Menu,
     // LoadingComponent,
-    // Loading,
-    // Popup,
+    Loading,
+    Popup,
     // PopupMenu,
     // SignInSocial,
     Notifer,
