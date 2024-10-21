@@ -1,19 +1,18 @@
 import React from 'react';
-import {StyleSheet, View, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {observer} from 'mobx-react';
+import { StyleSheet, View, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {colors, fontSize, radius} from '@constant';
-import {resolutions} from '@utils';
-import {wScale} from '@resolutions';
-import {useStore} from '@context';
+import { colors, fontSize, radius } from '@constants';
+import { resolutions } from '@utils';
+import { wScale } from '@resolutions';
+// import {useStore} from '@context';
 
 import Button from './Button';
 import Text from '../Text';
 import FastImage from '../Image/FastImage';
 
-const {scale} = resolutions;
+const { scale } = resolutions;
 
 const Back = ({
   style,
@@ -26,9 +25,9 @@ const Back = ({
 }) => {
   const navigation = useNavigation();
 
-  const {
-    userStore: {user},
-  } = useStore();
+  // const {
+  //   userStore: {user},
+  // } = useStore();
 
   const goBack = () => {
     if (handleGoBack) {
@@ -48,7 +47,7 @@ const Back = ({
           <Text bold style={[styles.title, stTitle]}>
             {title}
           </Text>
-          {user?.avatar ? (
+          {/* {user?.avatar ? (
             <FastImage
               isPath
               source={{uri: user?.avatar?.url}}
@@ -56,7 +55,8 @@ const Back = ({
             />
           ) : (
             <Image source={require('@images/avatar.png')} style={styles.img} />
-          )}
+          )} */}
+          <Image source={require('@images/avatar.png')} style={styles.img} />
         </>
       )}
       {heart && (
@@ -120,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(Back);
+export default Back;

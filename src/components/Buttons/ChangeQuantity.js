@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-import {colors, fontSize, radius} from '@constant';
+import {colors, fontSize, radius} from '@constants';
 import {scale, wScale} from '@resolutions';
 
 import Button from './Button';
