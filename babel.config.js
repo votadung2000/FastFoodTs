@@ -21,7 +21,7 @@ module.exports = {
           '@svg': './src/assets/svg',
           '@routes': './src/navigators/routes',
           '@reducers': './src/redux/reducers',
-          '@images': './assets/images',
+          '@images': './src/assets/images',
         },
       },
     ],

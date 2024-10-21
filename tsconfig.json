@@ -39,6 +39,9 @@
       "@reducers": [
         "./redux/reducers"
       ],
+      "@images": [
+        "./assets/images"
+      ],
     },
   },
   "exclude": [
