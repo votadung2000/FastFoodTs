@@ -1,5 +1,5 @@
 import React, { createRef, useState } from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground, TextInput } from 'react-native';
 import { useFormik } from 'formik';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
@@ -46,7 +46,7 @@ const initialErrors: FormErrors = {
 const LoginScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
-  const refPassword = createRef();
+  const refPassword = createRef<TextInput>();
 
   const [loading, setLoading] = useState({ isVisible: false });
   const [modal, setModal] = useState({ isVisible: false });
@@ -111,7 +111,7 @@ const LoginScreen = () => {
   };
 
   const focusPassword = () => {
-    // refPassword.current?.focus();
+    refPassword.current?.focus();
   };
 
   const handleOpenModalForgotPass = () => {

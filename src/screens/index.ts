@@ -3,6 +3,7 @@ import CarouselScreen from './carousel';
 
 import WelcomeScreen from './welcome';
 import LoginScreen from './login';
+import RegisterScreen from './register';
 
 import HomeScreen from './home';
 import SearchScreen from './search';
@@ -16,6 +17,7 @@ export {
 
     WelcomeScreen,
     LoginScreen,
+    RegisterScreen,
 
     HomeScreen,
     SearchScreen,
