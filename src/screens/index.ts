@@ -1,4 +1,5 @@
 import SplashScreen from './splash';
+import CarouselScreen from './carousel';
 
 import HomeScreen from './home';
 import SearchScreen from './search';
@@ -8,6 +9,7 @@ import NotificationScreen from './notification';
 
 export {
     SplashScreen,
+    CarouselScreen,
 
     HomeScreen,
     SearchScreen,

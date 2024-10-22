@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { View, StatusBar, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { useDispatch, useSelector } from 'react-redux';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NetInfo from '@react-native-community/netinfo';
 
-import { SplashScreen } from '@screens';
+import { CarouselScreen, SplashScreen } from '@screens';
 import { Notifer } from '@components';
-import { updateUser, userSelector } from '@reducers';
+import routes from '@routes';
 
-import AuthNavigator from './AuthNavigator';
-import MainNavigator from './MainNavigator';
+import RoutesNavigator from './RoutesNavigator';
 
 const AppContainer = () => {
-    const dispatch = useDispatch();
-
-    const user = useSelector(userSelector);
+    const Stack = createNativeStackNavigator();
 
     const [isShowSplash, setShowSplash] = useState(true);
 
@@ -33,6 +30,12 @@ const AppContainer = () => {
             }
         });
 
+        // if (Platform.OS === 'ios') {
+        //     request(PERMISSIONS.IOS.APP_TRACKING_TRANSPARENCY)
+        //         .then(result => console.log(result))
+        //         .catch(error => console.log(error));
+        // }
+
         return () => {
             clearTimeout(timeout);
         };
@@ -43,7 +46,7 @@ const AppContainer = () => {
     const checkLogin = () => {
         const token = '';
 
-        token && dispatch(updateUser({ token }));
+        // token && dispatch(updateUser({ token }));
     };
 
     return (
@@ -56,11 +59,16 @@ const AppContainer = () => {
             {
                 isShowSplash ? <SplashScreen /> : (
                     <NavigationContainer>
-                        {
-                            true
-                                ? <MainNavigator />
-                                : <AuthNavigator />
-                        }
+                        <Stack.Navigator
+                            screenOptions={{
+                                headerShown: false,
+                                gestureEnabled: false,
+                                animation: 'slide_from_right',
+                            }}
+                        >
+                            <Stack.Screen name={routes.CarouselScreen} component={CarouselScreen} />
+                            <Stack.Screen name={routes.RoutesNavigator} component={RoutesNavigator} />
+                        </Stack.Navigator>
                     </NavigationContainer>
                 )
             }

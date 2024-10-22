@@ -1,19 +1,18 @@
 import React, {memo} from 'react';
 import {StyleSheet, View} from 'react-native';
-// import Modal from 'react-native-modal';
+import Modal from 'react-native-modal';
 
 import {colors, fontSize, radius} from '@constants';
 import {scale} from '@resolutions';
 
 import Button from './Buttons/Button';
 import Text from './Text';
-import Modal from './Modals/Modal';
 
 const Popup = ({
   Icon,
   title,
   content,
-  cancel,
+  cancel = 'Cancel',
   accept,
   require,
   handleCancel,
@@ -52,10 +51,6 @@ const Popup = ({
       </View>
     </Modal>
   );
-};
-
-Popup.defaultProps = {
-  cancel: 'Cancel',
 };
 
 const styles = StyleSheet.create({

@@ -1,13 +1,13 @@
 const routes = {
   MainNavigator: 'MainNavigator',
   AuthNavigator: 'AuthNavigator',
+  RoutesNavigator: 'RoutesNavigator',
+  BottomTabNavigator: 'BottomTabNavigator',
 
   // Auth Nav
   SplashScreen: 'SplashScreen',
-
-  BottomTabNavigator: 'BottomTabNavigator',
-  RoutesNavigator: 'RoutesNavigator',
   CarouselScreen: 'CarouselScreen',
+
   WelcomeScreen: 'WelcomeScreen',
   HomeScreen: 'HomeScreen',
   ProductsDetailScreen: 'ProductsDetailScreen',
