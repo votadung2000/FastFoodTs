@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { StyleSheet, Text as RNText, TextProps, TextStyle } from 'react-native';
+import { StyleSheet, Text as RNText, StyleProp, TextProps, TextStyle } from 'react-native';
 
 import { colors, fontSize } from '@constants';
 
 interface TextFCProps extends TextProps {
   children?: React.ReactNode;
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
   bold?: boolean;
   medium?: boolean;
 }

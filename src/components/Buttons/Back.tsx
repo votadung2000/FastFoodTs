@@ -1,33 +1,46 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { colors, fontSize, radius } from '@constants';
-import { resolutions } from '@utils';
-import { wScale } from '@resolutions';
-// import {useStore} from '@context';
+import { wScale, scale } from '@resolutions';
+import { userSelector } from '@reducers';
 
 import Button from './Button';
 import Text from '../Text';
 import FastImage from '../Image/FastImage';
 
-const { scale } = resolutions;
+interface BackFCProps {
+  heart?: boolean;
+  isFavorite?: boolean;
+  title?: string;
+  style?: StyleProp<ViewStyle>;
+  stTitle?: StyleProp<TextStyle>;
+  handleFavorite?: () => void;
+  handleGoBack?: () => void;
+}
 
 const Back = ({
-  style,
-  handleFavorite,
   heart,
   isFavorite,
   title,
+  style,
   stTitle,
+  handleFavorite,
   handleGoBack,
-}) => {
+}: BackFCProps) => {
   const navigation = useNavigation();
 
-  // const {
-  //   userStore: {user},
-  // } = useStore();
+  const user = useSelector(userSelector);
 
   const goBack = () => {
     if (handleGoBack) {
@@ -44,10 +57,15 @@ const Back = ({
       </Button>
       {title && (
         <>
-          <Text bold style={[styles.title, stTitle]}>
+          <Text bold
+            style={[
+              styles.title,
+              stTitle,
+            ]}
+          >
             {title}
           </Text>
-          {/* {user?.avatar ? (
+          {user?.avatar ? (
             <FastImage
               isPath
               source={{uri: user?.avatar?.url}}
@@ -55,14 +73,14 @@ const Back = ({
             />
           ) : (
             <Image source={require('@images/avatar.png')} style={styles.img} />
-          )} */}
-          <Image source={require('@images/avatar.png')} style={styles.img} />
+          )}
         </>
       )}
       {heart && (
         <Button
           onPress={handleFavorite}
-          style={[styles.vwFavorite, isFavorite && styles.vwIsFavorite]}>
+          style={[styles.vwFavorite, isFavorite && styles.vwIsFavorite]}
+        >
           <View style={styles.vwIconFavorite}>
             <Ionicons name="heart" size={scale(20)} color={colors.white} />
           </View>
@@ -94,7 +112,7 @@ const styles = StyleSheet.create({
     paddingLeft: scale(10),
   },
   title: {
-    fontSize: fontSize.large,
+    fontSize: fontSize.fontSize18,
   },
   img: {
     width: wScale(38),

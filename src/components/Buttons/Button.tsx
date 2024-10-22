@@ -3,13 +3,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   TouchableOpacityProps,
+  StyleProp,
   ViewStyle,
 } from 'react-native';
 
 interface ButtonFCProps extends TouchableOpacityProps {
   disabled?: boolean;
   children?: React.ReactNode;
-  style?: ViewStyle | ViewStyle[];
+  style?: StyleProp<ViewStyle>
 }
 
 const Button = ({ disabled, children, style, ...rest }: ButtonFCProps) => {
