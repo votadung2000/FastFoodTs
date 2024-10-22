@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { animatedMenuReducer, authReducer } from '@reducers';
+import { animatedMenuReducer, authReducer, userReducer } from '@reducers';
 
 const store = configureStore({
     reducer: {
         auth: authReducer,
+        user: userReducer,
         animatedMenu: animatedMenuReducer,
     },
 });

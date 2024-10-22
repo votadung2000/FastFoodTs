@@ -1,9 +1,7 @@
-import { authReducer, updateUser } from './authReducer';
-import { authSelector, userSelector } from './authSelector';
+import { authReducer } from './authReducer';
+import { authSelector } from './authSelector';
 
 export {
     authReducer,
-    updateUser,
     authSelector,
-    userSelector,
 };

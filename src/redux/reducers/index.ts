@@ -1,8 +1,6 @@
 import {
     authReducer,
-    updateUser,
     authSelector,
-    userSelector,
 } from './auth';
 
 import {
@@ -11,15 +9,22 @@ import {
     animatedMenuSelector,
 } from './animated_menu';
 
+import {
+    userReducer,
+    userSelector,
+} from './user';
+
 export {
     // auth
     authReducer,
-    updateUser,
     authSelector,
-    userSelector,
 
     // animated_menu
     animatedMenuReducer,
     showMenu,
     animatedMenuSelector,
+
+    // user
+    userReducer,
+    userSelector,
 };

@@ -4,7 +4,6 @@ import { Notifer } from '@components';
 
 import {
     fetchApiLogin,
-    fetchApiUserProfile,
 } from './authApi';
 
 interface AuthData {
@@ -14,21 +13,6 @@ interface AuthData {
     isLoadingAuth?: boolean;
 }
 
-interface UserData {
-    id?: number | null;
-    created_at?: string;
-    updated_at?: string;
-    name?: string;
-    user_name?: string;
-    status?: number;
-    phone_number?: string;
-    email?: string;
-    address?: string;
-    role?: number;
-    avatar?: string | null;
-    isLoadingUser?: boolean;
-}
-
 const authData: AuthData = {
     token: '',
     created: '',
@@ -36,32 +20,12 @@ const authData: AuthData = {
     isLoadingAuth: false,
 };
 
-const userData: UserData = {
-    id: null,
-    created_at: '',
-    updated_at: '',
-    name: '',
-    user_name: '',
-    status: 0,
-    phone_number: '',
-    email: '',
-    address: '',
-    role: 0,
-    avatar: null,
-    isLoadingUser: false,
-};
-
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
         auth: authData,
-        user: userData,
     },
-    reducers: {
-        updateUser: (state, action) => {
-            state.auth = action.payload;
-        },
-    },
+    reducers: { },
     extraReducers(builder) {
         builder
             .addCase(fetchApiLogin.pending, (state) => {
@@ -77,25 +41,10 @@ const authSlice = createSlice({
                     alertType: 'error',
                     title: action.error?.message || '',
                 });
-            })
-
-            .addCase(fetchApiUserProfile.pending, (state) => {
-                state.user.isLoadingUser = true;
-            })
-            .addCase(fetchApiUserProfile.fulfilled, (state, action) => {
-                state.user.isLoadingUser = false;
-                state.auth = action.payload?.data;
-            })
-            .addCase(fetchApiUserProfile.rejected, (state, action) => {
-                state.user.isLoadingUser = false;
-                Notifer({
-                    alertType: 'error',
-                    title: action.error?.message || '',
-                });
             });
     },
 });
 
 export const authReducer = authSlice.reducer;
 
-export const { updateUser } = authSlice.actions;
+export const {  } = authSlice.actions;
