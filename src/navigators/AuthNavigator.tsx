@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import {
     WelcomeScreen,
+    LoginScreen,
 } from '@screens';
 import routes from '@routes';
 
@@ -18,10 +19,8 @@ const AuthNavigator = () => {
             }}
         >
             <Stack.Screen name={routes.WelcomeScreen} component={WelcomeScreen} />
-            {/* <Stack.Screen name={routes.LoginScreen} component={LoginScreen} />
-            <Stack.Screen name={routes.RegisterScreen} component={RegisterScreen} />
-            <Stack.Screen name={routes.ResetPasswordScreen} component={ResetPasswordScreen} />
-            <Stack.Screen name={routes.OTPScreen} component={OTPScreen} /> */}
+            <Stack.Screen name={routes.LoginScreen} component={LoginScreen} />
+
         </Stack.Navigator>
     );
 };
