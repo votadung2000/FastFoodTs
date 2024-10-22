@@ -11,6 +11,7 @@ export default {
   radius10: scale(10),
   radius14: scale(14),
   radius20: scale(20),
+  radius30: scale(30),
   radius32: scale(32),
   shadow: {
     shadowColor: colors.black,

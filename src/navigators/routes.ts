@@ -7,8 +7,8 @@ const routes = {
   // Auth Nav
   SplashScreen: 'SplashScreen',
   CarouselScreen: 'CarouselScreen',
-
   WelcomeScreen: 'WelcomeScreen',
+
   HomeScreen: 'HomeScreen',
   ProductsDetailScreen: 'ProductsDetailScreen',
   HeartScreen: 'HeartScreen',
