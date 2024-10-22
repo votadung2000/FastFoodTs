@@ -10,7 +10,7 @@ const RoutesNavigator = () => {
     const user = useSelector(userSelector);
 
     return (
-        user
+        user && user?.id
             ? <MainNavigator />
             : <AuthNavigator />
     );
