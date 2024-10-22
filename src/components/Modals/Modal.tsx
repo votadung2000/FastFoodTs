@@ -1,6 +1,15 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet, StyleProp, ViewStyle } from 'react-native';
 import RNModal from 'react-native-modal';
+
+interface ModalFCProps {
+  isVisible?: boolean;
+  children?: React.ReactNode;
+  stModal?: StyleProp<ViewStyle>;
+  onModalHide?: () => void;
+  onBackButtonPress?: () => void;
+  onBackdropPress?: () => void;
+}
 
 const Modal = ({
   isVisible,
@@ -9,7 +18,7 @@ const Modal = ({
   onModalHide,
   onBackButtonPress,
   onBackdropPress,
-}) => {
+}: ModalFCProps) => {
   return (
     <RNModal
       useNativeDriver

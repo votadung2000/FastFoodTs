@@ -1,12 +1,34 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, TextInput} from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TextInputProps,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {colors, fontSize, radius} from '@constants';
-import {hScale, scale} from '@resolutions';
+import { colors, fontSize, radius } from '@constants';
+import { hScale, scale } from '@resolutions';
 
 import Button from '../Buttons/Button';
 import Text from '../Text';
+
+interface InputPasswordFCProps extends TextInputProps {
+  medium?: boolean;
+  label?: string;
+  name: string;
+  touched?: { [key: string]: boolean };
+  errors?: { [key: string]: string };
+  style?: ViewStyle;
+  inputStyle?: TextStyle;
+  onChangeText?: any;
+  handleChange?: any;
+  handleBlur?: any;
+  onSubmitEditing?: () => void;
+  Icon?: JSX.Element;
+}
 
 const InputPassword = (
   {
@@ -21,8 +43,8 @@ const InputPassword = (
     handleChange,
     handleBlur,
     ...rest
-  },
-  ref,
+  }: InputPasswordFCProps,
+  ref: React.ForwardedRef<TextInput>,
 ) => {
   const [secureText, setSecureText] = useState(true);
   const [isInput, setInput] = useState(false);
@@ -68,8 +90,8 @@ const InputPassword = (
           />
         </Button>
       </View>
-      {touched[name] && errors[name] ? (
-        <Text style={styles.error}>{errors[name]}</Text>
+      {touched?.[name] && errors?.[name] ? (
+        <Text style={styles.error}>{errors?.[name]}</Text>
       ) : null}
     </View>
   );
@@ -110,7 +132,7 @@ const styles = StyleSheet.create({
   },
   error: {
     color: colors.redSystem,
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
     marginTop: scale(5),
   },
 });

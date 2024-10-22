@@ -23,7 +23,7 @@ import Text from './Text';
 import Loading from './Loading';
 import Popup from './Popup';
 // import PopupMenu from './PopupMenu';
-// import SignInSocial from './SignInSocial';
+import SignInSocial from './SignInSocial';
 import Notifer from './Notifer';
 // import Switch from './Switch';
 // import MyWeb from './MyWeb';
@@ -57,7 +57,7 @@ export {
     Loading,
     Popup,
     // PopupMenu,
-    // SignInSocial,
+    SignInSocial,
     Notifer,
     // Switch,
     // MyWeb,

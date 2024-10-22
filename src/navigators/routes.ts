@@ -8,6 +8,7 @@ const routes = {
   SplashScreen: 'SplashScreen',
   CarouselScreen: 'CarouselScreen',
   WelcomeScreen: 'WelcomeScreen',
+  LoginScreen: 'LoginScreen',
 
   HomeScreen: 'HomeScreen',
   ProductsDetailScreen: 'ProductsDetailScreen',
@@ -18,7 +19,6 @@ const routes = {
   EditProfileScreen: 'EditProfileScreen',
   SearchScreen: 'SearchScreen',
   DetailCardSearch: 'DetailCardSearch',
-  LoginScreen: 'LoginScreen',
   RegisterScreen: 'RegisterScreen',
   OTPScreen: 'OTPScreen',
   ResetPasswordScreen: 'ResetPasswordScreen',

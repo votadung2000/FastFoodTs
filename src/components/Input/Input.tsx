@@ -1,10 +1,33 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, TextInput} from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TextInputProps,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 
-import {colors, fontSize, radius} from '@constants';
-import {hScale, scale} from '@resolutions';
+import { colors, fontSize, radius } from '@constants';
+import { hScale, scale } from '@resolutions';
 
 import Text from '../Text';
+
+interface InputFCProps extends TextInputProps {
+  medium?: boolean;
+  isTouchStart?: boolean;
+  label?: string;
+  name: string;
+  touched?: { [key: string]: boolean };
+  errors?: { [key: string]: string };
+  style?: ViewStyle;
+  inputStyle?: TextStyle;
+  onChangeText?: any;
+  handleChange?: any;
+  handleBlur?: any;
+  onSubmitEditing?: () => void;
+  Icon?: JSX.Element;
+}
 
 const Input = (
   {
@@ -21,8 +44,8 @@ const Input = (
     handleBlur,
     Icon,
     ...rest
-  },
-  ref,
+  }: InputFCProps,
+  ref: React.ForwardedRef<TextInput>,
 ) => {
   const [isInput, setInput] = useState(false);
 
@@ -60,8 +83,8 @@ const Input = (
         />
         {Icon && Icon}
       </View>
-      {touched[name] && errors[name] ? (
-        <Text style={styles.error}>{errors[name]}</Text>
+      {touched?.[name] && errors?.[name] ? (
+        <Text style={styles.error}>{errors?.[name]}</Text>
       ) : null}
     </View>
   );
@@ -96,7 +119,7 @@ const styles = StyleSheet.create({
   },
   error: {
     color: colors.redSystem,
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
     marginTop: scale(5),
   },
 });
