@@ -6,12 +6,16 @@ import NetInfo from '@react-native-community/netinfo';
 
 import { CarouselScreen, SplashScreen } from '@screens';
 import { Notifer } from '@components';
+import { useAppDispatch } from '@store';
+import { refetchApiUserProfile } from '@reducers';
 import routes from '@routes';
 
 import RoutesNavigator from './RoutesNavigator';
 
 const AppContainer = () => {
     const Stack = createNativeStackNavigator();
+
+    const dispatch = useAppDispatch();
 
     const [isShowSplash, setShowSplash] = useState(true);
 
@@ -35,6 +39,8 @@ const AppContainer = () => {
         //         .then(result => console.log(result))
         //         .catch(error => console.log(error));
         // }
+
+        dispatch(refetchApiUserProfile());
 
         return () => {
             clearTimeout(timeout);

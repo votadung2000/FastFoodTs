@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Notifer } from '@components';
+import { handleErrorApi } from '@common';
 
 import {
     fetchApiUserProfile,
@@ -57,10 +57,7 @@ const userSlice = createSlice({
             })
             .addCase(fetchApiUserProfile.rejected, (state, action) => {
                 state.user.isLoadingUser = false;
-                Notifer({
-                    alertType: 'error',
-                    title: action.error?.message || '',
-                });
+                handleErrorApi(action?.error);
             });
     },
 });

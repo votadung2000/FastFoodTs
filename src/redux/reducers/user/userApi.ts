@@ -17,24 +17,24 @@ export const fetchApiUserProfile = createAsyncThunk(
 
 export const refetchApiUserProfile = createAsyncThunk(
     'user/refetchApiUserProfile',
-    async () => {
+    async (_, { dispatch }) => {
         let token = await getToken();
         if (token) {
-            fetchApiUserProfile();
+            dispatch(fetchApiUserProfile());
         }
     }
 );
 
 export const fetchApiUpdateProfile = createAsyncThunk(
     'user/fetchApiUpdateProfile',
-    async (data:any, { rejectWithValue }) => {
+    async (data: any, { rejectWithValue }) => {
         return handleApiCall(() => ApiUpdateProfile(data)).catch(rejectWithValue);
     }
 );
 
 export const fetchApiUpdatePassword = createAsyncThunk(
     'user/fetchApiUpdatePassword',
-    async (data:any, { rejectWithValue }) => {
+    async (data: any, { rejectWithValue }) => {
         return handleApiCall(() => ApiUpdatePassword(data)).catch(rejectWithValue);
     }
 );
