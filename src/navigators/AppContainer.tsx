@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StatusBar, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NetInfo from '@react-native-community/netinfo';
@@ -43,19 +43,8 @@ const AppContainer = () => {
 
     }, []);
 
-    const checkLogin = () => {
-        const token = '';
-
-        // token && dispatch(updateUser({ token }));
-    };
-
     return (
         <View style={styles.container}>
-            <StatusBar
-                // translucent
-                barStyle={'dark-content'}
-                backgroundColor={'transparent'}
-            />
             {
                 isShowSplash ? <SplashScreen /> : (
                     <NavigationContainer>

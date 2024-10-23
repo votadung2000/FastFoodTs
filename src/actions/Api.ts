@@ -1,6 +1,5 @@
 import { Platform } from 'react-native';
 import {
-  getUniqueId,
   getSystemVersion,
   getVersion,
 } from 'react-native-device-info';
@@ -11,6 +10,7 @@ import axios, {
   AxiosError,
 } from 'axios';
 import Config from 'react-native-config';
+import uuid from 'react-native-uuid';
 
 import { clearToken, getToken } from '@storage';
 
@@ -22,7 +22,7 @@ interface ApiBody {
 
 // Android os = 2
 const infoDevices = {
-  unique_id: getUniqueId(),
+  unique_id: uuid.v4(),
   device_info: {
     os: Platform.OS === 'android' ? 2 : 1,
     ver: getSystemVersion(),

@@ -53,7 +53,7 @@ const userSlice = createSlice({
             })
             .addCase(fetchApiUserProfile.fulfilled, (state, action) => {
                 state.user.isLoadingUser = false;
-                state.user = action.payload?.data;
+                state.user = action.payload;
             })
             .addCase(fetchApiUserProfile.rejected, (state, action) => {
                 state.user.isLoadingUser = false;
