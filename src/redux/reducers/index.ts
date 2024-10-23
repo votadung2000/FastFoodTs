@@ -1,6 +1,8 @@
 import {
     authReducer,
     authSelector,
+    fetchApiLogin,
+    fetchApiRegister,
 } from './auth';
 
 import {
@@ -18,6 +20,8 @@ export {
     // auth
     authReducer,
     authSelector,
+    fetchApiLogin,
+    fetchApiRegister,
 
     // animated_menu
     animatedMenuReducer,

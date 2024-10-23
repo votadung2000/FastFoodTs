@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
     ApiUserProfile,
-    ApiRegister,
     ApiUpdateProfile,
     ApiUpdatePassword,
 } from '@api';
@@ -23,13 +22,6 @@ export const refetchApiUserProfile = createAsyncThunk(
         if (token) {
             fetchApiUserProfile();
         }
-    }
-);
-
-export const fetchApiRegister = createAsyncThunk(
-    'user/fetchApiRegister',
-    async (data:any, { rejectWithValue }) => {
-        return handleApiCall(() => ApiRegister(data)).catch(rejectWithValue);
     }
 );
 

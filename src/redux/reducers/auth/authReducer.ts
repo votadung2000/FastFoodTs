@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Notifer } from '@components';
+import { handleErrorApi } from '@common';
 
 import {
     fetchApiLogin,
+    fetchApiRegister,
 } from './authApi';
 
 interface AuthData {
@@ -13,6 +14,11 @@ interface AuthData {
     isLoadingAuth?: boolean;
 }
 
+interface RegisData {
+    isLoadingRegis?: boolean;
+    data?: boolean;
+}
+
 const authData: AuthData = {
     token: '',
     created: '',
@@ -20,12 +26,18 @@ const authData: AuthData = {
     isLoadingAuth: false,
 };
 
+const regisData: RegisData = {
+    isLoadingRegis: false,
+    data: false,
+};
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
         auth: authData,
+        regis: regisData,
     },
-    reducers: { },
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(fetchApiLogin.pending, (state) => {
@@ -37,14 +49,23 @@ const authSlice = createSlice({
             })
             .addCase(fetchApiLogin.rejected, (state, action) => {
                 state.auth.isLoadingAuth = false;
-                Notifer({
-                    alertType: 'error',
-                    title: action.error?.message || '',
-                });
+                handleErrorApi(action?.error);
+            })
+
+            .addCase(fetchApiRegister.pending, (state) => {
+                state.regis.isLoadingRegis = true;
+            })
+            .addCase(fetchApiRegister.fulfilled, (state, action) => {
+                state.regis.isLoadingRegis = false;
+                state.regis.data = action.payload?.data;
+            })
+            .addCase(fetchApiRegister.rejected, (state, action) => {
+                state.regis.isLoadingRegis = false;
+                handleErrorApi(action?.error);
             });
     },
 });
 
 export const authReducer = authSlice.reducer;
 
-export const {  } = authSlice.actions;
+export const { } = authSlice.actions;

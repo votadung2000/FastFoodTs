@@ -3,6 +3,7 @@ import { View, StyleSheet, ImageBackground, TextInput } from 'react-native';
 import { useFormik } from 'formik';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import {
   Input,
@@ -15,6 +16,8 @@ import {
 } from '@components';
 import { colors, fontSize } from '@constants';
 import { hScale, scale } from '@resolutions';
+import { fetchApiRegister } from '@reducers';
+import { useAppDispatch } from '@store';
 import routes from '@routes';
 
 import RegisterSchema from './RegisterSchema';
@@ -39,9 +42,7 @@ interface FormErrors {
 
 interface LoadingState {
   isVisible: boolean;
-  isLoading: boolean;
-  error: string | null;
-  data: any;
+  onModalHide?: () => void;
 }
 
 const initialValues: FormValues = {
@@ -63,15 +64,18 @@ const initialErrors: FormErrors = {
 };
 
 const RegisterScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const dispatch = useAppDispatch();
+
   const refUsername = createRef<TextInput>();
   const refPassword = createRef<TextInput>();
   const refRePassword = createRef<TextInput>();
   const refPhoneNumber = createRef<TextInput>();
   const refEmail = createRef<TextInput>();
 
-  const navigation = useNavigation();
-
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<LoadingState>({
+    isVisible: false,
+  });
 
   const {
     values,
@@ -90,45 +94,30 @@ const RegisterScreen = () => {
   });
 
   const onSubmit = async () => {
-    // try {
-    //   setLoading({ isVisible: true });
+    try {
+      setLoading({ isVisible: true });
 
-    //   let body = {
-    //     name: values.name,
-    //     user_name: values.user_name,
-    //     password: values.password,
-    //     phone_number: values.phone_number,
-    //     email: values.email,
-    //   };
+      let body = {
+        name: values.name,
+        user_name: values.user_name,
+        password: values.password,
+        phone_number: values.phone_number,
+        email: values.email,
+      };
 
-    //   let response = await fetchApiRegister(body);
-    //   if (response) {
-    //     setLoading({
-    //       isVisible: false,
-    //       onModalHide: async () => {
-    //         resetForm(initialValues);
-    //         Notifer({
-    //           alertType: 'success',
-    //           title: 'Register Successfully!',
-    //         });
-    //         navigation.navigate(routes.LoginScreen);
-    //       },
-    //     });
-    //   }
-    // } catch ({ response }) {
-    //   setLoading({ isVisible: false });
-    //   if (!response) {
-    //     Notifer({
-    //       alertType: 'warn',
-    //       title: 'Please check your network connection',
-    //     });
-    //   } else {
-    //     Notifer({
-    //       alertType: 'error',
-    //       title: response?.data?.message || '',
-    //     });
-    //   }
-    // }
+      let response = await dispatch(fetchApiRegister(body));
+      if (response.payload) {
+        setLoading({
+          isVisible: false,
+          onModalHide: async () => {
+            resetForm();
+            navigation.navigate(routes.LoginScreen);
+          },
+        });
+      }
+    } catch ({ response }: any) {
+      setLoading({ isVisible: false });
+    }
   };
 
   const focusUsername = () => {
@@ -252,7 +241,7 @@ const RegisterScreen = () => {
           <SignInSocial />
         </View>
       </KeyboardAwareScrollView>
-      {/* <ModalLoading {...loading} /> */}
+      <ModalLoading {...loading} />
     </View>
   );
 };
