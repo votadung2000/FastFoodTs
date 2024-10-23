@@ -4,7 +4,6 @@ import {
   View,
   Image as RNImage,
   StyleProp,
-  ViewStyle,
 } from 'react-native';
 import RNFastImage, { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -36,7 +35,6 @@ const FastImage = ({
   useEffect(() => {
     const fetchImageSize = async () => {
       if (isPath) {
-        const imageUrl = `${Config.API_IMAGE}${source?.uri}`;
         RNImage.getSize(`${Config.API_IMAGE}${source?.uri}`, (width, height) => {
           setAspectRatio(width > 0 && height > 0 ? width / height : 1);
         });

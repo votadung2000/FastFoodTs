@@ -77,7 +77,9 @@ const InputPassword = (
             inputStyle,
           ]}
           secureTextEntry={secureText}
-          onChangeText={handleChange(name)}
+          onChangeText={
+            onChangeText ? text => onChangeText(text) : handleChange(name)
+          }
           onBlur={onBlur}
           onEndEditing={handleBlur(name)}
           onTouchStart={handleInputStart}

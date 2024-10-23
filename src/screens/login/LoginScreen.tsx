@@ -18,7 +18,9 @@ import {
 import { setToken } from '@storage';
 import { colors, fontSize } from '@constants';
 import { hScale, scale } from '@resolutions';
-import routes, { RouteNames } from '@routes';
+import { useAppDispatch } from '@store';
+import { fetchApiLogin, fetchApiUserProfile } from '@reducers';
+import routes from '@routes';
 
 import LoginSchema from './LoginSchema';
 import { ModalForgotPass } from './components';
@@ -33,6 +35,11 @@ interface FormErrors {
   password?: string;
 }
 
+interface LoadingState {
+  isVisible: boolean;
+  onModalHide?: () => void;
+}
+
 const initialValues: FormValues = {
   username: 'register1',
   password: 'register1',
@@ -45,10 +52,11 @@ const initialErrors: FormErrors = {
 
 const LoginScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const dispatch = useAppDispatch();
 
   const refPassword = createRef<TextInput>();
 
-  const [loading, setLoading] = useState({ isVisible: false });
+  const [loading, setLoading] = useState<LoadingState>({ isVisible: false });
   const [modal, setModal] = useState({ isVisible: false });
 
   const {
@@ -68,46 +76,35 @@ const LoginScreen = () => {
   });
 
   const onSubmit = async () => {
-    // setLoading({isVisible: true});
-    // try {
-    //   let body = {
-    //     user_name: values?.username,
-    //     password: values?.password,
-    //   };
+    setLoading({ isVisible: true });
+    try {
+      let body = {
+        user_name: values?.username,
+        password: values?.password,
+      };
 
-    //   let response = await fetchApiLogin(body);
-    //   if (response) {
-    //     await setToken(response?.token);
-    //     setLoading({
-    //       isVisible: false,
-    //       onModalHide: async () => {
-    //         resetForm(initialValues);
-    //         Notifer({
-    //           alertType: 'success',
-    //           title: 'Login Successfully!',
-    //         });
-    //         await fetchApiUserProfile();
-    //       },
-    //     });
-    //   }
-    // } catch ({response}) {
-    //   setLoading({isVisible: false});
-    //   if (!response) {
-    //     Notifer({
-    //       alertType: 'warn',
-    //       title: 'Please check your network connection',
-    //     });
-    //   } else {
-    //     Notifer({
-    //       alertType: 'error',
-    //       title: response?.data?.message || '',
-    //     });
-    //   }
-    // }
+      let response = await dispatch(fetchApiLogin(body));
+      if (response.payload) {
+        await setToken(response.payload?.token);
+        setLoading({
+          isVisible: false,
+          onModalHide: async () => {
+            resetForm();
+            Notifer({
+              alertType: 'success',
+              title: 'Login Successfully!',
+            });
+            await dispatch(fetchApiUserProfile());
+          },
+        });
+      }
+    } catch ({ response }: any) {
+      setLoading({ isVisible: false });
+    }
   };
 
-  const goToScreen = (screen: RouteNames) => {
-    // navigation.navigate(route);
+  const goToScreen = (screen: string) => {
+    navigation.navigate(screen);
   };
 
   const focusPassword = () => {

@@ -26,6 +26,7 @@ const CarouselScreen = () => {
 
   useEffect(() => {
     handleCheckFirstCarousel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCheckFirstCarousel = async () => {

@@ -14,6 +14,10 @@ import {
 import {
     userReducer,
     userSelector,
+    fetchApiUserProfile,
+    refetchApiUserProfile,
+    fetchApiUpdateProfile,
+    fetchApiUpdatePassword,
 } from './user';
 
 export {
@@ -31,4 +35,8 @@ export {
     // user
     userReducer,
     userSelector,
+    fetchApiUserProfile,
+    refetchApiUserProfile,
+    fetchApiUpdateProfile,
+    fetchApiUpdatePassword,
 };

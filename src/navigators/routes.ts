@@ -34,7 +34,6 @@ const routes = {
   RatingScreen: 'RatingScreen',
   DetailDeliveryAddressScreen: 'DetailDeliveryAddressScreen',
   HelpsAndFAQsScreen: 'HelpsAndFAQsScreen',
-
 } as const;
 
 export type RouteNames = keyof typeof routes;

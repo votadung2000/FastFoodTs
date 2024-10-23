@@ -3,6 +3,7 @@ import { StyleSheet, View, Platform } from 'react-native';
 import { useFormik } from 'formik';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { object, string } from 'yup';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -40,7 +41,7 @@ let ForgotPassScheme = object().shape({
 });
 
 const ModalForgotPass = ({ isVisible, handleClose }: ModalForgotPassProps) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const insets = useSafeAreaInsets();
 
   const [isSubmitting, setSubmitting] = useState(false);
@@ -84,7 +85,7 @@ const ModalForgotPass = ({ isVisible, handleClose }: ModalForgotPassProps) => {
   const onModalHide = () => {
     if (isSuccess) {
       setSuccess(false);
-      // navigation.navigate(routes.OTPScreen);
+      navigation.navigate(routes.OTPScreen);
     }
   };
 

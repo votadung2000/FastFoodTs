@@ -111,6 +111,10 @@ const RegisterScreen = () => {
           isVisible: false,
           onModalHide: async () => {
             resetForm();
+            Notifer({
+              alertType: 'success',
+              title: 'Register Successfully!',
+            });
             navigation.navigate(routes.LoginScreen);
           },
         });
