@@ -1,9 +1,6 @@
 import { AxiosError } from 'axios';
 
-interface Root {
-    status_code: number
-    data: any
-}
+import { Root } from '@common';
 
 export const handleApiCall = async (apiCall: () => Promise<any>) => {
     try {

@@ -22,17 +22,6 @@ interface UserData {
 }
 
 const userData: UserData = {
-    id: null,
-    created_at: '',
-    updated_at: '',
-    name: '',
-    user_name: '',
-    status: 0,
-    phone_number: '',
-    email: '',
-    address: '',
-    role: 0,
-    avatar: null,
     isLoadingUser: false,
 };
 

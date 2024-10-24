@@ -20,9 +20,6 @@ interface RegisData {
 }
 
 const authData: AuthData = {
-    token: '',
-    created: '',
-    expiry: 0,
     isLoadingAuth: false,
 };
 

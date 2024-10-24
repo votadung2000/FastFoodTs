@@ -2,13 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 // import logger from 'redux-logger'
 
-import { animatedMenuReducer, authReducer, userReducer } from '@reducers';
-
+import {
+    animatedMenuReducer,
+    authReducer,
+    userReducer,
+    productReducer,
+} from '@reducers';
 const store = configureStore({
     reducer: {
         auth: authReducer,
         user: userReducer,
         animatedMenu: animatedMenuReducer,
+        product: productReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {

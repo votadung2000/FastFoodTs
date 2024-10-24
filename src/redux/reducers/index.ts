@@ -20,6 +20,12 @@ import {
     fetchApiUpdatePassword,
 } from './user';
 
+import {
+    productReducer,
+    productSelector,
+    fetchApiListProducts,
+} from './product';
+
 export {
     // auth
     authReducer,
@@ -39,4 +45,9 @@ export {
     refetchApiUserProfile,
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
+
+    // product
+    productReducer,
+    productSelector,
+    fetchApiListProducts,
 };
