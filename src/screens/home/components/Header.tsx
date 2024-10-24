@@ -1,26 +1,33 @@
 import React from 'react';
-import {View, StyleSheet, Image, Animated} from 'react-native';
-import {observer} from 'mobx-react';
+import { View, StyleSheet, Image, Animated, ViewStyle } from 'react-native';
+import { useSelector } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import {Text, Button, FastImage} from '@components';
-import {resolutions} from '@utils';
-import {colors, fontSize, radius} from '@constants';
-import {useStore} from '@context';
-import {wScale} from '@resolutions';
+import { Text, Button, FastImage } from '@components';
+import { colors, fontSize, radius } from '@constants';
+import { scale, wScale } from '@resolutions';
+import { animatedMenuSelector, showMenu, userSelector } from '@reducers';
+import { useAppDispatch } from '@store';
 
-const {scale} = resolutions;
+interface HeaderProps {
+  titleHeaderAnimation?: ViewStyle,
+}
 
-const Header = ({titleHeaderAnimation}) => {
-  const {
-    deliveryAddressStore: {currentAddress},
-    animatedMenuStore: {isShowMenu, handleShowMenu},
-    userStore: {user},
-  } = useStore();
+const Header = ({ titleHeaderAnimation }: HeaderProps) => {
+  const dispatch = useAppDispatch();
+  const { triggerMenu } = useSelector(animatedMenuSelector);
+  const {user} = useSelector(userSelector);
+
+  console.log('user',user);
+  // const {
+  //   deliveryAddressStore: { currentAddress },
+  //   animatedMenuStore: { isShowMenu, handleShowMenu },
+  //   userStore: { user },
+  // } = useStore();
 
   const goToUser = () => {
-    handleShowMenu();
+    dispatch(showMenu());
   };
 
   return (
@@ -29,7 +36,7 @@ const Header = ({titleHeaderAnimation}) => {
         <Button onPress={goToUser} style={styles.btnMenu}>
           <AntDesign
             size={scale(20)}
-            name={isShowMenu ? 'menu-unfold' : 'menu-fold'}
+            name={triggerMenu ? 'menu-unfold' : 'menu-fold'}
             color={colors.black}
           />
         </Button>
@@ -45,13 +52,13 @@ const Header = ({titleHeaderAnimation}) => {
             />
           </View>
           <Text medium style={styles.address}>
-            {currentAddress?.street_address || ''}
+            {/* {currentAddress?.street_address || ''} */}
           </Text>
         </Button>
         {user?.avatar ? (
           <FastImage
             isPath
-            source={{uri: user?.avatar?.url}}
+            source={{ uri: user?.avatar?.url }}
             style={styles.img}
           />
         ) : (
@@ -119,4 +126,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(Header);
+export default Header;
