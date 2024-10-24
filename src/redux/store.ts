@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+// import logger from 'redux-logger'
 
 import { animatedMenuReducer, authReducer, userReducer } from '@reducers';
-import { useDispatch } from 'react-redux';
 
 const store = configureStore({
     reducer: {
@@ -9,6 +10,12 @@ const store = configureStore({
         user: userReducer,
         animatedMenu: animatedMenuReducer,
     },
+    // middleware: (getDefaultMiddleware) => {
+    //     if (__DEV__) {
+    //         return getDefaultMiddleware().concat(logger);
+    //     }
+    //     return getDefaultMiddleware();
+    // },
 });
 
 export type AppDispatch = typeof store.dispatch

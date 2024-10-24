@@ -18,7 +18,7 @@ import { FastImage, ImagesViewer } from './Image';
 // import { SelectType, SelectDefault } from './Selects';
 import Menu from './Menu';
 import Text from './Text';
-// import EmptyComponent from './EmptyComponent';
+import EmptyComponent from './EmptyComponent';
 // import LoadingComponent from './LoadingComponent';
 import Loading from './Loading';
 import Popup from './Popup';
@@ -35,7 +35,6 @@ export {
     Modal,
     ModalLoading,
     ModalSelect,
-    // EmptyComponent,
     Button,
     Back,
     ChangeQuantity,
@@ -53,6 +52,7 @@ export {
     // SelectType,
     // SelectDefault,
     Menu,
+    EmptyComponent,
     // LoadingComponent,
     Loading,
     Popup,

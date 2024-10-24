@@ -9,7 +9,7 @@ import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
 
 const RoutesNavigator = () => {
-    const user = useSelector(userSelector);
+    const { user } = useSelector(userSelector);
 
     return (
         <View style={styles.container}>
