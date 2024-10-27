@@ -2,26 +2,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ApiListProducts } from '@api';
 import { handleApiCall } from '@common';
+import { handleUpdateFilter } from '@reducers';
 
-import { ProductsData } from './product.reducer';
-
-interface Params {
-    [key: string]: any;
-}
-
-interface Filter {
-    page?: number,
-    perPage?: number,
-    category_id?: any,
-    name?: string,
-}
-
-interface NewFilter {
-    page?: number,
-    perPage?: number,
-    category?: any,
-    name?: string,
-}
+import {
+    Filter,
+    NewFilter,
+    Params,
+    ProductsData,
+} from './product.types';
 
 const initFilter: NewFilter = {
     page: 1,
@@ -32,19 +20,20 @@ export const fetchApiListProducts = createAsyncThunk(
     'user/fetchApiListProducts',
     async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
         const { product } = getState() as { product: { products: ProductsData } };
-        const { filterPr } = product?.products as { filterPr: Filter };
+        const { filterPr } = product?.products || {};
 
         try {
             const newFilter = { ...filterPr, ...initFilter, ...params };
             const filter: Filter = { ...initFilter };
 
-            if (newFilter.category) {
+            if (newFilter?.category?.id) {
                 filter.category_id = newFilter.category.id;
             }
-            if (newFilter.name) {
+            if (newFilter?.name) {
                 filter.name = newFilter.name;
             }
 
+            dispatch(handleUpdateFilter(newFilter));
             const response = await handleApiCall(() => ApiListProducts(filter));
             return response;
         } catch (error) {

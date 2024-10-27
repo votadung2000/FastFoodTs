@@ -9,14 +9,14 @@ export type Image = {
     extension?: string
 }
 
+type Filter = {}
+
 export type Root = {
     status_code?: number
     data?: any
     filter?: Filter
     paging?: Paging
 }
-
-export type Filter = {}
 
 export type Paging = {
     page?: number

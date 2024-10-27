@@ -1,4 +1,7 @@
-import { userReducer, updateUser } from './user.reducer';
+import {
+    userReducer,
+    updateUser,
+} from './user.reducer';
 import { userSelector } from './user.selector';
 import {
     fetchApiUserProfile,
@@ -10,6 +13,7 @@ import {
 export {
     userReducer,
     updateUser,
+
     userSelector,
 
     fetchApiUserProfile,

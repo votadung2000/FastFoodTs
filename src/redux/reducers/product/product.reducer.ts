@@ -1,32 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Filter, handleErrorApi, Image, Root } from '@common';
+import { handleErrorApi } from '@common';
 
 import { fetchApiListProducts } from './product.api';
-
-interface ProductData {
-    id?: number | null
-    created_at?: string
-    updated_at?: string
-    name?: string
-    taste?: string
-    price?: number
-    category_id?: number
-    discount?: number
-    status?: number
-    description?: string
-    quantity?: number
-    sold?: number
-    featured?: number
-    is_favorite?: boolean
-    image?: Image
-}
-
-export interface ProductsData extends Root {
-    isLoadingProducts?: boolean,
-    data?: ProductData[],
-    filterPr?: Filter,
-}
+import { ProductsData } from './product.types';
 
 const productsData: ProductsData = {
     isLoadingProducts: false,
@@ -38,7 +15,9 @@ const productSlice = createSlice({
         products: productsData,
     },
     reducers: {
-
+        handleUpdateFilter: (state, action) => {
+            state.products.filterPr = action.payload;
+        },
     },
     extraReducers(builder) {
         builder
@@ -58,4 +37,4 @@ const productSlice = createSlice({
 
 export const productReducer = productSlice.reducer;
 
-export const { } = productSlice.actions;
+export const { handleUpdateFilter } = productSlice.actions;

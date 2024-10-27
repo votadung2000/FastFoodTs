@@ -3,7 +3,6 @@ import { handleErrorApi } from './handleErrorApi';
 import {
     Image,
     Root,
-    Filter,
     Paging,
 } from './interface';
 
@@ -15,6 +14,5 @@ export {
 export type {
     Image,
     Root,
-    Filter,
     Paging,
 };

@@ -22,6 +22,7 @@ import {
 
 import {
     productReducer,
+    handleUpdateFilter,
     productSelector,
     fetchApiListProducts,
 } from './product';
@@ -48,6 +49,7 @@ export {
 
     // product
     productReducer,
+    handleUpdateFilter,
     productSelector,
     fetchApiListProducts,
 };
