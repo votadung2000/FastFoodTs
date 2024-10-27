@@ -21,6 +21,13 @@ import {
 } from './user';
 
 import {
+    categoryReducer,
+    categorySelector,
+    fetchApiListCategories,
+    fetchCombineApiCategories,
+} from './category';
+
+import {
     productReducer,
     handleUpdateFilter,
     productSelector,
@@ -46,6 +53,12 @@ export {
     refetchApiUserProfile,
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
+
+    // category
+    categoryReducer,
+    categorySelector,
+    fetchApiListCategories,
+    fetchCombineApiCategories,
 
     // product
     productReducer,

@@ -8,7 +8,8 @@ export const fetchApiListCategories = createAsyncThunk(
     'user/fetchApiListCategories',
     async (_, { rejectWithValue }) => {
         try {
-            return handleApiCall(() => ApiListCategories());
+            const response = await handleApiCall(() => ApiListCategories());
+            return response;
         } catch (error) {
             return rejectWithValue(error);
         }

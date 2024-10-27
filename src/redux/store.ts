@@ -6,6 +6,7 @@ import {
     animatedMenuReducer,
     authReducer,
     userReducer,
+    categoryReducer,
     productReducer,
 } from '@reducers';
 const store = configureStore({
@@ -13,7 +14,7 @@ const store = configureStore({
         auth: authReducer,
         user: userReducer,
         animatedMenu: animatedMenuReducer,
-        // category: ,
+        category: categoryReducer,
         product: productReducer,
     },
     // middleware: (getDefaultMiddleware) => {
