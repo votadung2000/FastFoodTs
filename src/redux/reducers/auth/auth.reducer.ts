@@ -5,7 +5,7 @@ import { handleErrorApi } from '@common';
 import {
     fetchApiLogin,
     fetchApiRegister,
-} from './authApi';
+} from './auth.api';
 
 interface AuthData {
     token?: string;

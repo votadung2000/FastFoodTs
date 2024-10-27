@@ -4,7 +4,7 @@ import { handleErrorApi } from '@common';
 
 import {
     fetchApiUserProfile,
-} from './userApi';
+} from './user.api';
 
 interface UserData {
     id?: number | null;
@@ -42,7 +42,7 @@ const userSlice = createSlice({
             })
             .addCase(fetchApiUserProfile.fulfilled, (state, action) => {
                 state.user.isLoadingUser = false;
-                state.user = action.payload;
+                state.user = action.payload?.data;
             })
             .addCase(fetchApiUserProfile.rejected, (state, action) => {
                 state.user.isLoadingUser = false;

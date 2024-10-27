@@ -13,6 +13,7 @@ const store = configureStore({
         auth: authReducer,
         user: userReducer,
         animatedMenu: animatedMenuReducer,
+        // category: ,
         product: productReducer,
     },
     // middleware: (getDefaultMiddleware) => {

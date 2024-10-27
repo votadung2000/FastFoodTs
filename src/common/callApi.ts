@@ -7,7 +7,7 @@ export const handleApiCall = async (apiCall: () => Promise<any>) => {
         const response: Root = await apiCall();
 
         if (response.data?.status_code === 200) {
-            return response.data?.data;
+            return response.data;
         } else {
             return Promise.reject('No data returned');
         }

@@ -1,6 +1,6 @@
-import {productReducer} from './productReducer';
-import {productSelector} from './productSelector';
-import {fetchApiListProducts} from './productApi';
+import {productReducer} from './product.reducer';
+import {productSelector} from './product.selector';
+import {fetchApiListProducts} from './product.api';
 
 export {
     productReducer,

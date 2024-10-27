@@ -1,6 +1,6 @@
-import { authReducer } from './authReducer';
-import { authSelector } from './authSelector';
-import { fetchApiLogin, fetchApiRegister } from './authApi';
+import { authReducer } from './auth.reducer';
+import { authSelector } from './auth.selector';
+import { fetchApiLogin, fetchApiRegister } from './auth.api';
 
 export {
     authReducer,

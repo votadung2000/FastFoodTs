@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { Filter, handleErrorApi, Image, Root } from '@common';
 
-import { fetchApiListProducts } from './productApi';
+import { fetchApiListProducts } from './product.api';
 
 interface ProductData {
     id?: number | null
