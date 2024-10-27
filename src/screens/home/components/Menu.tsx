@@ -1,27 +1,26 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import { useSelector } from 'react-redux';
 
 import { EmptyComponent } from '@components';
 import { scale } from '@resolutions';
+import { categorySelector, CategoryData } from '@reducers';
 
-// import CardMenu from './CardMenu';
+import CardMenu from './CardMenu';
 
 const Menu = () => {
-    //   const {
-    //     categoryStore: {categories, isLoadingCategories},
-    //   } = useStore();
+    const { categories, isLoadingCategories } = useSelector(categorySelector);
 
-    // const keyExtractor = (_, index) => index.toString();
+    const keyExtractor = (_: any, index: number) => index.toString();
 
-    // const renderItem = ({ item }) => {
-    //     return
-    //     // return <CardMenu data={item} />;
-    // };
+    const renderItem = ({ item }: { item: CategoryData }) => {
+        return <CardMenu data={item} />;
+    };
 
     return (
         <View style={styles.container}>
-            {/* <FlatList
+            <FlatList
                 horizontal
                 bounces={false}
                 data={categories?.data}
@@ -29,9 +28,11 @@ const Menu = () => {
                 keyExtractor={keyExtractor}
                 renderItem={renderItem}
                 ListEmptyComponent={
-                    !isLoadingCategories && <EmptyComponent title={"Menu's Empty"} />
+                    isLoadingCategories
+                        ? null
+                        : <EmptyComponent title={"Menu's Empty"} />
                 }
-            /> */}
+            />
         </View>
     );
 };

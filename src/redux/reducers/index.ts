@@ -25,6 +25,7 @@ import {
     categorySelector,
     fetchApiListCategories,
     fetchCombineApiCategories,
+    CategoryData,
 } from './category';
 
 import {
@@ -65,4 +66,8 @@ export {
     handleUpdateFilter,
     productSelector,
     fetchApiListProducts,
+};
+
+export type {
+    CategoryData,
 };

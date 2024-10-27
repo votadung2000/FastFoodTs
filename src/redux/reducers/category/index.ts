@@ -4,6 +4,7 @@ import {
   fetchApiListCategories,
   fetchCombineApiCategories,
 } from './category.api';
+import { CategoryData } from './category.types';
 
 export {
   categoryReducer,
@@ -12,4 +13,8 @@ export {
 
   fetchApiListCategories,
   fetchCombineApiCategories,
+};
+
+export type {
+  CategoryData,
 };

@@ -19,7 +19,6 @@ const Header = ({ titleHeaderAnimation }: HeaderProps) => {
   const { triggerMenu } = useSelector(animatedMenuSelector);
   const {user} = useSelector(userSelector);
 
-  console.log('user',user);
   // const {
   //   deliveryAddressStore: { currentAddress },
   //   animatedMenuStore: { isShowMenu, handleShowMenu },

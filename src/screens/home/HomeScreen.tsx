@@ -7,12 +7,15 @@ import { useSelector } from 'react-redux';
 import { hScale, scale } from '@resolutions';
 // import { Location } from '@components';
 import { colors, radius } from '@constants';
-import { animatedMenuSelector } from '@reducers';
+import { animatedMenuSelector, fetchApiListCategories } from '@reducers';
+import { useAppDispatch } from '@store';
 
 // import { Products, Menu, Header } from './components';
 import { Header, Menu } from './components';
 
 const HomeScreen = () => {
+  const dispatch = useAppDispatch();
+
   const { triggerMenu } = useSelector(animatedMenuSelector);
 
   const animatedValue = useRef(new Animated.Value(0)).current;
@@ -26,6 +29,7 @@ const HomeScreen = () => {
 
   useFocusEffect(
     useCallback(() => {
+      dispatch(fetchApiListCategories());
       // fetchCombineApiCategories();
       // fetchApiCurrentAddress();
 
