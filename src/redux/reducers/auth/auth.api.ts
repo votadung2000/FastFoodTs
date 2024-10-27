@@ -7,7 +7,8 @@ export const fetchApiLogin = createAsyncThunk(
     'user/fetchApiLogin',
     async (data: any = {}, { rejectWithValue }) => {
         try {
-            return handleApiCall(() => ApiLogin(data));
+            const response = await handleApiCall(() => ApiLogin(data));
+            return response;
         } catch (error) {
             return rejectWithValue(error);
         }
@@ -18,7 +19,8 @@ export const fetchApiRegister = createAsyncThunk(
     'user/fetchApiRegister',
     async (data: any = {}, { rejectWithValue }) => {
         try {
-            return handleApiCall(() => ApiRegister(data));
+            const response = await handleApiCall(() => ApiRegister(data));
+            return response;
         } catch (error) {
             return rejectWithValue(error);
         }
