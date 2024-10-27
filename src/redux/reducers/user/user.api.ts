@@ -11,7 +11,12 @@ import { getToken } from '@storage';
 export const fetchApiUserProfile = createAsyncThunk(
     'user/fetchApiUserProfile',
     async (_, { rejectWithValue }) => {
-        return handleApiCall(() => ApiUserProfile()).catch(rejectWithValue);
+        try {
+            return handleApiCall(() => ApiUserProfile());
+
+        } catch (error) {
+            return rejectWithValue(error);
+        }
     }
 );
 
@@ -28,13 +33,21 @@ export const refetchApiUserProfile = createAsyncThunk(
 export const fetchApiUpdateProfile = createAsyncThunk(
     'user/fetchApiUpdateProfile',
     async (data: any, { rejectWithValue }) => {
-        return handleApiCall(() => ApiUpdateProfile(data)).catch(rejectWithValue);
+        try {
+            return handleApiCall(() => ApiUpdateProfile(data));
+        } catch (error) {
+            return rejectWithValue(error);
+        }
     }
 );
 
 export const fetchApiUpdatePassword = createAsyncThunk(
     'user/fetchApiUpdatePassword',
     async (data: any, { rejectWithValue }) => {
-        return handleApiCall(() => ApiUpdatePassword(data)).catch(rejectWithValue);
+        try {
+            return handleApiCall(() => ApiUpdatePassword(data));
+        } catch (error) {
+            return rejectWithValue(error);
+        }
     }
 );

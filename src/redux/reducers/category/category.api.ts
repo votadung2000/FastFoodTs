@@ -7,19 +7,27 @@ import { fetchApiListProducts } from '@reducers';
 export const fetchApiListCategories = createAsyncThunk(
     'user/fetchApiListCategories',
     async (_, { rejectWithValue }) => {
-        return handleApiCall(() => ApiListCategories()).catch(rejectWithValue);
+        try {
+            return handleApiCall(() => ApiListCategories());
+        } catch (error) {
+            return rejectWithValue(error);
+        }
     }
 );
 
 export const fetchCombineApiCategories = createAsyncThunk(
     'user/fetchCombineApiCategories',
     async (_, { dispatch, rejectWithValue }) => {
-        const response = await handleApiCall(() => ApiListCategories());
-        if (response?.data && response.data?.length > 0) {
-            dispatch(fetchApiListProducts({
-                category_id: response.data?.data[0],
-            }));
+        try {
+            const response = await handleApiCall(() => ApiListCategories());
+            if (response?.status_code === 200) {
+                dispatch(fetchApiListProducts({
+                    category_id: response.data?.data[0],
+                }));
+            }
+            return response;
+        } catch (error) {
+            return rejectWithValue(error);
         }
-        return response;
     }
 );
