@@ -41,6 +41,7 @@ import {
     handleUpdateFilterLWGeo,
     handleUpdateFilterLWAddress,
     handleUpdateGeolocation,
+    locationSelector,
 } from './location';
 
 export {
@@ -80,6 +81,7 @@ export {
     handleUpdateFilterLWGeo,
     handleUpdateFilterLWAddress,
     handleUpdateGeolocation,
+    locationSelector,
 };
 
 export type {
