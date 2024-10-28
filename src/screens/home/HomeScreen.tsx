@@ -4,11 +4,11 @@ import { View, StyleSheet, Animated } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
-import { hScale, scale } from '@resolutions';
-// import { Location } from '@components';
+import { Location } from '@components';
 import { colors, radius } from '@constants';
 import { animatedMenuSelector, fetchApiListCategories } from '@reducers';
 import { useAppDispatch } from '@store';
+import { hScale, scale } from '@resolutions';
 
 import { Products, Menu, Header } from './components';
 
@@ -73,7 +73,7 @@ const HomeScreen = () => {
         <Menu />
         <Products animatedValue={animatedValue} />
       </View>
-      {/* <Location /> */}
+      <Location />
     </View>
   );
 };

@@ -11,6 +11,8 @@ import {
 import Geolocation from '@react-native-community/geolocation';
 
 import Popup, { PopupProps } from './Popup';
+import { useAppDispatch } from '@store';
+import { handleUpdateGeolocation } from '@reducers';
 
 interface LocationProps {
   handleCancelLocation?: () => void;
@@ -21,9 +23,7 @@ interface PopupState extends PopupProps {
 }
 
 const Location = ({ handleCancelLocation }: LocationProps) => {
-  // const {
-  //   locationStore: { handleUpdateLocation },
-  // } = useStore();
+  const dispatch = useAppDispatch();
 
   const [popup, setPopup] = useState<PopupState>({ isVisible: false });
 
@@ -98,13 +98,13 @@ const Location = ({ handleCancelLocation }: LocationProps) => {
     Geolocation.getCurrentPosition(
       position => {
         let body = {
-          lat: position?.coords?.latitude,
-          lon: position?.coords?.longitude,
+          lat: position?.coords?.latitude || null,
+          lon: position?.coords?.longitude || null,
         };
 
-        // handleUpdateLocation(body);
+        dispatch(handleUpdateGeolocation(body));
       },
-      error => { },
+      _ => { },
       {
         timeout: 2000,
         maximumAge: 10000,

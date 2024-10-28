@@ -70,6 +70,6 @@ export interface NewFilterLWAddress {
 
 // location params
 export interface GeoLocation {
-    lat?: number;
-    lon?: number;
+    lat?: number | null;
+    lon?: number | null;
 }
