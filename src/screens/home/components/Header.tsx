@@ -17,13 +17,7 @@ interface HeaderProps {
 const Header = ({ titleHeaderAnimation }: HeaderProps) => {
   const dispatch = useAppDispatch();
   const { triggerMenu } = useSelector(animatedMenuSelector);
-  const {user} = useSelector(userSelector);
-
-  // const {
-  //   deliveryAddressStore: { currentAddress },
-  //   animatedMenuStore: { isShowMenu, handleShowMenu },
-  //   userStore: { user },
-  // } = useStore();
+  const { user } = useSelector(userSelector);
 
   const goToUser = () => {
     dispatch(showMenu());

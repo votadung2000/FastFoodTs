@@ -33,6 +33,7 @@ import {
     handleUpdateFilter,
     productSelector,
     fetchApiListProducts,
+    ProductData,
 } from './product';
 
 export {
@@ -69,5 +70,9 @@ export {
 };
 
 export type {
+    // category
     CategoryData,
+
+    // product
+    ProductData,
 };

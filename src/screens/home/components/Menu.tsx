@@ -4,8 +4,8 @@ import { FlatList } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 
 import { EmptyComponent } from '@components';
-import { scale } from '@resolutions';
 import { categorySelector, CategoryData } from '@reducers';
+import { scale } from '@resolutions';
 
 import CardMenu from './CardMenu';
 

@@ -10,8 +10,7 @@ import { colors, radius } from '@constants';
 import { animatedMenuSelector, fetchApiListCategories } from '@reducers';
 import { useAppDispatch } from '@store';
 
-// import { Products, Menu, Header } from './components';
-import { Header, Menu } from './components';
+import { Products, Menu, Header } from './components';
 
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
@@ -19,13 +18,6 @@ const HomeScreen = () => {
   const { triggerMenu } = useSelector(animatedMenuSelector);
 
   const animatedValue = useRef(new Animated.Value(0)).current;
-
-  // const {
-  //   categoryStore: { fetchCombineApiCategories },
-  //   productsStore: { clearFilterPr },
-  //   deliveryAddressStore: { fetchApiCurrentAddress },
-  //   animatedMenuStore: { isShowMenu },
-  // } = useStore();
 
   useFocusEffect(
     useCallback(() => {
@@ -36,6 +28,8 @@ const HomeScreen = () => {
       // return () => {
       //   clearFilterPr();
       // };
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []),
   );
 
@@ -78,7 +72,7 @@ const HomeScreen = () => {
       <View style={styles.container}>
         <Header titleHeaderAnimation={titleHeaderAnimation} />
         <Menu />
-        {/* <Products animatedValue={animatedValue} /> */}
+        <Products animatedValue={animatedValue} />
       </View>
       {/* <Location /> */}
     </View>

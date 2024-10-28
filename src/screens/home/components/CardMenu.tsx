@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
@@ -10,11 +11,11 @@ import { CategoryData } from '@reducers';
 import routes from '@routes';
 
 const CardMenu = ({ data }: { data: CategoryData }) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   const handleItem = () => {
     // fetchApiListProducts({ category_id: data });
-    // navigation.navigate(routes.DetailCardSearch);
+    navigation.navigate(routes.DetailCardSearch);
   };
 
   return (

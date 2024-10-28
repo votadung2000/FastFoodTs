@@ -19,7 +19,7 @@ import { FastImage, ImagesViewer } from './Image';
 import Menu from './Menu';
 import Text from './Text';
 import EmptyComponent from './EmptyComponent';
-// import LoadingComponent from './LoadingComponent';
+import LoadingComponent from './LoadingComponent';
 import Loading from './Loading';
 import Popup from './Popup';
 // import PopupMenu from './PopupMenu';
@@ -53,7 +53,7 @@ export {
     // SelectDefault,
     Menu,
     EmptyComponent,
-    // LoadingComponent,
+    LoadingComponent,
     Loading,
     Popup,
     // PopupMenu,
