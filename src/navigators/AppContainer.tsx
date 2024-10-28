@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { PERMISSIONS, request } from 'react-native-permissions';
 import NetInfo from '@react-native-community/netinfo';
 
 import { CarouselScreen, SplashScreen } from '@screens';
@@ -34,11 +35,11 @@ const AppContainer = () => {
             }
         });
 
-        // if (Platform.OS === 'ios') {
-        //     request(PERMISSIONS.IOS.APP_TRACKING_TRANSPARENCY)
-        //         .then(result => console.log(result))
-        //         .catch(error => console.log(error));
-        // }
+        if (Platform.OS === 'ios') {
+            request(PERMISSIONS.IOS.APP_TRACKING_TRANSPARENCY)
+                .then(result => console.log(result))
+                .catch(error => console.log(error));
+        }
 
         dispatch(refetchApiUserProfile());
 
