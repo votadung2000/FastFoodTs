@@ -67,3 +67,9 @@ export interface NewFilterLWAddress {
     address?: string;
     addressdetails?: number;
 }
+
+// location params
+export interface GeoLocation {
+    lat?: number;
+    lon?: number;
+}

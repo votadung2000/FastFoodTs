@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { handleErrorApi } from '@common';
 
-import { LWAddressData, LWGeoData } from './location.types';
+import {
+    GeoLocation,
+    LWAddressData,
+    LWGeoData,
+} from './location.types';
 import {
     fetchApiLocationWithGeolocation,
     fetchApiLocationWithAddress,
@@ -16,11 +20,14 @@ const lwAddressData: LWAddressData = {
     isLoadingLWAddress: false,
 };
 
+const geolocation: GeoLocation = {};
+
 const locationSlice = createSlice({
     name: 'location',
     initialState: {
         lwGeo: lwGeoData,
         lwAddress: lwAddressData,
+        geolocation,
     },
     reducers: {
         handleUpdateFilterLWGeo: (state, action) => {
@@ -28,6 +35,9 @@ const locationSlice = createSlice({
         },
         handleUpdateFilterLWAddress: (state, action) => {
             state.lwAddress.filterLWAddress = action.payload;
+        },
+        handleUpdateGeolocation: (state, action) => {
+            state.geolocation = action.payload;
         },
     },
     extraReducers(builder) {
@@ -63,4 +73,5 @@ export const locationReducer = locationSlice.reducer;
 export const {
     handleUpdateFilterLWGeo,
     handleUpdateFilterLWAddress,
+    handleUpdateGeolocation,
 } = locationSlice.actions;

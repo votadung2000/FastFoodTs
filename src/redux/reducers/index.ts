@@ -40,6 +40,7 @@ import {
     locationReducer,
     handleUpdateFilterLWGeo,
     handleUpdateFilterLWAddress,
+    handleUpdateGeolocation,
 } from './location';
 
 export {
@@ -78,6 +79,7 @@ export {
     locationReducer,
     handleUpdateFilterLWGeo,
     handleUpdateFilterLWAddress,
+    handleUpdateGeolocation,
 };
 
 export type {
