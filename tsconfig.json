@@ -6,6 +6,9 @@
       "@api": [
         "./actions/Api"
       ],
+      "@apiLocation": [
+        "./actions/ApiLocation"
+      ],
       "@assets": [
         "./assets"
       ],

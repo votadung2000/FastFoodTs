@@ -15,7 +15,7 @@ const productSlice = createSlice({
         products: productsData,
     },
     reducers: {
-        handleUpdateFilter: (state, action) => {
+        handleUpdateFilterPr: (state, action) => {
             state.products.filterPr = action.payload;
         },
     },
@@ -37,4 +37,4 @@ const productSlice = createSlice({
 
 export const productReducer = productSlice.reducer;
 
-export const { handleUpdateFilter } = productSlice.actions;
+export const { handleUpdateFilterPr } = productSlice.actions;

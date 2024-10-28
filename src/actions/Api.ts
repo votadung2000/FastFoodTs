@@ -13,12 +13,9 @@ import Config from 'react-native-config';
 import uuid from 'react-native-uuid';
 
 import { clearToken, getToken } from '@storage';
+import { ApiBody } from '@common';
 
 import ApiRoutes from './ApiRoutes';
-
-interface ApiBody {
-  [key: string]: any;
-}
 
 // Android os = 2
 const infoDevices = {

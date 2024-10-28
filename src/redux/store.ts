@@ -8,6 +8,7 @@ import {
     userReducer,
     categoryReducer,
     productReducer,
+    locationReducer,
 } from '@reducers';
 const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
         animatedMenu: animatedMenuReducer,
         category: categoryReducer,
         product: productReducer,
+        location: locationReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {

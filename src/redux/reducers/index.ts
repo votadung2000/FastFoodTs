@@ -30,11 +30,16 @@ import {
 
 import {
     productReducer,
-    handleUpdateFilter,
+    handleUpdateFilterPr,
     productSelector,
     fetchApiListProducts,
     ProductData,
 } from './product';
+
+import {
+    locationReducer,
+    handleUpdateFilterLWGeo,
+} from './location';
 
 export {
     // auth
@@ -64,9 +69,13 @@ export {
 
     // product
     productReducer,
-    handleUpdateFilter,
+    handleUpdateFilterPr,
     productSelector,
     fetchApiListProducts,
+
+    // location
+    locationReducer,
+    handleUpdateFilterLWGeo,
 };
 
 export type {

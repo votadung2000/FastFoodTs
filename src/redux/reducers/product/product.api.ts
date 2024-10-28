@@ -1,13 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ApiListProducts } from '@api';
-import { handleApiCall } from '@common';
-import { handleUpdateFilter } from '@reducers';
+import { handleApiCall, Params } from '@common';
+import { handleUpdateFilterPr } from '@reducers';
 
 import {
     Filter,
     NewFilter,
-    Params,
     ProductsData,
 } from './product.types';
 
@@ -33,7 +32,7 @@ export const fetchApiListProducts = createAsyncThunk(
                 filter.name = newFilter.name;
             }
 
-            dispatch(handleUpdateFilter(newFilter));
+            dispatch(handleUpdateFilterPr(newFilter));
             const response = await handleApiCall(() => ApiListProducts(filter));
             return response;
         } catch (error) {

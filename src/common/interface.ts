@@ -1,4 +1,8 @@
-export type Image = {
+export interface ApiBody {
+    [key: string]: any;
+}
+
+export interface Image {
     id?: number
     created_at?: string
     updated_at?: string
@@ -9,17 +13,21 @@ export type Image = {
     extension?: string
 }
 
-type Filter = {}
+interface Filter { }
 
-export type Root = {
+export interface Root {
     status_code?: number
     data?: any
     filter?: Filter
     paging?: Paging
 }
 
-export type Paging = {
+export interface Paging {
     page?: number
     limit?: number
     total?: number
+}
+
+export interface Params {
+    [key: string]: any;
 }
