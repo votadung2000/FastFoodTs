@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { colors, fontSize, radius } from '@constants';
@@ -8,7 +8,7 @@ import Button from './Buttons/Button';
 import Modal from './Modals/Modal';
 import Text from './Text';
 
-interface PopupProps {
+export interface PopupProps {
   title?: string;
   content?: string;
   cancel?: string;

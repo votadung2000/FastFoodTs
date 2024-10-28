@@ -2,7 +2,7 @@ import { Image } from '@common';
 
 import { ProductData } from '../product/product.types';
 
-export type CategoryData = {
+export interface CategoryData {
   id?: number | null
   created_at?: string
   updated_at?: string

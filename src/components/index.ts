@@ -21,7 +21,7 @@ import Text from './Text';
 import EmptyComponent from './EmptyComponent';
 import LoadingComponent from './LoadingComponent';
 import Loading from './Loading';
-import Popup from './Popup';
+import Popup, { PopupProps } from './Popup';
 // import PopupMenu from './PopupMenu';
 import SignInSocial from './SignInSocial';
 import Notifer from './Notifer';
@@ -63,4 +63,8 @@ export {
     // MyWeb,
     // Stars,
     Location,
+};
+
+export type {
+    PopupProps,
 };

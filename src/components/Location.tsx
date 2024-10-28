@@ -10,20 +10,14 @@ import {
 } from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
 
-import Popup from './Popup';
+import Popup, { PopupProps } from './Popup';
 
 interface LocationProps {
   handleCancelLocation?: () => void;
 }
 
-interface PopupState {
+interface PopupState extends PopupProps {
   isVisible: boolean;
-  title?: string;
-  content?: string;
-  cancel?: string;
-  accept?: string;
-  handleCancel?: () => void;
-  handleAccept?: () => void;
 }
 
 const Location = ({ handleCancelLocation }: LocationProps) => {
@@ -35,6 +29,8 @@ const Location = ({ handleCancelLocation }: LocationProps) => {
 
   useEffect(() => {
     checkLocation();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOpenSetting = () => {
