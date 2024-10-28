@@ -1,9 +1,14 @@
 import React from 'react';
-import {StyleSheet, View, ActivityIndicator} from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 
-import {colors} from '@constants';
+import { colors } from '@constants';
 
-const Loading = ({color, size}) => {
+interface LoadingProps {
+  color?: string;
+  size?: 'small' | 'large';
+}
+
+const Loading = ({ color, size }: LoadingProps) => {
   return (
     <View style={styles.container}>
       <ActivityIndicator

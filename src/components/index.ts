@@ -28,7 +28,7 @@ import Notifer from './Notifer';
 // import Switch from './Switch';
 // import MyWeb from './MyWeb';
 // import Stars from './Stars';
-// import Location from './Location';
+import Location from './Location';
 
 export {
     Text,
@@ -62,5 +62,5 @@ export {
     // Switch,
     // MyWeb,
     // Stars,
-    // Location,
+    Location,
 };

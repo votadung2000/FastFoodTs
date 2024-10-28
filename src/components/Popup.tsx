@@ -1,15 +1,25 @@
-import React, {memo} from 'react';
-import {StyleSheet, View} from 'react-native';
-import Modal from 'react-native-modal';
+import React, { memo } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import {colors, fontSize, radius} from '@constants';
-import {scale} from '@resolutions';
+import { colors, fontSize, radius } from '@constants';
+import { scale } from '@resolutions';
 
 import Button from './Buttons/Button';
+import Modal from './Modals/Modal';
 import Text from './Text';
 
+interface PopupProps {
+  title?: string;
+  content?: string;
+  cancel?: string;
+  accept?: string;
+  require?: string;
+  handleCancel?: () => void;
+  handleAccept?: () => void;
+  Icon?: JSX.Element;
+}
+
 const Popup = ({
-  Icon,
   title,
   content,
   cancel = 'Cancel',
@@ -17,8 +27,9 @@ const Popup = ({
   require,
   handleCancel,
   handleAccept,
+  Icon,
   ...rest
-}) => {
+}: PopupProps) => {
   return (
     <Modal stModal={styles.modal} {...rest}>
       <View style={styles.container}>
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
     padding: scale(10),
   },
   title: {
-    fontSize: fontSize.big,
+    fontSize: fontSize.fontSize20,
     marginBottom: scale(10),
   },
   txtContent: {
@@ -104,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(Popup);
+export default Popup;

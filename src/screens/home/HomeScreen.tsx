@@ -22,7 +22,6 @@ const HomeScreen = () => {
   useFocusEffect(
     useCallback(() => {
       dispatch(fetchApiListCategories());
-      // fetchCombineApiCategories();
       // fetchApiCurrentAddress();
 
       // return () => {
