@@ -39,6 +39,7 @@ import {
 import {
     locationReducer,
     handleUpdateFilterLWGeo,
+    handleUpdateFilterLWAddress,
 } from './location';
 
 export {
@@ -76,6 +77,7 @@ export {
     // location
     locationReducer,
     handleUpdateFilterLWGeo,
+    handleUpdateFilterLWAddress,
 };
 
 export type {

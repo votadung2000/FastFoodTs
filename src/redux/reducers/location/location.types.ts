@@ -11,7 +11,7 @@ interface Address {
     country_code?: string;
 }
 
-export interface LWGeo {
+export interface Location {
     place_id?: number;
     licence?: string;
     osm_type?: string;
@@ -29,21 +29,41 @@ export interface LWGeo {
     boundingbox?: string[];
 }
 
+// location with geolocation
 export interface LWGeoData {
-    isLoadingLocation?: boolean;
-    data?: LWGeo;
-    filterLWGeo?: NewFilter;
+    isLoadingLWGeo?: boolean;
+    data?: Location;
+    filterLWGeo?: NewFilterLWGeo;
 }
 
-export interface Filter {
+export interface FilterLWGeo {
     format?: string;
     lat?: number;
     lon?: number;
     addressdetails?: number;
 }
 
-export interface NewFilter {
+export interface NewFilterLWGeo {
     format?: string;
     geolocation?: any;
+    addressdetails?: number;
+}
+
+// location with address
+export interface LWAddressData {
+    isLoadingLWAddress?: boolean;
+    data?: Location[];
+    filterLWAddress?: NewFilterLWAddress;
+}
+
+export interface FilterLWAddress {
+    format?: string;
+    q?: string;
+    addressdetails?: number;
+}
+
+export interface NewFilterLWAddress {
+    format?: string;
+    address?: string;
     addressdetails?: number;
 }

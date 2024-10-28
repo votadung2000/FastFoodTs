@@ -5,11 +5,23 @@ import {
     ApiApiLocationWithAddress,
 } from '@apiLocation';
 import { handleApiCall, Params } from '@common';
-import { handleUpdateFilterLWGeo } from '@reducers';
+import { handleUpdateFilterLWAddress, handleUpdateFilterLWGeo } from '@reducers';
 
-import { Filter, LWGeoData, NewFilter } from './location.types';
+import {
+    FilterLWAddress,
+    FilterLWGeo,
+    LWAddressData,
+    LWGeoData,
+    NewFilterLWAddress,
+    NewFilterLWGeo,
+} from './location.types';
 
-const initFilter: NewFilter = {
+const initFilterLWGeo: NewFilterLWGeo = {
+    format: 'json',
+    addressdetails: 1,
+};
+
+const initFilterLWAddress: NewFilterLWAddress = {
     format: 'json',
     addressdetails: 1,
 };
@@ -21,8 +33,8 @@ export const fetchApiLocationWithGeolocation = createAsyncThunk(
         const { filterLWGeo } = geolocation?.lwGeo || {};
 
         try {
-            const newFilter = { ...filterLWGeo, ...initFilter, ...params };
-            const filter: Filter = { ...initFilter };
+            const newFilter = { ...filterLWGeo, ...initFilterLWGeo, ...params };
+            const filter: FilterLWGeo = { ...initFilterLWGeo };
 
             if (newFilter?.geolocation?.lat) {
                 filter.lat = newFilter.geolocation.lat;
@@ -34,6 +46,29 @@ export const fetchApiLocationWithGeolocation = createAsyncThunk(
 
             dispatch(handleUpdateFilterLWGeo(newFilter));
             const response = await handleApiCall(() => ApiApiLocationWithGeolocation(filter));
+            return response;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
+
+export const fetchApiLocationWithAddress = createAsyncThunk(
+    'user/fetchApiLocationWithAddress',
+    async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
+        const { geolocation } = getState() as { geolocation: { lwAddress: LWAddressData } };
+        const { filterLWAddress } = geolocation?.lwAddress || {};
+
+        try {
+            const newFilter = { ...filterLWAddress, ...initFilterLWAddress, ...params };
+            const filter: FilterLWAddress = { ...initFilterLWAddress };
+
+            if (newFilter?.address) {
+                filter.q = newFilter.address;
+            }
+
+            dispatch(handleUpdateFilterLWAddress(newFilter));
+            const response = await handleApiCall(() => ApiApiLocationWithAddress(filter));
             return response;
         } catch (error) {
             return rejectWithValue(error);
