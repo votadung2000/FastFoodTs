@@ -42,7 +42,7 @@ const authSlice = createSlice({
             })
             .addCase(fetchApiLogin.fulfilled, (state, action) => {
                 state.auth.isLoadingAuth = false;
-                state.auth = action.payload;
+                state.auth = action.payload?.data;
             })
             .addCase(fetchApiLogin.rejected, (state, action) => {
                 state.auth.isLoadingAuth = false;

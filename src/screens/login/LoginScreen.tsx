@@ -52,9 +52,9 @@ const initialErrors: FormErrors = {
 
 const LoginScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
-  const dispatch = useAppDispatch();
-
   const refPassword = createRef<TextInput>();
+
+  const dispatch = useAppDispatch();
 
   const [loading, setLoading] = useState<LoadingState>({ isVisible: false });
   const [modal, setModal] = useState({ isVisible: false });
@@ -84,8 +84,8 @@ const LoginScreen = () => {
       };
 
       let response = await dispatch(fetchApiLogin(body));
-      if (response.payload) {
-        await setToken(response.payload?.token);
+      if (response.payload?.status_code === 200) {
+        await setToken(response.payload?.data?.token);
         setLoading({
           isVisible: false,
           onModalHide: async () => {
