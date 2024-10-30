@@ -4,7 +4,7 @@ import { handleApiCall } from '@common';
 import { ApiCurrentAddress } from '@api';
 
 export const fetchApiCurrentAddress = createAsyncThunk(
-    'user/fetchApiCurrentAddress',
+    'deliveryAddress/fetchApiCurrentAddress',
     async (_, { rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiCurrentAddress());

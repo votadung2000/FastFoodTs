@@ -23,17 +23,17 @@ export interface ProductsData extends Root {
   isLoadingProducts?: boolean;
   isFetchingProducts?: boolean;
   data?: ProductData[];
-  filterPr?: NewFilter;
+  filterPr?: Filter;
 }
 
-export interface Filter {
+export interface RequestedFilter {
   page?: number;
   perPage?: number;
   category_id?: any;
   name?: string;
 }
 
-export interface NewFilter {
+export interface Filter {
   page?: number;
   perPage?: number;
   category?: any;

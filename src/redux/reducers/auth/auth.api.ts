@@ -4,7 +4,7 @@ import { ApiLogin, ApiRegister } from '@api';
 import { handleApiCall } from '@common';
 
 export const fetchApiLogin = createAsyncThunk(
-    'user/fetchApiLogin',
+    'auth/fetchApiLogin',
     async (data: any = {}, { rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiLogin(data));
@@ -16,7 +16,7 @@ export const fetchApiLogin = createAsyncThunk(
 );
 
 export const fetchApiRegister = createAsyncThunk(
-    'user/fetchApiRegister',
+    'auth/fetchApiRegister',
     async (data: any = {}, { rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiRegister(data));

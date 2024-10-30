@@ -6,34 +6,35 @@ import { handleUpdateFilterPr } from '@reducers';
 
 import {
     Filter,
-    NewFilter,
+    RequestedFilter,
     ProductsData,
 } from './product.types';
 
-const initFilter: NewFilter = {
+const initFilter: Filter = {
     page: 1,
     perPage: 10,
 };
 
 export const fetchApiListProducts = createAsyncThunk(
-    'user/fetchApiListProducts',
+    'product/fetchApiListProducts',
     async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
         const { product } = getState() as { product: { products: ProductsData } };
         const { filterPr } = product?.products || {};
 
         try {
-            const newFilter = { ...filterPr, ...initFilter, ...params };
-            const filter: Filter = { ...initFilter };
+            const filter = { ...filterPr, ...initFilter, ...params };
+            const requestedFilter: RequestedFilter = { ...initFilter };
 
-            if (newFilter?.category?.id) {
-                filter.category_id = newFilter.category.id;
-            }
-            if (newFilter?.name) {
-                filter.name = newFilter.name;
+            if (filter?.category?.id) {
+                requestedFilter.category_id = filter.category.id;
             }
 
-            dispatch(handleUpdateFilterPr(newFilter));
-            const response = await handleApiCall(() => ApiListProducts(filter));
+            if (filter?.name) {
+                requestedFilter.name = filter.name;
+            }
+
+            dispatch(handleUpdateFilterPr(filter));
+            const response = await handleApiCall(() => ApiListProducts(requestedFilter));
             return response;
         } catch (error) {
             return rejectWithValue(error);
@@ -42,30 +43,30 @@ export const fetchApiListProducts = createAsyncThunk(
 );
 
 export const loadMoreListProducts = createAsyncThunk(
-    'user/loadMoreListProducts',
+    'product/loadMoreListProducts',
     async (_, { getState, dispatch, rejectWithValue }) => {
         const { product } = getState() as { product: { products: ProductsData } };
         const { filterPr, data } = product?.products || {};
 
         try {
-            const newFilter = {
+            const filter = {
                 ...filterPr,
                 page: (filterPr?.page || 0) + 1,
             };
-            const filter: Filter = {
+            const requestedFilter: RequestedFilter = {
                 ...initFilter,
                 page: (filterPr?.page || 0) + 1,
             };
 
-            if (newFilter?.category?.id) {
-                filter.category_id = newFilter.category.id;
+            if (filter?.category?.id) {
+                requestedFilter.category_id = filter.category.id;
             }
-            if (newFilter?.name) {
-                filter.name = newFilter.name;
+            if (filter?.name) {
+                requestedFilter.name = filter.name;
             }
 
-            dispatch(handleUpdateFilterPr(newFilter));
-            const response = await handleApiCall(() => ApiListProducts(filter));
+            dispatch(handleUpdateFilterPr(filter));
+            const response = await handleApiCall(() => ApiListProducts(requestedFilter));
             return {
                 ...response,
                 data: data?.concat(response?.data),
@@ -77,7 +78,7 @@ export const loadMoreListProducts = createAsyncThunk(
 );
 
 export const fetchApiDetailProducts = createAsyncThunk(
-    'user/fetchApiDetailProducts',
+    'product/fetchApiDetailProducts',
     async (params: Params = {}, { rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiDetailProduct(params?.id));

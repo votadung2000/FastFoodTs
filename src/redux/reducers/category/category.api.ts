@@ -5,7 +5,7 @@ import { handleApiCall } from '@common';
 import { fetchApiListProducts } from '@reducers';
 
 export const fetchApiListCategories = createAsyncThunk(
-    'user/fetchApiListCategories',
+    'category/fetchApiListCategories',
     async (_, { rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiListCategories());
@@ -17,7 +17,7 @@ export const fetchApiListCategories = createAsyncThunk(
 );
 
 export const fetchCombineApiCategories = createAsyncThunk(
-    'user/fetchCombineApiCategories',
+    'category/fetchCombineApiCategories',
     async (_, { dispatch, rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiListCategories());

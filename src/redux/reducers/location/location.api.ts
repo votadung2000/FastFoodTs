@@ -27,7 +27,7 @@ const initFilterLWAddress: NewFilterLWAddress = {
 };
 
 export const fetchApiLocationWithGeolocation = createAsyncThunk(
-    'user/fetchApiLocationWithGeolocation',
+    'location/fetchApiLocationWithGeolocation',
     async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
         const { geolocation } = getState() as { geolocation: { lwGeo: LWGeoData } };
         const { filterLWGeo } = geolocation?.lwGeo || {};
@@ -54,7 +54,7 @@ export const fetchApiLocationWithGeolocation = createAsyncThunk(
 );
 
 export const fetchApiLocationWithAddress = createAsyncThunk(
-    'user/fetchApiLocationWithAddress',
+    'location/fetchApiLocationWithAddress',
     async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
         const { geolocation } = getState() as { geolocation: { lwAddress: LWAddressData } };
         const { filterLWAddress } = geolocation?.lwAddress || {};
