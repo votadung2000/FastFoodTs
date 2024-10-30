@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ApiListProducts } from '@api';
+import { ApiDetailProduct, ApiListProducts } from '@api';
 import { handleApiCall, Params } from '@common';
 import { handleUpdateFilterPr } from '@reducers';
 
@@ -34,6 +34,18 @@ export const fetchApiListProducts = createAsyncThunk(
 
             dispatch(handleUpdateFilterPr(newFilter));
             const response = await handleApiCall(() => ApiListProducts(filter));
+            return response;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
+
+export const fetchApiDetailProducts = createAsyncThunk(
+    'user/fetchApiDetailProducts',
+    async (params: Params = {}, { rejectWithValue }) => {
+        try {
+            const response = await handleApiCall(() => ApiDetailProduct(params?.id));
             return response;
         } catch (error) {
             return rejectWithValue(error);

@@ -11,6 +11,8 @@ import CartScreen from './cart';
 import HeartScreen from './heart';
 import NotificationScreen from './notification';
 
+import ProductsDetailScreen from './product_detail';
+
 export {
     SplashScreen,
     CarouselScreen,
@@ -24,4 +26,6 @@ export {
     CartScreen,
     HeartScreen,
     NotificationScreen,
+
+    ProductsDetailScreen,
 };

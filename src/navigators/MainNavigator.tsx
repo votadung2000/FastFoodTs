@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import routes from '@routes';
 
+import { ProductsDetailScreen } from '@screens';
+
 import BottomTabNavigator from './BottomTabNavigator';
 
 const MainNavigator = () => {
@@ -17,6 +19,7 @@ const MainNavigator = () => {
             }}
         >
             <Stack.Screen name={routes.BottomTabNavigator} component={BottomTabNavigator} />
+            <Stack.Screen name={routes.ProductsDetailScreen} component={ProductsDetailScreen} />
         </Stack.Navigator>
     );
 };

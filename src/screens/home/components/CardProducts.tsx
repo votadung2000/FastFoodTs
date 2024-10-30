@@ -10,14 +10,20 @@ import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { formatCurrency } from '@utils';
 import { hScale, wScale, scale } from '@resolutions';
-import { CategoryData, ProductData } from '@reducers';
+import {
+  CategoryData,
+  fetchApiDetailProducts,
+  ProductData,
+} from '@reducers';
+import { useAppDispatch } from '@store';
 import routes from '@routes';
 
 const CardProducts = ({ data }: { data: CategoryData }) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const dispatch = useAppDispatch();
 
   const handleProduct = (item: ProductData) => {
-    // fetchApiDetailProducts(item?.id);
+    dispatch(fetchApiDetailProducts({ id: item?.id }));
     navigation.navigate(routes.ProductsDetailScreen);
   };
 

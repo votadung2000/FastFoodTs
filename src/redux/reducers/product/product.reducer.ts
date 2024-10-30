@@ -2,17 +2,22 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { handleErrorApi } from '@common';
 
-import { fetchApiListProducts } from './product.api';
-import { ProductsData } from './product.types';
+import { fetchApiDetailProducts, fetchApiListProducts } from './product.api';
+import { DetailProductData, ProductsData } from './product.types';
 
 const productsData: ProductsData = {
     isLoadingProducts: false,
+};
+
+const detailProductData: DetailProductData = {
+    isLoadingDetailProduct: false,
 };
 
 const productSlice = createSlice({
     name: 'product',
     initialState: {
         products: productsData,
+        product: detailProductData,
     },
     reducers: {
         handleUpdateFilterPr: (state, action) => {
@@ -30,6 +35,18 @@ const productSlice = createSlice({
             })
             .addCase(fetchApiListProducts.rejected, (state, action) => {
                 state.products.isLoadingProducts = false;
+                handleErrorApi(action?.error);
+            })
+
+            .addCase(fetchApiDetailProducts.pending, (state) => {
+                state.product.isLoadingDetailProduct = true;
+            })
+            .addCase(fetchApiDetailProducts.fulfilled, (state, action) => {
+                state.product.isLoadingDetailProduct = false;
+                state.product = action.payload?.data;
+            })
+            .addCase(fetchApiDetailProducts.rejected, (state, action) => {
+                state.product.isLoadingDetailProduct = false;
                 handleErrorApi(action?.error);
             });
     },

@@ -3,8 +3,11 @@ import {
     handleUpdateFilterPr,
 } from './product.reducer';
 import { productSelector } from './product.selector';
-import { fetchApiListProducts } from './product.api';
-import {ProductData} from './product.types';
+import {
+    fetchApiListProducts,
+    fetchApiDetailProducts,
+} from './product.api';
+import { ProductData } from './product.types';
 
 export {
     productReducer,
@@ -13,6 +16,7 @@ export {
     productSelector,
 
     fetchApiListProducts,
+    fetchApiDetailProducts,
 };
 
 export type {

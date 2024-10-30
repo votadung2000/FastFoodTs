@@ -18,6 +18,7 @@ export interface ProductData {
   image?: Image;
 }
 
+// products
 export interface ProductsData extends Root {
   isLoadingProducts?: boolean;
   data?: ProductData[];
@@ -36,4 +37,10 @@ export interface NewFilter {
   perPage?: number;
   category?: any;
   name?: string;
+}
+
+// product detail
+export interface DetailProductData extends Root {
+  isLoadingDetailProduct?: boolean;
+  data?: ProductData;
 }

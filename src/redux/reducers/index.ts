@@ -34,6 +34,7 @@ import {
     handleUpdateFilterPr,
     productSelector,
     fetchApiListProducts,
+    fetchApiDetailProducts,
     ProductData,
 } from './product';
 
@@ -83,6 +84,7 @@ export {
     handleUpdateFilterPr,
     productSelector,
     fetchApiListProducts,
+    fetchApiDetailProducts,
 
     // location
     locationReducer,

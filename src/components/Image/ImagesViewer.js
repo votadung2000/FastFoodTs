@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
 
 const ImagesViewer = () => {
@@ -10,8 +10,6 @@ const ImagesViewer = () => {
 };
 
 export default ImagesViewer;
-
-const styles = StyleSheet.create({});
 // import React from 'react';
 // import {StyleSheet, View, ActivityIndicator} from 'react-native';
 // import {isIphoneX} from 'react-native-iphone-x-helper';

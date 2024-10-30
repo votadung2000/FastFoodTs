@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
 
 const ButtonCamAndLib = () => {
@@ -10,8 +10,6 @@ const ButtonCamAndLib = () => {
 };
 
 export default ButtonCamAndLib;
-
-const styles = StyleSheet.create({});
 // import React, {useState, useRef} from 'react';
 // import {Platform, StyleSheet, View} from 'react-native';
 // import {

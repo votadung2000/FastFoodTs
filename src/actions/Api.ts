@@ -109,7 +109,7 @@ export const ApiListProducts = (params?: ApiBody) => {
   return axios.get(ApiRoutes.product, { params });
 };
 
-export const ApiDetailProduct = (id: string) => {
+export const ApiDetailProduct = (id: number) => {
   return axios.get(`${ApiRoutes.product}/${id}`);
 };
 
