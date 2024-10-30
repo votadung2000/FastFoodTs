@@ -7,7 +7,12 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Text, Button, FastImage, Loading } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { scale, wScale } from '@resolutions';
-import { animatedMenuSelector, deliveryAddressSelector, showMenu, userSelector } from '@reducers';
+import {
+  animatedMenuSelector,
+  deliveryAddressSelector,
+  showMenu,
+  userSelector,
+} from '@reducers';
 import { useAppDispatch } from '@store';
 
 interface HeaderProps {

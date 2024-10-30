@@ -1,11 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, Image, ScrollView } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import { colors, fontSize } from '@constants';
-import { hScale, scale, wScale } from '@resolutions';
-import { Button, Text, FastImage, Popup } from '@components';
-// import {useStore} from '@context';
+import { Button, Text, FastImage, Popup, PopupProps } from '@components';
 import {
   SVG_My_Order,
   SVG_Profile,
@@ -15,20 +13,32 @@ import {
   SVG_Setting,
   SVG_Helps,
 } from '@svg';
+import { clearToken } from '@storage';
+import { useSelector } from 'react-redux';
+import { updateUser, userSelector } from '@reducers';
+import { useAppDispatch } from '@store';
+import { colors, fontSize } from '@constants';
+import { hScale, scale, wScale } from '@resolutions';
 import routes from '@routes';
 
 import ItemMenu from './ItemMenu';
-import { clearToken } from '@storage';
+
+interface PopupState extends PopupProps {
+  isVisible: boolean;
+  onModalHide?: () => void;
+}
 
 const Menu = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const dispatch = useAppDispatch();
+
+  const { user } = useSelector(userSelector);
 
   // const {
-  //   userStore: {user, updateUser},
   //   orderStore: {orders, fetchApiListOrder},
   // } = useStore();
 
-  const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState<PopupState>({ isVisible: false });
 
   // useFocusEffect(
   //   useCallback(() => {
@@ -36,8 +46,8 @@ const Menu = () => {
   //   }, []),
   // );
 
-  const handleNav = route => {
-    navigation.navigate(route);
+  const handleNav = (screen: string) => {
+    navigation.navigate(screen);
   };
 
   const handleConfirmLogOut = () => {
@@ -56,7 +66,7 @@ const Menu = () => {
       isVisible: false,
       onModalHide: async () => {
         await clearToken();
-        // updateUser(null);
+        dispatch(updateUser(null));
       },
     });
   };
@@ -71,26 +81,26 @@ const Menu = () => {
       style={styles.scroll}
       showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
-        {/* {user?.avatar ? (
+        {user?.avatar ? (
           <FastImage
             isPath
-            source={{uri: user?.avatar?.url}}
+            source={{ uri: user?.avatar?.url }}
             style={styles.img}
           />
         ) : (
           <Image source={require('@images/avatar.png')} style={styles.img} />
-        )} */}
-        <Image source={require('@images/avatar.png')} style={styles.img} />
+        )}
         <View style={styles.vwInfo}>
           <Text bold style={styles.name}>
-            {'user?.name' || ''}
+            {user?.name || ''}
           </Text>
-          <Text style={styles.email}>{'user?.email' || ''}</Text>
+          <Text style={styles.email}>{user?.email || ''}</Text>
         </View>
         <View style={styles.menu}>
           <ItemMenu
             label={'My Orders'}
-            count={'orders?.length' || 0}
+            // count={orders?.length || 0}
+            count={0}
             Icon={<SVG_My_Order />}
             onPress={() => handleNav(routes.OrderScreen)}
           />
@@ -151,12 +161,12 @@ const styles = StyleSheet.create({
     marginTop: scale(10),
   },
   name: {
-    fontSize: fontSize.big,
+    fontSize: fontSize.fontSize20,
   },
   email: {
     marginTop: scale(4),
     color: colors.gray_9796A1,
-    fontSize: fontSize.small,
+    fontSize: fontSize.fontSize12,
   },
   menu: {
     marginTop: scale(30),

@@ -18,6 +18,7 @@ import {
     refetchApiUserProfile,
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
+    updateUser,
 } from './user';
 
 import {
@@ -69,6 +70,7 @@ export {
     refetchApiUserProfile,
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
+    updateUser,
 
     // category
     categoryReducer,

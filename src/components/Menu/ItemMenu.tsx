@@ -1,11 +1,19 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {Button, Text} from '@components';
-import {scale, wScale} from '@resolutions';
-import {colors, fontSize, radius} from '@constants';
+import { Button, Text } from '@components';
+import { scale, wScale } from '@resolutions';
+import { colors, fontSize, radius } from '@constants';
 
-const ItemMenu = ({isEnd, count, label, Icon, onPress}) => {
+interface ItemMenuProps {
+  isEnd?: boolean;
+  count?: number;
+  label?: string;
+  Icon?: JSX.Element;
+  onPress?: () => void;
+}
+
+const ItemMenu = ({ isEnd, count, label, Icon, onPress }: ItemMenuProps) => {
   return (
     <Button style={[styles.container, isEnd && styles.vwEnd]} onPress={onPress}>
       <View style={styles.img}>{Icon && Icon}</View>
@@ -48,7 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.orange_FE724C,
   },
   counter: {
-    fontSize: fontSize.small,
+    fontSize: fontSize.fontSize12,
     color: colors.white,
   },
 });
