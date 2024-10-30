@@ -32,8 +32,10 @@ import {
 import {
     productReducer,
     handleUpdateFilterPr,
+    clearFilterPr,
     productSelector,
     fetchApiListProducts,
+    loadMoreListProducts,
     fetchApiDetailProducts,
     ProductData,
 } from './product';
@@ -82,8 +84,10 @@ export {
     // product
     productReducer,
     handleUpdateFilterPr,
+    clearFilterPr,
     productSelector,
     fetchApiListProducts,
+    loadMoreListProducts,
     fetchApiDetailProducts,
 
     // location

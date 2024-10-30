@@ -41,6 +41,41 @@ export const fetchApiListProducts = createAsyncThunk(
     }
 );
 
+export const loadMoreListProducts = createAsyncThunk(
+    'user/loadMoreListProducts',
+    async (_, { getState, dispatch, rejectWithValue }) => {
+        const { product } = getState() as { product: { products: ProductsData } };
+        const { filterPr, data } = product?.products || {};
+
+        try {
+            const newFilter = {
+                ...filterPr,
+                page: (filterPr?.page || 0) + 1,
+            };
+            const filter: Filter = {
+                ...initFilter,
+                page: (filterPr?.page || 0) + 1,
+            };
+
+            if (newFilter?.category?.id) {
+                filter.category_id = newFilter.category.id;
+            }
+            if (newFilter?.name) {
+                filter.name = newFilter.name;
+            }
+
+            dispatch(handleUpdateFilterPr(newFilter));
+            const response = await handleApiCall(() => ApiListProducts(filter));
+            return {
+                ...response,
+                data: data?.concat(response?.data),
+            };
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
+
 export const fetchApiDetailProducts = createAsyncThunk(
     'user/fetchApiDetailProducts',
     async (params: Params = {}, { rejectWithValue }) => {

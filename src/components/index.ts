@@ -12,7 +12,7 @@ import {
 //     logAddToWishlist,
 //     logAddToCart,
 // } from './Analytics';
-// import { Search } from './Search';
+import { Search } from './Search';
 import { Input, InputPassword } from './Input';
 import { FastImage, ImagesViewer } from './Image';
 // import { SelectType, SelectDefault } from './Selects';
@@ -44,7 +44,7 @@ export {
     // logViewItem,
     // logAddToWishlist,
     // logAddToCart,
-    // Search,
+    Search,
     Input,
     InputPassword,
     FastImage,

@@ -21,6 +21,7 @@ export interface ProductData {
 // products
 export interface ProductsData extends Root {
   isLoadingProducts?: boolean;
+  isFetchingProducts?: boolean;
   data?: ProductData[];
   filterPr?: NewFilter;
 }

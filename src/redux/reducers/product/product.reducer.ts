@@ -2,11 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { handleErrorApi } from '@common';
 
-import { fetchApiDetailProducts, fetchApiListProducts } from './product.api';
+import {
+    fetchApiDetailProducts,
+    fetchApiListProducts,
+    loadMoreListProducts,
+} from './product.api';
 import { DetailProductData, ProductsData } from './product.types';
 
 const productsData: ProductsData = {
     isLoadingProducts: false,
+    isFetchingProducts: false,
 };
 
 const detailProductData: DetailProductData = {
@@ -23,6 +28,9 @@ const productSlice = createSlice({
         handleUpdateFilterPr: (state, action) => {
             state.products.filterPr = action.payload;
         },
+        clearFilterPr: (state) => {
+            state.products.filterPr = {};
+        },
     },
     extraReducers(builder) {
         builder
@@ -35,6 +43,18 @@ const productSlice = createSlice({
             })
             .addCase(fetchApiListProducts.rejected, (state, action) => {
                 state.products.isLoadingProducts = false;
+                handleErrorApi(action?.error);
+            })
+
+            .addCase(loadMoreListProducts.pending, (state) => {
+                state.products.isFetchingProducts = true;
+            })
+            .addCase(loadMoreListProducts.fulfilled, (state, action) => {
+                state.products.isFetchingProducts = false;
+                state.products = action.payload;
+            })
+            .addCase(loadMoreListProducts.rejected, (state, action) => {
+                state.products.isFetchingProducts = false;
                 handleErrorApi(action?.error);
             })
 
@@ -54,4 +74,7 @@ const productSlice = createSlice({
 
 export const productReducer = productSlice.reducer;
 
-export const { handleUpdateFilterPr } = productSlice.actions;
+export const {
+    handleUpdateFilterPr,
+    clearFilterPr,
+} = productSlice.actions;

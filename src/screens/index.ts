@@ -12,6 +12,7 @@ import HeartScreen from './heart';
 import NotificationScreen from './notification';
 
 import ProductsDetailScreen from './product_detail';
+import DetailCardSearch from './detail_card_search';
 
 export {
     SplashScreen,
@@ -28,4 +29,5 @@ export {
     NotificationScreen,
 
     ProductsDetailScreen,
+    DetailCardSearch,
 };

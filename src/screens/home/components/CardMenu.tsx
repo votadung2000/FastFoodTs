@@ -7,14 +7,16 @@ import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { limitedString } from '@utils';
 import { hScale, scale, wScale } from '@resolutions';
-import { CategoryData } from '@reducers';
+import { CategoryData, fetchApiListProducts } from '@reducers';
+import { useAppDispatch } from '@store';
 import routes from '@routes';
 
 const CardMenu = ({ data }: { data: CategoryData }) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const dispatch = useAppDispatch();
 
   const handleItem = () => {
-    // fetchApiListProducts({ category_id: data });
+    dispatch(fetchApiListProducts({ category: data }));
     navigation.navigate(routes.DetailCardSearch);
   };
 

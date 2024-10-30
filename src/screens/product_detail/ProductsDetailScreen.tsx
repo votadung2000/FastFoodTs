@@ -52,20 +52,21 @@ const ProductsDetailScreen = () => {
       };
 
       // let response = await fetchApiCDFavorite(body);
-      // if (response.payload) {
-      //   setLoading({
-      //     isVisible: false,
-      //     onModalHide: async () => {
-      //       Notifer({
-      //         alertType: 'success',
-      //         title: product.is_favorite
-      //           ? 'Delete Favorites Successfully!'
-      //           : 'Create Favorites Successfully!',
-      //       });
-      //       await dispatch(fetchApiDetailProducts({ id: product?.id }));
-      //     },
-      //   });
-      // }
+      let response = { payload: {} };
+      if (response?.payload) {
+        setLoading({
+          isVisible: false,
+          onModalHide: async () => {
+            Notifer({
+              alertType: 'success',
+              title: product.is_favorite
+                ? 'Delete Favorites Successfully!'
+                : 'Create Favorites Successfully!',
+            });
+            await dispatch(fetchApiDetailProducts({ id: product?.id }));
+          },
+        });
+      }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });
     }

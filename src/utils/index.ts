@@ -3,6 +3,7 @@ import checkIfValidUUID from './checkIfValidUUID';
 import limitedString from './limitedString';
 import formatCurrency from './formatCurrency';
 import findId from './findId';
+import handleDataOdd from './handleDataOdd';
 
 export {
   resolutions,
@@ -10,4 +11,5 @@ export {
   limitedString,
   formatCurrency,
   findId,
+  handleDataOdd,
 };
