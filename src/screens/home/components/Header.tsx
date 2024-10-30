@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import { Text, Button, FastImage } from '@components';
+import { Text, Button, FastImage, Loading } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { scale, wScale } from '@resolutions';
-import { animatedMenuSelector, showMenu, userSelector } from '@reducers';
+import { animatedMenuSelector, deliveryAddressSelector, showMenu, userSelector } from '@reducers';
 import { useAppDispatch } from '@store';
 
 interface HeaderProps {
@@ -16,8 +16,10 @@ interface HeaderProps {
 
 const Header = ({ titleHeaderAnimation }: HeaderProps) => {
   const dispatch = useAppDispatch();
+
   const { triggerMenu } = useSelector(animatedMenuSelector);
   const { user } = useSelector(userSelector);
+  const { currentAddress } = useSelector(deliveryAddressSelector);
 
   const goToUser = () => {
     dispatch(showMenu());
@@ -44,9 +46,15 @@ const Header = ({ titleHeaderAnimation }: HeaderProps) => {
               color={colors.black}
             />
           </View>
-          <Text medium style={styles.address}>
-            {/* {currentAddress?.street_address || ''} */}
-          </Text>
+          {
+            currentAddress.isLoadingCurrentAddress
+              ? <Loading style={styles.loadingDeliveryAddress} />
+              : (
+                <Text medium style={styles.address}>
+                  {currentAddress?.street_address || ''}
+                </Text>
+              )
+          }
         </Button>
         {user?.avatar ? (
           <FastImage
@@ -99,6 +107,9 @@ const styles = StyleSheet.create({
   },
   txtIntro: {
     marginRight: scale(4),
+  },
+  loadingDeliveryAddress: {
+    marginTop: scale(4),
   },
   address: {
     textAlign: 'center',

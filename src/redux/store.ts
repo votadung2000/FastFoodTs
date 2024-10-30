@@ -9,6 +9,7 @@ import {
     categoryReducer,
     productReducer,
     locationReducer,
+    deliveryAddressReducer,
 } from '@reducers';
 const store = configureStore({
     reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
         category: categoryReducer,
         product: productReducer,
         location: locationReducer,
+        deliveryAddress: deliveryAddressReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {

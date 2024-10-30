@@ -44,6 +44,12 @@ import {
     locationSelector,
 } from './location';
 
+import {
+    deliveryAddressReducer,
+    deliveryAddressSelector,
+    fetchApiCurrentAddress,
+} from './delivery_address';
+
 export {
     // auth
     authReducer,
@@ -82,6 +88,11 @@ export {
     handleUpdateFilterLWAddress,
     handleUpdateGeolocation,
     locationSelector,
+
+    // delivery address
+    deliveryAddressReducer,
+    deliveryAddressSelector,
+    fetchApiCurrentAddress,
 };
 
 export type {

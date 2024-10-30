@@ -6,7 +6,11 @@ import { useSelector } from 'react-redux';
 
 import { Location } from '@components';
 import { colors, radius } from '@constants';
-import { animatedMenuSelector, fetchApiListCategories } from '@reducers';
+import {
+  animatedMenuSelector,
+  fetchApiCurrentAddress,
+  fetchApiListCategories,
+} from '@reducers';
 import { useAppDispatch } from '@store';
 import { hScale, scale } from '@resolutions';
 
@@ -22,11 +26,7 @@ const HomeScreen = () => {
   useFocusEffect(
     useCallback(() => {
       dispatch(fetchApiListCategories());
-      // fetchApiCurrentAddress();
-
-      // return () => {
-      //   clearFilterPr();
-      // };
+      dispatch(fetchApiCurrentAddress());
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []),

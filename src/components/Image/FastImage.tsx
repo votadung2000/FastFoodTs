@@ -30,7 +30,7 @@ const FastImage = ({
   ...rest
 }: FastImageFCProps) => {
   const [isError, setIsError] = useState<boolean>(false);
-  const [aspectRatio, setAspectRatio] = useState<number>(1);
+  // const [aspectRatio, setAspectRatio] = useState<number>(1);
 
   // useEffect(() => {
   //   const fetchImageSize = async () => {
