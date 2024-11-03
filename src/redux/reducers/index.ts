@@ -55,6 +55,20 @@ import {
     fetchApiCurrentAddress,
 } from './delivery_address';
 
+import {
+    cartReducer,
+    addToCart,
+    handleUpdateCost,
+    updateTotal,
+    updateCost,
+    plusProducts,
+    minusProducts,
+    removeProducts,
+    clearCart,
+    cartSelector,
+    CartData,
+} from './cart';
+
 export {
     // auth
     authReducer,
@@ -102,6 +116,18 @@ export {
     deliveryAddressReducer,
     deliveryAddressSelector,
     fetchApiCurrentAddress,
+
+    // cart
+    cartReducer,
+    addToCart,
+    handleUpdateCost,
+    updateTotal,
+    updateCost,
+    plusProducts,
+    minusProducts,
+    removeProducts,
+    clearCart,
+    cartSelector,
 };
 
 export type {
@@ -111,4 +137,7 @@ export type {
     // product
     ProductData,
     ProductsData,
+
+    // cart
+    CartData,
 };

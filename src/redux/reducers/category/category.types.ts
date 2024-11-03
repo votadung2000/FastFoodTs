@@ -1,4 +1,4 @@
-import { Image } from '@common';
+import { Image, Root } from '@common';
 
 import { ProductData } from '../product/product.types';
 
@@ -12,7 +12,7 @@ export interface CategoryData {
   products?: ProductData[]
 }
 
-export interface CategoriesData {
+export interface CategoriesData extends Root {
   data?: CategoryData[],
 }
 

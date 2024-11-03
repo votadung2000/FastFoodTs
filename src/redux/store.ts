@@ -10,6 +10,7 @@ import {
     productReducer,
     locationReducer,
     deliveryAddressReducer,
+    cartReducer,
 } from '@reducers';
 const store = configureStore({
     reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
         product: productReducer,
         location: locationReducer,
         deliveryAddress: deliveryAddressReducer,
+        cart: cartReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {
