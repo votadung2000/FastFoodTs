@@ -17,8 +17,8 @@ import CardProducts from './CardProducts';
 const Products = () => {
   const dispatch = useAppDispatch();
 
-  const { products } = useSelector(productSelector);
-  const { isLoadingProducts, isFetchingProducts, filterPr } = products;
+  const { relatedProducts, products } = useSelector(productSelector);
+  const { isLoadingProducts, isFetchingProducts, filterPr } = relatedProducts;
 
   const keyExtractor = (_: any, index: number) => index.toString();
 

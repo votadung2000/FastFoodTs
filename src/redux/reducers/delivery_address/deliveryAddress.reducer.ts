@@ -26,7 +26,7 @@ const deliveryAddressSlice = createSlice({
                 state.currentAddress.isLoadingCurrentAddress = false;
                 state.currentAddress = action.payload?.data;
             })
-            .addCase(fetchApiCurrentAddress.rejected, (state, action) => {
+            .addCase(fetchApiCurrentAddress.rejected, (state) => {
                 state.currentAddress = {};
                 state.currentAddress.isLoadingCurrentAddress = false;
                 // handleErrorApi(action?.error);

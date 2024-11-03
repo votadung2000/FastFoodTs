@@ -7,9 +7,10 @@ import {
     fetchApiListProducts,
     loadMoreListProducts,
 } from './product.api';
-import { DetailProductData, ProductsData } from './product.types';
+import { DetailProductData, ProductsData, RelatedProductsData } from './product.types';
 
-const productsData: ProductsData = {
+const productsData: ProductsData = {};
+const relatedProductsData: RelatedProductsData = {
     isLoadingProducts: false,
     isFetchingProducts: false,
 };
@@ -22,39 +23,40 @@ const productSlice = createSlice({
     name: 'product',
     initialState: {
         products: productsData,
+        relatedProducts: relatedProductsData,
         product: detailProductData,
     },
     reducers: {
         handleUpdateFilterPr: (state, action) => {
-            state.products.filterPr = action.payload;
+            state.relatedProducts.filterPr = action.payload;
         },
         clearFilterPr: (state) => {
-            state.products.filterPr = {};
+            state.relatedProducts.filterPr = {};
         },
     },
     extraReducers(builder) {
         builder
             .addCase(fetchApiListProducts.pending, (state) => {
-                state.products.isLoadingProducts = true;
+                state.relatedProducts.isLoadingProducts = true;
             })
             .addCase(fetchApiListProducts.fulfilled, (state, action) => {
-                state.products.isLoadingProducts = false;
+                state.relatedProducts.isLoadingProducts = false;
                 state.products = action.payload;
             })
             .addCase(fetchApiListProducts.rejected, (state, action) => {
-                state.products.isLoadingProducts = false;
+                state.relatedProducts.isLoadingProducts = false;
                 handleErrorApi(action?.error);
             })
 
             .addCase(loadMoreListProducts.pending, (state) => {
-                state.products.isFetchingProducts = true;
+                state.relatedProducts.isFetchingProducts = true;
             })
             .addCase(loadMoreListProducts.fulfilled, (state, action) => {
-                state.products.isFetchingProducts = false;
+                state.relatedProducts.isFetchingProducts = false;
                 state.products = action.payload;
             })
             .addCase(loadMoreListProducts.rejected, (state, action) => {
-                state.products.isFetchingProducts = false;
+                state.relatedProducts.isFetchingProducts = false;
                 handleErrorApi(action?.error);
             })
 

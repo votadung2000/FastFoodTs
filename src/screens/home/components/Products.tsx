@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { StyleSheet, View, Animated } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import { Text, EmptyComponent, LoadingComponent } from '@components';
 import { fontSize } from '@constants';
 import { hScale, scale } from '@resolutions';
-import { useSelector } from 'react-redux';
 import { CategoryData, categorySelector } from '@reducers';
 
 import CardProducts from './CardProducts';

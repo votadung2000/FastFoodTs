@@ -8,6 +8,7 @@ import {
     Filter,
     RequestedFilter,
     ProductsData,
+    RelatedProductsData,
 } from './product.types';
 
 const initFilter: Filter = {
@@ -18,8 +19,8 @@ const initFilter: Filter = {
 export const fetchApiListProducts = createAsyncThunk(
     'product/fetchApiListProducts',
     async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
-        const { product } = getState() as { product: { products: ProductsData } };
-        const { filterPr } = product?.products || {};
+        const { product } = getState() as { product: { relatedProducts: RelatedProductsData } };
+        const { filterPr } = product?.relatedProducts || {};
 
         try {
             const filter = { ...filterPr, ...initFilter, ...params };
@@ -45,8 +46,9 @@ export const fetchApiListProducts = createAsyncThunk(
 export const loadMoreListProducts = createAsyncThunk(
     'product/loadMoreListProducts',
     async (_, { getState, dispatch, rejectWithValue }) => {
-        const { product } = getState() as { product: { products: ProductsData } };
-        const { filterPr, data } = product?.products || {};
+        const { product } = getState() as { product: { relatedProducts: RelatedProductsData, products: ProductsData } };
+        const { filterPr } = product?.relatedProducts || {};
+        const { data } = product?.products || {};
 
         try {
             const filter = {
