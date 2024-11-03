@@ -225,8 +225,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     vwIconViewTab: {
-        width: wScale(28),
-        height: wScale(28),
+        width: scale(28),
+        height: scale(28),
         alignItems: 'center',
         justifyContent: 'center',
         paddingBottom: Platform.OS === 'ios' ? 0 : scale(2),

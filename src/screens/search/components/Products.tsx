@@ -1,28 +1,27 @@
 import React from 'react';
-import {StyleSheet, View, FlatList} from 'react-native';
-import {observer} from 'mobx-react';
+import { StyleSheet, View, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 
-import {EmptyComponent, LoadingComponent} from '@components';
-import {handleDataOdd} from '@utils';
-import {useStore} from '@context';
+import { EmptyComponent, LoadingComponent } from '@components';
+import {
+  loadMoreListProducts,
+  productSelector,
+  ProductData,
+} from '@reducers';
+import { useAppDispatch } from '@store';
+import { handleDataOdd } from '@utils';
+import { scale } from '@resolutions';
 
 import CardProducts from './CardProducts';
-import {scale} from '@resolutions';
 
 const Products = () => {
-  const {
-    productsStore: {
-      filterPr,
-      products,
-      isLoadingProducts,
-      isFetchingProducts,
-      loadMoreListProducts,
-    },
-  } = useStore();
+  const dispatch = useAppDispatch();
+  const { products, relatedProducts } = useSelector(productSelector);
+  const { isLoadingProducts, isFetchingProducts, filterPr } = relatedProducts;
 
-  const keyExtractor = (_, index) => index.toString();
+  const keyExtractor = (_: any, index: number) => index.toString();
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }: { item: ProductData }) => {
     return item && Object.keys(item).length > 0 ? (
       <CardProducts data={item} />
     ) : null;
@@ -30,7 +29,7 @@ const Products = () => {
 
   const onEndReached = () => {
     if (!isFetchingProducts && products?.total > products?.data?.length) {
-      loadMoreListProducts();
+      dispatch(loadMoreListProducts());
     }
   };
 
@@ -46,16 +45,18 @@ const Products = () => {
         bounces={false}
         contentContainerStyle={styles.ccSt}
         columnWrapperStyle={styles.wrapperStyle}
-        scrollIndicatorInsets={{right: 1}}
+        scrollIndicatorInsets={{ right: 1 }}
         ListHeaderComponent={isLoadingProducts && <LoadingComponent />}
         ListFooterComponent={isFetchingProducts && <LoadingComponent />}
         ListEmptyComponent={
-          !isLoadingProducts && (
-            <EmptyComponent
-              title="Product's Empty"
-              url={filterPr?.category_id?.image?.url}
-            />
-          )
+          isLoadingProducts
+            ? null
+            : (
+              <EmptyComponent
+                title="Product's Empty"
+                source={{ uri: filterPr?.category?.image?.url }}
+              />
+            )
         }
       />
     </View>
@@ -75,4 +76,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(Products);
+export default Products;

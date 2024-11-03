@@ -1,42 +1,45 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions} from 'react-native';
-import {observer} from 'mobx-react';
-import {useNavigation} from '@react-navigation/native';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFastImage from 'react-native-fast-image';
 
-import {Text, Button, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constants';
-import {formatCurrency} from '@utils';
-import {useStore} from '@context';
-import {wScale, scale} from '@resolutions';
+import { Text, Button, FastImage } from '@components';
+import { colors, fontSize, radius } from '@constants';
+import { formatCurrency } from '@utils';
+import { wScale, scale } from '@resolutions';
+import { fetchApiDetailProducts, ProductData } from '@reducers';
 import routes from '@routes';
+import { useAppDispatch } from '@store';
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-const CardProducts = ({data}) => {
-  const navigation = useNavigation();
+const CardProducts = ({ data }: { data: ProductData }) => {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
-  const {
-    productsStore: {fetchApiDetailProducts},
-    cartProductsStore: {fetchCartProduct},
-  } = useStore();
+  const dispatch = useAppDispatch();
+
+  // const {
+  //   productsStore: { fetchApiDetailProducts },
+  //   cartProductsStore: { fetchCartProduct },
+  // } = useStore();
 
   const handleProduct = () => {
-    fetchApiDetailProducts(data?.id);
+    dispatch(fetchApiDetailProducts({ id: data?.id }));
     navigation.navigate(routes.ProductsDetailScreen);
   };
 
   const handlePlusCart = () => {
-    fetchCartProduct(data);
+    // fetchCartProduct(data);
   };
 
   return (
     <Button onPress={() => handleProduct()} style={styles.container}>
       <FastImage
         isPath
-        source={{uri: data?.image?.url}}
+        source={{ uri: data?.image?.url }}
         style={styles.img}
         resizeMode={RNFastImage.resizeMode.stretch}
       />
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
   },
   txtTaste: {
     marginTop: scale(6),
-    fontSize: fontSize.small,
+    fontSize: fontSize.fontSize12,
     color: colors.gray,
   },
   content: {
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: scale(15),
     textAlign: 'auto',
-    fontSize: fontSize.big,
+    fontSize: fontSize.fontSize20,
   },
   plus: {
     flex: 1,
@@ -137,11 +140,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.orange_FE724C,
   },
   vwIconFavorite: {
-    width: wScale(20),
-    height: wScale(20),
+    width: scale(20),
+    height: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
 
-export default observer(CardProducts);
+export default CardProducts;

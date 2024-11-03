@@ -10,7 +10,8 @@ import { scale } from '@resolutions';
 import CardMenu from './CardMenu';
 
 const Menu = () => {
-    const { categories, isLoadingCategories } = useSelector(categorySelector);
+    const { categories, relatedCategories } = useSelector(categorySelector);
+    const { isLoadingCategories } = relatedCategories;
 
     const keyExtractor = (_: any, index: number) => index.toString();
 

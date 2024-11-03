@@ -38,6 +38,7 @@ import {
     loadMoreListProducts,
     fetchApiDetailProducts,
     ProductData,
+    ProductsData,
 } from './product';
 
 import {
@@ -109,4 +110,5 @@ export type {
 
     // product
     ProductData,
+    ProductsData,
 };

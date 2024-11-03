@@ -1,28 +1,39 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {colors, fontSize, radius} from '@constants';
-import {resolutions} from '@utils';
-import {Text, Button, FastImage} from '@components';
+import { colors, fontSize, radius } from '@constants';
+import { Text, Button, FastImage } from '@components';
+import { scale } from '@resolutions';
+import { CategoryData } from '@reducers';
 
-const {scale} = resolutions;
+interface CardProps {
+  data?: CategoryData;
+  bgLG?: any;
+  onPressCard?: (data: any) => void;
+}
 
-const Card = ({data, bgLG, onPressCard}) => {
+const Card = ({ data, bgLG, onPressCard }: CardProps) => {
+  const onPress = () => {
+    if (onPressCard) {
+      onPressCard(data);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 0}}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
         colors={bgLG}
         style={styles.linearGradient}>
-        <Button onPress={() => onPressCard(data)} style={styles.btn}>
+        <Button onPress={onPress} style={styles.btn}>
           <Text bold style={styles.text}>
             {data?.name}
           </Text>
           <FastImage
             isPath
-            source={{uri: data?.image?.url}}
+            source={{ uri: data?.image?.url }}
             style={styles.img}
           />
         </Button>
@@ -42,7 +53,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.radius6,
   },
   text: {
-    fontSize: fontSize.huge,
+    fontSize: fontSize.fontSize24,
     color: colors.white,
   },
   btn: {

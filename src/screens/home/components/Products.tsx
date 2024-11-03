@@ -17,7 +17,8 @@ const Products = ({ animatedValue }: ProductsProps) => {
     const scrollViewRef = useRef<Animated.FlatList<any>>(null);
     const scrollDirection = useRef('');
 
-    const { categories, isLoadingCategories } = useSelector(categorySelector);
+    const { categories, relatedCategories } = useSelector(categorySelector);
+    const { isLoadingCategories } = relatedCategories;
 
     const keyExtractor = (_: any, index: number) => index.toString();
 

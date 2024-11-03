@@ -13,6 +13,9 @@ export interface CategoryData {
 }
 
 export interface CategoriesData {
-  isLoadingCategories?: boolean,
   data?: CategoryData[],
+}
+
+export interface RelatedCategoriesData {
+  isLoadingCategories?: boolean,
 }

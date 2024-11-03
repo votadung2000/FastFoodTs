@@ -9,7 +9,7 @@ import {
     loadMoreListProducts,
     fetchApiDetailProducts,
 } from './product.api';
-import { ProductData } from './product.types';
+import { ProductData, ProductsData } from './product.types';
 
 export {
     productReducer,
@@ -25,4 +25,5 @@ export {
 
 export type {
     ProductData,
+    ProductsData,
 };

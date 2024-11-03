@@ -4,6 +4,7 @@ import limitedString from './limitedString';
 import formatCurrency from './formatCurrency';
 import findId from './findId';
 import handleDataOdd from './handleDataOdd';
+import findBgLg from './findBgLg';
 
 export {
   resolutions,
@@ -12,4 +13,5 @@ export {
   formatCurrency,
   findId,
   handleDataOdd,
+  findBgLg,
 };
