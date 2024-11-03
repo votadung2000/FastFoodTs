@@ -9,7 +9,7 @@ import RNFastImage from 'react-native-fast-image';
 import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { formatCurrency } from '@utils';
-import { fetchApiDetailProducts, ProductData } from '@reducers';
+import { addToCart, fetchApiDetailProducts, ProductData } from '@reducers';
 import { wScale, scale } from '@resolutions';
 import { useAppDispatch } from '@store';
 import routes from '@routes';
@@ -26,7 +26,7 @@ const CardProducts = ({ data }: { data: ProductData }) => {
   };
 
   const handlePlusCart = () => {
-    // fetchCartProduct(data);
+    dispatch(addToCart(data));
   };
 
   return (

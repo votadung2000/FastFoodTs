@@ -15,6 +15,7 @@ import { formatCurrency } from '@utils';
 import { colors, fontSize, radius } from '@constants';
 import { hScale, scale, wScale } from '@resolutions';
 import {
+  addToCart,
   fetchApiDetailProducts,
   productSelector,
   userSelector,
@@ -35,7 +36,6 @@ const ProductsDetailScreen = () => {
   const { user } = useSelector(userSelector);
 
   // const {
-  //   cartProductsStore: { fetchCartProduct },
   //   favoritesStore: { fetchApiCDFavorite },
   //   productsStore: { product, fetchApiDetailProducts },
   //   userStore: { user },
@@ -73,7 +73,7 @@ const ProductsDetailScreen = () => {
   };
 
   const handlePlusCart = () => {
-    // fetchCartProduct(product);
+    dispatch(addToCart(product));
   };
 
   if (!product) {

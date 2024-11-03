@@ -10,9 +10,9 @@ import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { formatCurrency } from '@utils';
 import { wScale, scale } from '@resolutions';
-import { fetchApiDetailProducts, ProductData } from '@reducers';
-import routes from '@routes';
+import { addToCart, fetchApiDetailProducts, ProductData } from '@reducers';
 import { useAppDispatch } from '@store';
+import routes from '@routes';
 
 const { width } = Dimensions.get('window');
 
@@ -21,18 +21,13 @@ const CardProducts = ({ data }: { data: ProductData }) => {
 
   const dispatch = useAppDispatch();
 
-  // const {
-  //   productsStore: { fetchApiDetailProducts },
-  //   cartProductsStore: { fetchCartProduct },
-  // } = useStore();
-
   const handleProduct = () => {
     dispatch(fetchApiDetailProducts({ id: data?.id }));
     navigation.navigate(routes.ProductsDetailScreen);
   };
 
   const handlePlusCart = () => {
-    // fetchCartProduct(data);
+    dispatch(addToCart(data));
   };
 
   return (

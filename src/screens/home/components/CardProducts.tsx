@@ -11,6 +11,7 @@ import { colors, fontSize, radius } from '@constants';
 import { formatCurrency } from '@utils';
 import { hScale, wScale, scale } from '@resolutions';
 import {
+  addToCart,
   CategoryData,
   fetchApiDetailProducts,
   ProductData,
@@ -28,7 +29,7 @@ const CardProducts = ({ data }: { data: CategoryData }) => {
   };
 
   const handlePlusCart = (item: ProductData) => {
-    // fetchCartProduct(item);
+    dispatch(addToCart(item));
   };
 
   const keyExtractor = (_: any, index: number) => index.toString();
