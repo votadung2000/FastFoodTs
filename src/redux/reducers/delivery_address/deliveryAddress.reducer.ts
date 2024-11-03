@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { handleErrorApi } from '@common';
+// import { handleErrorApi } from '@common';
 
 import { CurrentAddressData } from './deliveryAddress.types';
 import { fetchApiCurrentAddress } from './deliveryAddress.api';
@@ -27,8 +27,9 @@ const deliveryAddressSlice = createSlice({
                 state.currentAddress = action.payload?.data;
             })
             .addCase(fetchApiCurrentAddress.rejected, (state, action) => {
+                state.currentAddress = {};
                 state.currentAddress.isLoadingCurrentAddress = false;
-                handleErrorApi(action?.error);
+                // handleErrorApi(action?.error);
             });
     },
 });
