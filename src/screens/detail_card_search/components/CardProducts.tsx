@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.orange_FE724C,
   },
   vwIconFavorite: {
-    width: wScale(20),
-    height: wScale(20),
+    width: scale(20),
+    height: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
   },

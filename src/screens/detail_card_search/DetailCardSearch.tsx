@@ -21,8 +21,8 @@ const DetailCardSearch = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const dispatch = useAppDispatch();
 
-  const { products } = useSelector(productSelector);
-  const { filterPr } = products;
+  const { relatedProducts } = useSelector(productSelector);
+  const { filterPr } = relatedProducts;
 
   const [txtSearch, setTxtSearch] = useState('');
 
@@ -47,7 +47,7 @@ const DetailCardSearch = () => {
   return (
     <View style={styles.container}>
       <Back
-        title={`Popular ${filterPr?.category_id?.name || ''}`}
+        title={`Popular ${filterPr?.category?.name || ''}`}
         handleGoBack={handleGoBack}
       />
       <View style={styles.content}>

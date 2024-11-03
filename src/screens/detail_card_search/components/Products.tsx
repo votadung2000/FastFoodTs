@@ -55,7 +55,7 @@ const Products = () => {
             : (
               <EmptyComponent
                 title="Product's Empty"
-                source={{ uri: filterPr?.category_id?.image?.url }}
+                source={{ uri: filterPr?.category?.image?.url }}
               />
             )
         }
