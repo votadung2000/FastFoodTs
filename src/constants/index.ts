@@ -4,8 +4,11 @@ import radius from './radius';
 
 import DATA_CAROUSEL from './dataCarousel';
 // import OPTION_IMAGE, {DATA_OPTION_IMAGE} from './dataOptionImage';
-// import TAB_ORDER, {DATA_TAB_ORDER} from './dataTabOrder';
+import TAB_ORDER, { DATA_TAB_ORDER, TabOrder } from './dataTabOrder';
 // import POPUP_MENU, {DATA_POPUP_MENU} from './dataPopupMenu';
+/* The line `// import TAB_ORDER, {DATA_TAB_ORDER} from './dataTabOrder';` is a commented-out import
+statement in TypeScript. It is not being used in the current code but seems to be a reference to
+importing `TAB_ORDER` and `DATA_TAB_ORDER` from the file `dataTabOrder`. */
 
 // import STATUS_NOTIFY, {
 //   STATUS_SETTING_NOTIFY,
@@ -42,8 +45,8 @@ export {
   // OPTION_IMAGE,
   // DATA_OPTION_IMAGE,
 
-  // TAB_ORDER,
-  // DATA_TAB_ORDER,
+  TAB_ORDER,
+  DATA_TAB_ORDER,
 
   // POPUP_MENU,
   // DATA_POPUP_MENU,
@@ -72,4 +75,8 @@ export {
   // DATA_DEFAULT_DELIVERY_ADDRESS,
   // findDefaultDeliveryAddress,
   // checkDefaultDeliveryAddress,
+};
+
+export type {
+  TabOrder,
 };

@@ -16,6 +16,7 @@ import {
   CartData,
   cartSelector,
   clearCart,
+  fetchApiCreateOrder,
   userSelector,
 } from '@reducers';
 import { useAppDispatch } from '@store';
@@ -51,19 +52,20 @@ const CartScreen = () => {
         })),
       };
 
-      // let response = await fetchApiCreateOrder(body);
-      // if (response.payload?.status_code === 200) {
-      //   setLoading({
-      //     isVisible: false,
-      //     onModalHide: async () => {
-      //       Notifer({
-      //         alertType: 'success',
-      //         title: 'Order Successfully!',
-      //       });
-      //       dispatch(clearCart());
-      //     },
-      //   });
-      // }
+      let response = await dispatch(fetchApiCreateOrder(body));
+      console.log('fetchApiCreateOrder.response', response);
+      if (response.payload?.status_code === 200) {
+        setLoading({
+          isVisible: false,
+          onModalHide: async () => {
+            Notifer({
+              alertType: 'success',
+              title: 'Order Successfully!',
+            });
+            dispatch(clearCart());
+          },
+        });
+      }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });
     }

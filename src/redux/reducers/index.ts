@@ -69,6 +69,18 @@ import {
     CartData,
 } from './cart';
 
+import {
+    orderReducer,
+    fetchRating,
+    handleTabSwitch,
+    initTab,
+    orderSelector,
+    fetchApiCreateOrder,
+    fetchApiListOrder,
+    fetchApiDetailOrder,
+    fetchApiUpdateOrder,
+} from './order';
+
 export {
     // auth
     authReducer,
@@ -128,6 +140,17 @@ export {
     removeProducts,
     clearCart,
     cartSelector,
+
+    // order
+    orderReducer,
+    fetchRating,
+    handleTabSwitch,
+    initTab,
+    orderSelector,
+    fetchApiCreateOrder,
+    fetchApiListOrder,
+    fetchApiDetailOrder,
+    fetchApiUpdateOrder,
 };
 
 export type {

@@ -11,7 +11,9 @@ import {
     locationReducer,
     deliveryAddressReducer,
     cartReducer,
+    orderReducer,
 } from '@reducers';
+
 const store = configureStore({
     reducer: {
         auth: authReducer,
@@ -22,6 +24,7 @@ const store = configureStore({
         location: locationReducer,
         deliveryAddress: deliveryAddressReducer,
         cart: cartReducer,
+        order: orderReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {
