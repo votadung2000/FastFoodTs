@@ -3,7 +3,13 @@ import { StyleSheet, View, Image, ScrollView } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import { Button, Text, FastImage, Popup, PopupProps } from '@components';
+import {
+  Button,
+  Text,
+  FastImage,
+  Popup,
+  PopupProps,
+} from '@components';
 import {
   SVG_My_Order,
   SVG_Profile,
@@ -15,7 +21,12 @@ import {
 } from '@svg';
 import { clearToken } from '@storage';
 import { useSelector } from 'react-redux';
-import { updateUser, userSelector } from '@reducers';
+import {
+  fetchApiListOrder,
+  orderSelector,
+  updateUser,
+  userSelector,
+} from '@reducers';
 import { useAppDispatch } from '@store';
 import { colors, fontSize } from '@constants';
 import { hScale, scale, wScale } from '@resolutions';
@@ -33,18 +44,16 @@ const Menu = () => {
   const dispatch = useAppDispatch();
 
   const { user } = useSelector(userSelector);
-
-  // const {
-  //   orderStore: {orders, fetchApiListOrder},
-  // } = useStore();
+  const { orders } = useSelector(orderSelector);
 
   const [popup, setPopup] = useState<PopupState>({ isVisible: false });
 
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     fetchApiListOrder({is_upcoming: true});
-  //   }, []),
-  // );
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(fetchApiListOrder({ is_upcoming: true }));
+    }, []),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  );
 
   const handleNav = (screen: string) => {
     navigation.navigate(screen);
@@ -99,8 +108,7 @@ const Menu = () => {
         <View style={styles.menu}>
           <ItemMenu
             label={'My Orders'}
-            // count={orders?.length || 0}
-            count={0}
+            count={orders?.length || 0}
             Icon={<SVG_My_Order />}
             onPress={() => handleNav(routes.OrderScreen)}
           />
