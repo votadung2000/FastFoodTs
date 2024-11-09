@@ -1,12 +1,17 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {Text} from '@components';
-import {colors} from '@constants';
-import {currencyUs} from '@utils';
-import {scale} from '@resolutions';
+import { Text } from '@components';
+import { colors } from '@constants';
+import { currencyUs } from '@utils';
+import { scale } from '@resolutions';
 
-const Item = ({label, value, bold}) => {
+interface ItemProps {
+  label?: string;
+  value?: number;
+}
+
+const Item = ({ label, value }: ItemProps) => {
   return (
     <View style={styles.container}>
       <Text medium style={styles.label}>

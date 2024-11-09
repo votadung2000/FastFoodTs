@@ -1,37 +1,45 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {observer} from 'mobx-react';
+import { View, StyleSheet } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import RNFastImage from 'react-native-fast-image';
 
-import {Text, Button, ChangeQuantity, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constants';
-import {currencyUs} from '@utils';
-import {useStore} from '@context';
-import {scale, wScale} from '@resolutions';
+import {
+  Text,
+  Button,
+  ChangeQuantity,
+  FastImage,
+} from '@components';
+import {
+  CartData,
+  minusProducts,
+  plusProducts,
+  removeProducts,
+} from '@reducers';
+import { useAppDispatch } from '@store';
+import { colors, fontSize, radius } from '@constants';
+import { currencyUs } from '@utils';
+import { scale, wScale } from '@resolutions';
 
-const CardCart = ({data}) => {
-  const {
-    cartProductsStore: {plusProducts, minusProducts, removeProducts},
-  } = useStore();
+const CardCart = ({ data }: { data: CartData }) => {
+  const dispatch = useAppDispatch();
 
-  const handleRemove = item => {
-    removeProducts(item);
+  const handleRemove = (item: CartData) => {
+    dispatch(removeProducts(item));
   };
 
-  const handlePlus = item => {
-    plusProducts(item);
+  const handlePlus = (item: CartData) => {
+    dispatch(plusProducts(item));
   };
 
-  const handleMinus = item => {
-    minusProducts(item);
+  const handleMinus = (item: CartData) => {
+    dispatch(minusProducts(item));
   };
 
   return (
     <View style={styles.container}>
       <FastImage
         isPath
-        source={{uri: data?.image?.url}}
+        source={{ uri: data?.image?.url }}
         style={styles.img}
         resizeMode={RNFastImage.resizeMode.stretch}
       />
@@ -53,7 +61,7 @@ const CardCart = ({data}) => {
             {`${currencyUs(data?.price)} `}
           </Text>
           <ChangeQuantity
-            quantity={data?.quantity}
+            quantity={data?.order_quantity}
             handlePlus={() => handlePlus(data)}
             handleMinus={() => handleMinus(data)}
           />
@@ -97,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   name: {
-    fontSize: fontSize.large,
+    fontSize: fontSize.fontSize18,
   },
   remove: {
     justifyContent: 'center',
@@ -109,4 +117,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(CardCart);
+export default CardCart;
