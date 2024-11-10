@@ -78,6 +78,16 @@ import {
     fetchApiUpdateOrder,
 } from './order';
 
+import {
+    favoriteReducer,
+    updateFilterFavorites,
+    clearFilterFavorites,
+    favoriteSelector,
+    fetchApiListFavorites,
+    FavoritesData,
+    FavoriteData,
+} from './favorite';
+
 export {
     // auth
     authReducer,
@@ -145,6 +155,13 @@ export {
     fetchApiListOrder,
     fetchApiDetailOrder,
     fetchApiUpdateOrder,
+
+    // favorite
+    favoriteReducer,
+    updateFilterFavorites,
+    clearFilterFavorites,
+    favoriteSelector,
+    fetchApiListFavorites,
 };
 
 export type {
@@ -157,4 +174,8 @@ export type {
 
     // cart
     CartData,
+
+    // favorite
+    FavoritesData,
+    FavoriteData,
 };

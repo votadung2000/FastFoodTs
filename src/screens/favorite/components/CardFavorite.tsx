@@ -8,21 +8,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { formatCurrency } from '@utils';
-import routes from '@routes';
 import { scale } from '@resolutions';
 import { useAppDispatch } from '@store';
-import { fetchApiDetailProducts } from '@reducers';
+import { fetchApiDetailProducts, ProductData } from '@reducers';
+import routes from '@routes';
 
-const CardFavorite = ({ data }: { data: any }) => {
+const CardFavorite = ({ data }: { data: ProductData }) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const dispatch = useAppDispatch();
 
-  // const {
-  //   productsStore: {fetchApiDetailProducts},
-  // } = useStore();
-
   const handleProduct = () => {
-    dispatch(fetchApiDetailProducts(data?.id));
+    dispatch(fetchApiDetailProducts({ id: data?.id }));
     navigation.navigate(routes.ProductsDetailScreen);
   };
 

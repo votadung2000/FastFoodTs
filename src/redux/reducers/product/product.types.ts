@@ -32,7 +32,7 @@ export interface RelatedProductsData {
 export interface RequestedFilter {
   page?: number;
   perPage?: number;
-  category_id?: any;
+  category_id?: number;
   name?: string;
 }
 

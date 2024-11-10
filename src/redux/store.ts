@@ -12,6 +12,7 @@ import {
     deliveryAddressReducer,
     cartReducer,
     orderReducer,
+    favoriteReducer,
 } from '@reducers';
 
 const store = configureStore({
@@ -25,6 +26,7 @@ const store = configureStore({
         deliveryAddress: deliveryAddressReducer,
         cart: cartReducer,
         order: orderReducer,
+        favorite: favoriteReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {

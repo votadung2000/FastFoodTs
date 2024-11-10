@@ -1,27 +1,28 @@
 import React from 'react';
 import { StyleSheet, View, Image, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import { Text } from '@components';
 import { colors, fontSize } from '@constants';
 import { hScale, scale } from '@resolutions';
+import { FavoriteData, favoriteSelector } from '@reducers';
 
 import CardFavorite from './CardFavorite';
 
 const HeartProducts = () => {
-  // const {
-  //   favoritesStore: { favorites, filterFavorites, isLoadingFavorites },
-  // } = useStore();
+  const { favorites, relatedFavorites } = useSelector(favoriteSelector);
+  const { isLoadingFavorites, filterFavorites } = relatedFavorites;
 
   const keyExtractor = (_: any, index: number) => index.toString();
 
-  const renderItem = ({ item }: { item: any }) => {
-    return <CardFavorite data={item} />;
+  const renderItem = ({ item }: { item: FavoriteData }) => {
+    return <CardFavorite data={item?.product} />;
   };
 
   const EmptyFavorite = () => {
     return (
       <View style={styles.emptyContainer}>
-        <Image source={{ uri: 'hearts_empty' }} style={styles.emptyImg} />
+        <Image source={require('@images/favorites_empty.png')} style={styles.emptyImg} />
         <Text bold style={styles.txtEmpty}>
           {"Favorite's Empty"}
         </Text>
@@ -32,10 +33,10 @@ const HeartProducts = () => {
   return (
     <View style={styles.container}>
       <Text bold style={styles.title}>
-        {/* {filterFavorites?.category_id?.name || 'All'} */}
+        {filterFavorites?.category?.name || 'All'}
       </Text>
-      {/* <FlatList
-        data={favorites}
+      <FlatList
+        data={favorites?.data}
         showsVerticalScrollIndicator={false}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
@@ -46,7 +47,7 @@ const HeartProducts = () => {
           isLoadingFavorites
             ? null
             : <EmptyFavorite />}
-      /> */}
+      />
     </View>
   );
 };
