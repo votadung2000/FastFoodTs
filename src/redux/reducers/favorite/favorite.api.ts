@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 
 import { ApiFavorites } from '@api';
 import { handleApiCall, Params } from '@common';
-import { updateFilterFavorites, userSelector } from '@reducers';
+import { updateFilterFavorites } from '@reducers';
 
 import { Filter, RelatedFavoritesData, RequestedFilter } from './favorite.types';
 

@@ -9,7 +9,18 @@ import { FavoriteData, favoriteSelector } from '@reducers';
 
 import CardFavorite from './CardFavorite';
 
-const HeartProducts = () => {
+const EmptyFavorite = () => {
+  return (
+    <View style={styles.emptyContainer}>
+      <Image source={require('@images/favorites_empty.png')} style={styles.emptyImg} />
+      <Text bold style={styles.txtEmpty}>
+        {"Favorite's Empty"}
+      </Text>
+    </View>
+  );
+};
+
+const FavoriteProducts = () => {
   const { favorites, relatedFavorites } = useSelector(favoriteSelector);
   const { isLoadingFavorites, filterFavorites } = relatedFavorites;
 
@@ -17,17 +28,6 @@ const HeartProducts = () => {
 
   const renderItem = ({ item }: { item: FavoriteData }) => {
     return <CardFavorite data={item?.product} />;
-  };
-
-  const EmptyFavorite = () => {
-    return (
-      <View style={styles.emptyContainer}>
-        <Image source={require('@images/favorites_empty.png')} style={styles.emptyImg} />
-        <Text bold style={styles.txtEmpty}>
-          {"Favorite's Empty"}
-        </Text>
-      </View>
-    );
   };
 
   return (
@@ -85,4 +85,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HeartProducts;
+export default FavoriteProducts;

@@ -1,21 +1,27 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import { Text, Button, FastImage } from '@components';
 import { colors, fontSize, radius } from '@constants';
 import { limitedString } from '@utils';
+import {
+  CategoryData,
+  favoriteSelector,
+  fetchApiListFavorites,
+} from '@reducers';
+import { useAppDispatch } from '@store';
 import { scale } from '@resolutions';
-import { CategoryData } from '@reducers';
 
 const CardMenu = ({ data }: { data: CategoryData }) => {
-  // const {
-  //   favoritesStore: {filterFavorites, fetchApiListFavorites},
-  // } = useStore();
+  const dispatch = useAppDispatch();
+  const { relatedFavorites } = useSelector(favoriteSelector);
+  const { filterFavorites } = relatedFavorites;
 
   const handleItem = () => {
-    // if (filterFavorites?.category_id?.id !== data?.id) {
-    //   fetchApiListFavorites({category_id: data});
-    // }
+    if (filterFavorites?.category?.id !== data?.id) {
+      dispatch(fetchApiListFavorites({ category: data }));
+    }
   };
 
   return (
@@ -23,9 +29,9 @@ const CardMenu = ({ data }: { data: CategoryData }) => {
       onPress={() => handleItem()}
       style={[
         styles.container,
-        // data?.id === filterFavorites?.category_id?.id
-        //   ? styles.upShadow
-        //   : styles.shadow,
+        data?.id === filterFavorites?.category?.id
+          ? styles.upShadow
+          : styles.shadow,
       ]}>
       <FastImage
         isPath
