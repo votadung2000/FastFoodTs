@@ -1,22 +1,21 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {observer} from 'mobx-react';
+import { StyleSheet } from 'react-native';
 
-import {Text, Button, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constants';
-import {limitedString} from '@utils';
-import {useStore} from '@context';
-import {scale} from '@resolutions';
+import { Text, Button, FastImage } from '@components';
+import { colors, fontSize, radius } from '@constants';
+import { limitedString } from '@utils';
+import { scale } from '@resolutions';
+import { CategoryData } from '@reducers';
 
-const CardMenu = ({data}) => {
-  const {
-    favoritesStore: {filterFavorites, fetchApiListFavorites},
-  } = useStore();
+const CardMenu = ({ data }: { data: CategoryData }) => {
+  // const {
+  //   favoritesStore: {filterFavorites, fetchApiListFavorites},
+  // } = useStore();
 
   const handleItem = () => {
-    if (filterFavorites?.category_id?.id !== data?.id) {
-      fetchApiListFavorites({category_id: data});
-    }
+    // if (filterFavorites?.category_id?.id !== data?.id) {
+    //   fetchApiListFavorites({category_id: data});
+    // }
   };
 
   return (
@@ -24,13 +23,13 @@ const CardMenu = ({data}) => {
       onPress={() => handleItem()}
       style={[
         styles.container,
-        data?.id === filterFavorites?.category_id?.id
-          ? styles.upShadow
-          : styles.shadow,
+        // data?.id === filterFavorites?.category_id?.id
+        //   ? styles.upShadow
+        //   : styles.shadow,
       ]}>
       <FastImage
         isPath
-        source={{uri: data?.image?.url}}
+        source={{ uri: data?.image?.url }}
         style={styles.imgMenu}
       />
       <Text bold style={styles.txtItem}>
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: scale(8),
   },
   txtItem: {
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
   },
   upShadow: {
     shadowColor: colors.black,
@@ -81,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(CardMenu);
+export default CardMenu;

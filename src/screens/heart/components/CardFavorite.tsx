@@ -1,27 +1,28 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {observer} from 'mobx-react';
-import {useNavigation} from '@react-navigation/native';
+import { StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {Text, Button, FastImage} from '@components';
-import {colors, fontSize, radius} from '@constants';
-import {useStore} from '@context';
-import {formatCurrency, resolutions} from '@utils';
+import { Text, Button, FastImage } from '@components';
+import { colors, fontSize, radius } from '@constants';
+import { formatCurrency } from '@utils';
 import routes from '@routes';
+import { scale } from '@resolutions';
+import { useAppDispatch } from '@store';
+import { fetchApiDetailProducts } from '@reducers';
 
-const {scale} = resolutions;
+const CardFavorite = ({ data }: { data: any }) => {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const dispatch = useAppDispatch();
 
-const CardFavorite = ({data}) => {
-  const navigation = useNavigation();
-
-  const {
-    productsStore: {fetchApiDetailProducts},
-  } = useStore();
+  // const {
+  //   productsStore: {fetchApiDetailProducts},
+  // } = useStore();
 
   const handleProduct = () => {
-    fetchApiDetailProducts(data?.id);
+    dispatch(fetchApiDetailProducts(data?.id));
     navigation.navigate(routes.ProductsDetailScreen);
   };
 
@@ -35,7 +36,7 @@ const CardFavorite = ({data}) => {
 
   return (
     <Button onPress={() => handleProduct()} style={styles.container}>
-      <FastImage isPath source={{uri: data?.image?.url}} style={styles.img} />
+      <FastImage isPath source={{ uri: data?.image?.url }} style={styles.img} />
       <View style={styles.content}>
         <Text bold numberOfLines={1} style={[styles.txtItem, styles.txtName]}>
           {data?.name}
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(5),
   },
   txtTaste: {
-    fontSize: fontSize.small,
+    fontSize: fontSize.fontSize12,
     color: colors.gray,
     marginBottom: scale(6),
   },
@@ -107,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default observer(CardFavorite);
+export default CardFavorite;

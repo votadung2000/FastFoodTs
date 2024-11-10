@@ -1,29 +1,27 @@
 import React from 'react';
-import {StyleSheet, View, Image, FlatList} from 'react-native';
-import {observer} from 'mobx-react';
+import { StyleSheet, View, Image, FlatList } from 'react-native';
 
-import {Text} from '@components';
-import {colors, fontSize} from '@constants';
-import {useStore} from '@context';
-import {hScale, scale} from '@resolutions';
+import { Text } from '@components';
+import { colors, fontSize } from '@constants';
+import { hScale, scale } from '@resolutions';
 
 import CardFavorite from './CardFavorite';
 
 const HeartProducts = () => {
-  const {
-    favoritesStore: {favorites, filterFavorites, isLoadingFavorites},
-  } = useStore();
+  // const {
+  //   favoritesStore: { favorites, filterFavorites, isLoadingFavorites },
+  // } = useStore();
 
-  const keyExtractor = (_, index) => index.toString();
+  const keyExtractor = (_: any, index: number) => index.toString();
 
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }: { item: any }) => {
     return <CardFavorite data={item} />;
   };
 
   const EmptyFavorite = () => {
     return (
       <View style={styles.emptyContainer}>
-        <Image source={{uri: 'hearts_empty'}} style={styles.emptyImg} />
+        <Image source={{ uri: 'hearts_empty' }} style={styles.emptyImg} />
         <Text bold style={styles.txtEmpty}>
           {"Favorite's Empty"}
         </Text>
@@ -34,18 +32,21 @@ const HeartProducts = () => {
   return (
     <View style={styles.container}>
       <Text bold style={styles.title}>
-        {filterFavorites?.category_id?.name || 'All'}
+        {/* {filterFavorites?.category_id?.name || 'All'} */}
       </Text>
-      <FlatList
+      {/* <FlatList
         data={favorites}
         showsVerticalScrollIndicator={false}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         bounces={false}
         contentContainerStyle={styles.containerStyle}
-        scrollIndicatorInsets={{right: 1}}
-        ListEmptyComponent={!isLoadingFavorites && <EmptyFavorite />}
-      />
+        scrollIndicatorInsets={{ right: 1 }}
+        ListEmptyComponent={
+          isLoadingFavorites
+            ? null
+            : <EmptyFavorite />}
+      /> */}
     </View>
   );
 };
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: fontSize.normal,
+    fontSize: fontSize.fontSize15,
     marginTop: scale(5),
     marginBottom: scale(10),
     marginLeft: scale(10),
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
   },
   txtEmpty: {
     color: colors.graySystem2,
-    fontSize: fontSize.large,
+    fontSize: fontSize.fontSize18,
   },
 });
 
-export default observer(HeartProducts);
+export default HeartProducts;
