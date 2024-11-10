@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useNavigationState, useIsFocused } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
 
 import { Text } from '@components';
 import { colors, fontSize } from '@constants';
@@ -11,7 +10,6 @@ import {
   clearFilterFavorites,
   fetchApiListCategories,
   fetchApiListFavorites,
-  userSelector,
 } from '@reducers';
 
 import { Menu, FavoriteProducts } from './components';
@@ -21,12 +19,11 @@ const FavoriteScreen = () => {
   const indexRoute = useNavigationState(state => state?.index);
 
   const dispatch = useAppDispatch();
-  const { user } = useSelector(userSelector);
 
   useEffect(() => {
     if (isFocused) {
       dispatch(fetchApiListCategories());
-      dispatch(fetchApiListFavorites({ user }));
+      dispatch(fetchApiListFavorites({}));
 
       return () => {
         dispatch(clearFilterFavorites());

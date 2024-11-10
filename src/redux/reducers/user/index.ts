@@ -9,6 +9,7 @@ import {
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
 } from './user.api';
+import { UserData } from './user.types';
 
 export {
     userReducer,
@@ -20,4 +21,8 @@ export {
     refetchApiUserProfile,
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
+};
+
+export type {
+    UserData,
 };

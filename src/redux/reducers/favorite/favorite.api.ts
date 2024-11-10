@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ApiFavorites } from '@api';
 import { handleApiCall, Params } from '@common';
-import { updateFilterFavorites } from '@reducers';
+import { updateFilterFavorites, UserData } from '@reducers';
 
 import { Filter, RelatedFavoritesData, RequestedFilter } from './favorite.types';
 
@@ -17,6 +17,9 @@ export const fetchApiListFavorites = createAsyncThunk(
     const { favorite } = getState() as { favorite: { relatedFavorites: RelatedFavoritesData } };
     const { filterFavorites } = favorite?.relatedFavorites || {};
 
+    const { user } = getState() as { user: { user: UserData } };
+    const userId = user?.user?.id;
+
     try {
       const filter = { ...filterFavorites, ...initFilter, ...params };
       const requestedFilter: RequestedFilter = { ...initFilter };
@@ -25,8 +28,8 @@ export const fetchApiListFavorites = createAsyncThunk(
         requestedFilter.category_id = filter.category.id;
       }
 
-      if (filter?.user) {
-        requestedFilter.user_id = filter.user.id;
+      if (userId) {
+        requestedFilter.user_id = userId;
       }
 
       dispatch(updateFilterFavorites(filter));

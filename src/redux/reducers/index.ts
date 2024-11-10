@@ -19,6 +19,7 @@ import {
     fetchApiUpdateProfile,
     fetchApiUpdatePassword,
     updateUser,
+    UserData,
 } from './user';
 
 import {
@@ -165,6 +166,9 @@ export {
 };
 
 export type {
+    // user
+    UserData,
+
     // category
     CategoryData,
 
