@@ -2,9 +2,12 @@ import {
   favoriteReducer,
   updateFilterFavorites,
   clearFilterFavorites,
- } from './favorite.reducer';
+} from './favorite.reducer';
 import { favoriteSelector } from './favorite.selector';
-import {fetchApiListFavorites} from './favorite.api';
+import {
+  fetchApiListFavorites,
+  loadMoreListFavorites,
+} from './favorite.api';
 import { FavoritesData, FavoriteData } from './favorite.types';
 
 export {
@@ -13,6 +16,7 @@ export {
   clearFilterFavorites,
   favoriteSelector,
   fetchApiListFavorites,
+  loadMoreListFavorites,
 };
 
 export type {

@@ -5,7 +5,12 @@ import { useSelector } from 'react-redux';
 import { Text } from '@components';
 import { colors, fontSize } from '@constants';
 import { hScale, scale } from '@resolutions';
-import { FavoriteData, favoriteSelector } from '@reducers';
+import {
+  FavoriteData,
+  favoriteSelector,
+  loadMoreListFavorites,
+} from '@reducers';
+import { useAppDispatch } from '@store';
 
 import CardFavorite from './CardFavorite';
 
@@ -21,13 +26,20 @@ const EmptyFavorite = () => {
 };
 
 const FavoriteProducts = () => {
+  const dispatch = useAppDispatch();
   const { favorites, relatedFavorites } = useSelector(favoriteSelector);
-  const { isLoadingFavorites, filterFavorites } = relatedFavorites;
+  const { isLoadingFavorites, isFetchingFavorites, filterFavorites } = relatedFavorites;
 
   const keyExtractor = (_: any, index: number) => index.toString();
 
   const renderItem = ({ item }: { item: FavoriteData }) => {
     return <CardFavorite data={item?.product} />;
+  };
+
+  const onEndReached = () => {
+    if (!isFetchingFavorites && favorites?.total > favorites?.data?.length) {
+      dispatch(loadMoreListFavorites());
+    }
   };
 
   return (
@@ -40,6 +52,7 @@ const FavoriteProducts = () => {
         showsVerticalScrollIndicator={false}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
+        onEndReached={onEndReached}
         bounces={false}
         contentContainerStyle={styles.containerStyle}
         scrollIndicatorInsets={{ right: 1 }}

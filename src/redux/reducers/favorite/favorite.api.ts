@@ -40,3 +40,39 @@ export const fetchApiListFavorites = createAsyncThunk(
     }
   }
 );
+
+export const loadMoreListFavorites = createAsyncThunk(
+  'favorite/loadMoreListFavorites',
+  async (_, { getState, dispatch, rejectWithValue }) => {
+    const { favorite } = getState() as { favorite: { relatedFavorites: RelatedFavoritesData } };
+    const { filterFavorites } = favorite?.relatedFavorites || {};
+
+    const { user } = getState() as { user: { user: UserData } };
+    const userId = user?.user?.id;
+
+    try {
+      const filter = {
+        ...filterFavorites,
+        page: (filterFavorites?.page || 0) + 1,
+      };
+      const requestedFilter: RequestedFilter = {
+        ...initFilter,
+        page: (filterFavorites?.page || 0) + 1,
+      };
+
+      if (filter?.category?.id) {
+        requestedFilter.category_id = filter.category.id;
+      }
+
+      if (userId) {
+        requestedFilter.user_id = userId;
+      }
+
+      dispatch(updateFilterFavorites(filter));
+      const response = await handleApiCall(() => ApiFavorites(requestedFilter));
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

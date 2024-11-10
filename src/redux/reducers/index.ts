@@ -85,6 +85,7 @@ import {
     clearFilterFavorites,
     favoriteSelector,
     fetchApiListFavorites,
+    loadMoreListFavorites,
     FavoritesData,
     FavoriteData,
 } from './favorite';
@@ -163,6 +164,7 @@ export {
     clearFilterFavorites,
     favoriteSelector,
     fetchApiListFavorites,
+    loadMoreListFavorites,
 };
 
 export type {
