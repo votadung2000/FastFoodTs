@@ -4,25 +4,25 @@ import { useFocusEffect } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
 import { EmptyComponent } from '@components';
-import { scale } from '@resolutions';
 import { SVG_Order_Empty } from '@svg';
+import { useAppDispatch } from '@store';
 import {
   fetchApiListOrder,
-  orderSelector,
   OrderData,
+  orderSelector,
 } from '@reducers';
-import { useAppDispatch } from '@store';
+import { scale } from '@resolutions';
 
 import Card from './Card';
 
-const UpcomingOrderScreen = () => {
+const HistoryOrderScreen = () => {
   const dispatch = useAppDispatch();
   const { orders, relatedOrders } = useSelector(orderSelector);
   const { isLoadingOrders } = relatedOrders;
 
   useFocusEffect(
     useCallback(() => {
-      dispatch(fetchApiListOrder({ is_upcoming: true }));
+      dispatch(fetchApiListOrder({ is_history: true }));
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []),
@@ -48,10 +48,10 @@ const UpcomingOrderScreen = () => {
             ? null
             : (
               <EmptyComponent
-                title="No upcoming orders"
+                title="No history orders"
                 Icon={<SVG_Order_Empty width={scale(120)} height={scale(120)} />}
                 des={
-                  'No upcoming orders have been placed yet.\nDiscover and order now.'
+                  'No order history have been placed yet.\nDiscover and order now.'
                 }
               />
             )
@@ -63,7 +63,7 @@ const UpcomingOrderScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
     paddingHorizontal: scale(25),
   },
   ccSt: {
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UpcomingOrderScreen;
+export default HistoryOrderScreen;

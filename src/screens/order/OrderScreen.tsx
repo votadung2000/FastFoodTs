@@ -20,6 +20,8 @@ const OrderScreen = () => {
     return () => {
       dispatch(initTab());
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
