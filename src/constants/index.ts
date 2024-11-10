@@ -15,13 +15,14 @@ importing `TAB_ORDER` and `DATA_TAB_ORDER` from the file `dataTabOrder`. */
 //   checkStatusReadNotify,
 //   checkStatusOnNotify,
 // } from './statusNotify';
-// import STATUS_ORDER, {
-//   DATA_STATUS_ORDER,
-//   findStatusOrder,
-//   checkStatusWaitingOrder,
-//   checkStatusCancelOrder,
-//   checkStatusFinishOrder,
-// } from './statusOrder';
+
+import STATUS_ORDER, {
+  DATA_STATUS_ORDER,
+  findStatusOrder,
+  checkStatusWaitingOrder,
+  checkStatusCancelOrder,
+  checkStatusFinishOrder,
+} from './statusOrder';
 
 // import TYPE_DELIVERY_ADDRESS, {
 //   DATA_TYPE_DELIVERY_ADDRESS,
@@ -56,12 +57,12 @@ export {
   // checkStatusReadNotify,
   // checkStatusOnNotify,
 
-  // STATUS_ORDER,
-  // DATA_STATUS_ORDER,
-  // findStatusOrder,
-  // checkStatusWaitingOrder,
-  // checkStatusCancelOrder,
-  // checkStatusFinishOrder,
+  STATUS_ORDER,
+  DATA_STATUS_ORDER,
+  findStatusOrder,
+  checkStatusWaitingOrder,
+  checkStatusCancelOrder,
+  checkStatusFinishOrder,
 
   // TYPE_DELIVERY_ADDRESS,
   // DATA_TYPE_DELIVERY_ADDRESS,

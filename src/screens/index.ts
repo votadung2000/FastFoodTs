@@ -14,6 +14,10 @@ import NotificationScreen from './notification';
 import ProductsDetailScreen from './product_detail';
 import DetailCardSearch from './detail_card_search';
 
+import OrderScreen from './order';
+import UpcomingOrderScreen from './upcoming_order';
+import HistoryOrderScreen from './history_order';
+
 export {
     SplashScreen,
     CarouselScreen,
@@ -30,4 +34,8 @@ export {
 
     ProductsDetailScreen,
     DetailCardSearch,
+
+    OrderScreen,
+    UpcomingOrderScreen,
+    HistoryOrderScreen,
 };

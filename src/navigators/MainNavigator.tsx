@@ -5,7 +5,10 @@ import routes from '@routes';
 
 import {
     DetailCardSearch,
+    HistoryOrderScreen,
+    OrderScreen,
     ProductsDetailScreen,
+    UpcomingOrderScreen,
 } from '@screens';
 
 import BottomTabNavigator from './BottomTabNavigator';
@@ -24,6 +27,9 @@ const MainNavigator = () => {
             <Stack.Screen name={routes.BottomTabNavigator} component={BottomTabNavigator} />
             <Stack.Screen name={routes.ProductsDetailScreen} component={ProductsDetailScreen} />
             <Stack.Screen name={routes.DetailCardSearch} component={DetailCardSearch} />
+            <Stack.Screen name={routes.OrderScreen} component={OrderScreen} />
+            <Stack.Screen name={routes.UpcomingOrderScreen} component={UpcomingOrderScreen} />
+            <Stack.Screen name={routes.HistoryOrderScreen} component={HistoryOrderScreen} />
         </Stack.Navigator>
     );
 };

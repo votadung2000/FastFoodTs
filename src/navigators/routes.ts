@@ -17,6 +17,10 @@ const routes = {
   FavoriteScreen: 'FavoriteScreen',
   NotificationScreen: 'NotificationScreen',
 
+  OrderScreen: 'OrderScreen',
+  UpcomingOrderScreen: 'UpcomingOrderScreen',
+  HistoryOrderScreen: 'HistoryOrderScreen',
+
   ProductsDetailScreen: 'ProductsDetailScreen',
   Logging: 'Logging',
   ProfileScreen: 'ProfileScreen',
@@ -27,9 +31,6 @@ const routes = {
   SettingScreen: 'SettingScreen',
   ChangePasswordScreen: 'ChangePasswordScreen',
   PrivacyPolicyScreen: 'PrivacyPolicyScreen',
-  OrderScreen: 'OrderScreen',
-  UpcomingOrderScreen: 'UpcomingOrderScreen',
-  HistoryOrderScreen: 'HistoryOrderScreen',
   OrderDetailsScreen: 'OrderDetailsScreen',
   DeliveryAddressScreen: 'DeliveryAddressScreen',
   RatingScreen: 'RatingScreen',
