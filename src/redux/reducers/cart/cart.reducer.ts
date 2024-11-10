@@ -7,6 +7,11 @@ import { CartData } from './cart.types';
 
 const cartData: CartData[] = [];
 
+const calculateCosts = (state: any) => {
+  state.subtotal = state.cart.reduce((acc: number, current: CartData) => acc + current.price! * current.order_quantity!, 0);
+  state.total = state.subtotal - state.discount;
+};
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -28,7 +33,9 @@ const cartSlice = createSlice({
         } else {
           state.cart.push(formatCart(action.payload));
         }
-        cartSlice.actions.handleUpdateCost;
+
+        calculateCosts(state);
+
         Notifer({
           title: 'Added To Cart Successfully',
           alertType: 'success',
@@ -41,55 +48,40 @@ const cartSlice = createSlice({
       }
     },
 
-    handleUpdateCost() {
-      cartSlice.actions.updateTotal;
-      cartSlice.actions.updateCost;
-    },
-
-    updateTotal(state) {
-      try {
-        const reducerReducer = (previousValue: number, currentValue: number) =>
-          previousValue + currentValue;
-        if (state.cart?.length > 0) {
-          let totalArr = state.cart.map(
-            item => item.price! * item.order_quantity!,
-          );
-          state.subtotal = totalArr.reduce(reducerReducer);
-        } else {
-          state.subtotal = 0;
-        }
-      } catch (error) { }
-    },
-
-    updateCost(state) {
-      state.total = state.subtotal - state.discount;
-    },
-
     plusProducts(state, action) {
       try {
         let indexPr = state.cart.findIndex(item => item?.id === action.payload?.id);
         state.cart[indexPr].order_quantity!++;
-        cartSlice.actions.handleUpdateCost();
+        calculateCosts(state);
       } catch (error) { }
     },
 
     minusProducts(state, action) {
       try {
         let indexPr = state.cart.findIndex(item => item?.id === action.payload?.id);
-        let quantity = state.cart[indexPr].order_quantity;
-        if (quantity === 1) {
-          cartSlice.actions.removeProducts(action.payload);
-        } else {
-          state.cart[indexPr].order_quantity!--;
+        if (indexPr !== -1) {
+          let orderQuantity = state.cart[indexPr].order_quantity;
+          if (orderQuantity === 1) {
+            state.cart.splice(indexPr, 1);
+            Notifer({
+              title: 'Product Deleted Successfully',
+              alertType: 'success',
+            });
+          } else {
+            state.cart[indexPr].order_quantity!--;
+          }
+
+          calculateCosts(state);
         }
-        cartSlice.actions.handleUpdateCost();
       } catch (error) { }
     },
 
     removeProducts(state, action) {
       try {
         state.cart = state.cart.filter(item => item?.id !== action.payload?.id);
-        cartSlice.actions.handleUpdateCost();
+
+        calculateCosts(state);
+
         Notifer({
           title: 'Product Deleted Successfully',
           alertType: 'success',
@@ -115,9 +107,6 @@ export const cartReducer = cartSlice.reducer;
 
 export const {
   addToCart,
-  handleUpdateCost,
-  updateTotal,
-  updateCost,
   plusProducts,
   minusProducts,
   removeProducts,

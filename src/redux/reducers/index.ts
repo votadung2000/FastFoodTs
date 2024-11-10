@@ -58,9 +58,6 @@ import {
 import {
     cartReducer,
     addToCart,
-    handleUpdateCost,
-    updateTotal,
-    updateCost,
     plusProducts,
     minusProducts,
     removeProducts,
@@ -132,9 +129,6 @@ export {
     // cart
     cartReducer,
     addToCart,
-    handleUpdateCost,
-    updateTotal,
-    updateCost,
     plusProducts,
     minusProducts,
     removeProducts,

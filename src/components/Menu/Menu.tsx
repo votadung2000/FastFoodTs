@@ -51,8 +51,9 @@ const Menu = () => {
   useFocusEffect(
     useCallback(() => {
       dispatch(fetchApiListOrder({ is_upcoming: true }));
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   );
 
   const handleNav = (screen: string) => {

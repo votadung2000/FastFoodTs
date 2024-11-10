@@ -1,9 +1,6 @@
 import {
   cartReducer,
   addToCart,
-  handleUpdateCost,
-  updateTotal,
-  updateCost,
   plusProducts,
   minusProducts,
   removeProducts,
@@ -16,9 +13,6 @@ export {
   cartReducer,
 
   addToCart,
-  handleUpdateCost,
-  updateTotal,
-  updateCost,
   plusProducts,
   minusProducts,
   removeProducts,
