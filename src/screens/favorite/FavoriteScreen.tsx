@@ -8,9 +8,9 @@ import { scale } from '@resolutions';
 import { useAppDispatch } from '@store';
 import { fetchApiListCategories } from '@reducers';
 
-import {Menu, HeartProducts} from './components';
+import {Menu, FavoriteProducts} from './components';
 
-const HeartScreen = () => {
+const FavoriteScreen = () => {
   const isFocused = useIsFocused();
   const indexRoute = useNavigationState(state => state?.index);
 
@@ -39,7 +39,7 @@ const HeartScreen = () => {
       </Text>
       <View style={styles.body}>
         <Menu />
-        <HeartProducts />
+        <FavoriteProducts />
       </View>
     </View>
   );
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HeartScreen;
+export default FavoriteScreen;

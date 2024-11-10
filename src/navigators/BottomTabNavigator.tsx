@@ -8,7 +8,7 @@ import {
     HomeScreen,
     SearchScreen,
     CartScreen,
-    HeartScreen,
+    FavoriteScreen,
     NotificationScreen,
 } from '@screens';
 import { Menu } from '@components';
@@ -156,11 +156,11 @@ const BottomTabArr: BottomTabItem[] = [
     },
     {
         id: 4,
-        name: routes.HeartScreen,
+        name: routes.FavoriteScreen,
         keyLabel: 'Heart',
         Icon: <Ionicons name="heart" size={scale(26)} color={colors.gray_D3D1D8} />,
         IconFocused: <Ionicons name="heart" size={scale(26)} color={colors.orange_FE724C} />,
-        component: HeartScreen,
+        component: FavoriteScreen,
     },
     {
         id: 5,
