@@ -28,7 +28,7 @@ const relatedOrderData: RelatedOrderData = {
 
 const rating: OrderData = {};
 
-const tab: TabOrder = {};
+const tab: TabOrder = TAB_ORDER.UPCOMING;
 
 const orderSlice = createSlice({
   name: 'order',
@@ -62,7 +62,7 @@ const orderSlice = createSlice({
       })
       .addCase(fetchApiListOrder.fulfilled, (state, action) => {
         state.relatedOrders.isLoadingOrders = false;
-        state.orders = action.payload;
+        state.orders = action.payload?.data;
       })
       .addCase(fetchApiListOrder.rejected, (state, action) => {
         state.relatedOrders.isLoadingOrders = false;

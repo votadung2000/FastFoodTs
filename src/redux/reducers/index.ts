@@ -78,6 +78,7 @@ import {
     fetchApiDetailOrder,
     fetchApiUpdateOrder,
     OrderData,
+    OrderItem,
 } from './order';
 
 import {
@@ -186,6 +187,7 @@ export type {
 
     // order
     OrderData,
+    OrderItem,
 
     // favorite
     FavoritesData,

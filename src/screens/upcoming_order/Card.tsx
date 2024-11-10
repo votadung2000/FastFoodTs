@@ -34,10 +34,6 @@ const Card = ({ data }: { data: OrderData }) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const dispatch = useAppDispatch();
 
-  // const {
-  //   orderStore: { fetchApiUpdateOrder, fetchApiListOrder, handleOrderDetails },
-  // } = useStore();
-
   const [loading, setLoading] = useState<LoadingState>({ isVisible: false });
   const [popup, setPopup] = useState<PopupState>({ isVisible: false });
 
@@ -78,7 +74,7 @@ const Card = ({ data }: { data: OrderData }) => {
       };
 
       let response = await dispatch(fetchApiUpdateOrder(body));
-      if (response) {
+      if (response.payload?.status_code === 200) {
         setLoading({
           isVisible: false,
           onModalHide: async () => {

@@ -6,6 +6,7 @@ import routes from '@routes';
 import {
     DetailCardSearch,
     HistoryOrderScreen,
+    OrderDetailsScreen,
     OrderScreen,
     ProductsDetailScreen,
     UpcomingOrderScreen,
@@ -30,6 +31,7 @@ const MainNavigator = () => {
             <Stack.Screen name={routes.OrderScreen} component={OrderScreen} />
             <Stack.Screen name={routes.UpcomingOrderScreen} component={UpcomingOrderScreen} />
             <Stack.Screen name={routes.HistoryOrderScreen} component={HistoryOrderScreen} />
+            <Stack.Screen name={routes.OrderDetailsScreen} component={OrderDetailsScreen} />
         </Stack.Navigator>
     );
 };

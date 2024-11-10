@@ -31,7 +31,6 @@ const Card = ({ data }: { data: OrderData }) => {
 
   const handleCard = () => {
     dispatch(fetchApiDetailOrder({ id: data?.id }));
-
     navigation.navigate(routes.OrderDetailsScreen);
   };
 

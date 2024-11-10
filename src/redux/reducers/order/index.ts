@@ -11,7 +11,7 @@ import {
   fetchApiDetailOrder,
   fetchApiUpdateOrder,
 } from './order.api';
-import { OrderData } from './order.types';
+import { OrderData,OrderItem } from './order.types';
 
 export {
   orderReducer,
@@ -30,4 +30,5 @@ export {
 
 export type {
   OrderData,
+  OrderItem,
 };

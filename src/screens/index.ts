@@ -17,6 +17,7 @@ import DetailCardSearch from './detail_card_search';
 import OrderScreen from './order';
 import UpcomingOrderScreen from './upcoming_order';
 import HistoryOrderScreen from './history_order';
+import OrderDetailsScreen from './order_details';
 
 export {
     SplashScreen,
@@ -38,4 +39,5 @@ export {
     OrderScreen,
     UpcomingOrderScreen,
     HistoryOrderScreen,
+    OrderDetailsScreen,
 };

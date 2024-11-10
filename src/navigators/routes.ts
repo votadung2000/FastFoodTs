@@ -20,6 +20,7 @@ const routes = {
   OrderScreen: 'OrderScreen',
   UpcomingOrderScreen: 'UpcomingOrderScreen',
   HistoryOrderScreen: 'HistoryOrderScreen',
+  OrderDetailsScreen: 'OrderDetailsScreen',
 
   ProductsDetailScreen: 'ProductsDetailScreen',
   Logging: 'Logging',
@@ -31,7 +32,6 @@ const routes = {
   SettingScreen: 'SettingScreen',
   ChangePasswordScreen: 'ChangePasswordScreen',
   PrivacyPolicyScreen: 'PrivacyPolicyScreen',
-  OrderDetailsScreen: 'OrderDetailsScreen',
   DeliveryAddressScreen: 'DeliveryAddressScreen',
   RatingScreen: 'RatingScreen',
   DetailDeliveryAddressScreen: 'DetailDeliveryAddressScreen',
