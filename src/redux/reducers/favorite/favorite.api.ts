@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ApiFavorites } from '@api';
+import { ApiCDFavorite, ApiFavorites } from '@api';
 import { handleApiCall, Params } from '@common';
 import { updateFilterFavorites, UserData } from '@reducers';
 
@@ -70,6 +70,18 @@ export const loadMoreListFavorites = createAsyncThunk(
 
       dispatch(updateFilterFavorites(filter));
       const response = await handleApiCall(() => ApiFavorites(requestedFilter));
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const fetchApiCDFavorite = createAsyncThunk(
+  'favorite/fetchApiCDFavorite',
+  async (params: Params = {}, { rejectWithValue }) => {
+    try {
+      const response = await handleApiCall(() => ApiCDFavorite(params));
       return response;
     } catch (error) {
       return rejectWithValue(error);

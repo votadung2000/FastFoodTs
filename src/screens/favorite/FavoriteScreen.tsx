@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useNavigationState, useIsFocused } from '@react-navigation/native';
+import {useFocusEffect } from '@react-navigation/native';
 
 import { Text } from '@components';
 import { colors, fontSize } from '@constants';
@@ -15,23 +15,19 @@ import {
 import { Menu, FavoriteProducts } from './components';
 
 const FavoriteScreen = () => {
-  const isFocused = useIsFocused();
-  const indexRoute = useNavigationState(state => state?.index);
-
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (isFocused) {
+  useFocusEffect(
+    useCallback(() => {
       dispatch(fetchApiListCategories());
       dispatch(fetchApiListFavorites({}));
 
       return () => {
         dispatch(clearFilterFavorites());
       };
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [indexRoute]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []),
+  );
 
   return (
     <View style={styles.container}>

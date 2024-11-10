@@ -16,6 +16,7 @@ import { colors, fontSize, radius } from '@constants';
 import { hScale, scale, wScale } from '@resolutions';
 import {
   addToCart,
+  fetchApiCDFavorite,
   fetchApiDetailProducts,
   productSelector,
   userSelector,
@@ -35,12 +36,6 @@ const ProductsDetailScreen = () => {
   const { product } = useSelector(productSelector);
   const { user } = useSelector(userSelector);
 
-  // const {
-  //   favoritesStore: { fetchApiCDFavorite },
-  //   productsStore: { product, fetchApiDetailProducts },
-  //   userStore: { user },
-  // } = useStore();
-
   const [loading, setLoading] = useState<LoadingState>({ isVisible: false });
 
   const handleFavorite = async () => {
@@ -51,9 +46,9 @@ const ProductsDetailScreen = () => {
         product_id: product?.id,
       };
 
-      // let response = await fetchApiCDFavorite(body);
-      let response = { payload: {} };
-      if (response?.payload) {
+      let response = await dispatch(fetchApiCDFavorite(body));
+      console.log('response',response);
+      if (response.payload?.status_code === 200) {
         setLoading({
           isVisible: false,
           onModalHide: async () => {

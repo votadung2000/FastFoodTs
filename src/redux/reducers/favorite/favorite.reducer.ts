@@ -2,8 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { handleErrorApi } from '@common';
 
-import { FavoritesData, RelatedFavoritesData } from './favorite.types';
-import { fetchApiListFavorites, loadMoreListFavorites } from './favorite.api';
+import {
+  FavoritesData,
+  RelatedFavoritesData,
+} from './favorite.types';
+import {
+  fetchApiCDFavorite,
+  fetchApiListFavorites,
+  loadMoreListFavorites,
+} from './favorite.api';
 
 const favoritesData: FavoritesData = {};
 const relatedFavoritesData: RelatedFavoritesData = {
@@ -41,15 +48,19 @@ const favoriteSlice = createSlice({
 
       .addCase(loadMoreListFavorites.pending, (state) => {
         state.relatedFavorites.isFetchingFavorites = true;
-    })
-    .addCase(loadMoreListFavorites.fulfilled, (state, action) => {
+      })
+      .addCase(loadMoreListFavorites.fulfilled, (state, action) => {
         state.relatedFavorites.isFetchingFavorites = false;
         state.favorites = action.payload;
-    })
-    .addCase(loadMoreListFavorites.rejected, (state, action) => {
+      })
+      .addCase(loadMoreListFavorites.rejected, (state, action) => {
         state.relatedFavorites.isFetchingFavorites = false;
         handleErrorApi(action?.error);
-    });
+      })
+
+      .addCase(fetchApiCDFavorite.rejected, (_, action) => {
+        handleErrorApi(action?.error);
+      });
   },
 });
 

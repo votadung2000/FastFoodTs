@@ -7,6 +7,7 @@ import { favoriteSelector } from './favorite.selector';
 import {
   fetchApiListFavorites,
   loadMoreListFavorites,
+  fetchApiCDFavorite,
 } from './favorite.api';
 import { FavoritesData, FavoriteData } from './favorite.types';
 
@@ -17,6 +18,7 @@ export {
   favoriteSelector,
   fetchApiListFavorites,
   loadMoreListFavorites,
+  fetchApiCDFavorite,
 };
 
 export type {
