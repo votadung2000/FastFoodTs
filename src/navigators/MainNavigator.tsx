@@ -9,6 +9,7 @@ import {
     OrderDetailsScreen,
     OrderScreen,
     ProductsDetailScreen,
+    ProfileScreen,
     UpcomingOrderScreen,
 } from '@screens';
 
@@ -32,6 +33,7 @@ const MainNavigator = () => {
             <Stack.Screen name={routes.UpcomingOrderScreen} component={UpcomingOrderScreen} />
             <Stack.Screen name={routes.HistoryOrderScreen} component={HistoryOrderScreen} />
             <Stack.Screen name={routes.OrderDetailsScreen} component={OrderDetailsScreen} />
+            <Stack.Screen name={routes.ProfileScreen} component={ProfileScreen} />
         </Stack.Navigator>
     );
 };

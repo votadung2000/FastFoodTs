@@ -18,6 +18,7 @@ import OrderScreen from './order';
 import UpcomingOrderScreen from './upcoming_order';
 import HistoryOrderScreen from './history_order';
 import OrderDetailsScreen from './order_details';
+import ProfileScreen from './profile';
 
 export {
     SplashScreen,
@@ -40,4 +41,5 @@ export {
     UpcomingOrderScreen,
     HistoryOrderScreen,
     OrderDetailsScreen,
+    ProfileScreen,
 };
