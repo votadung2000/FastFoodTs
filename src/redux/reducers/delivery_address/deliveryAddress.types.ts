@@ -21,3 +21,11 @@ export interface CurrentAddressData {
     isLoadingCurrentAddress?: boolean;
     data?: DeliveryAddressData;
 }
+
+export interface AddressData {
+    data?: DeliveryAddressData[];
+}
+
+export interface RelatedAddressData {
+    isLoadingAddress?: boolean;
+}

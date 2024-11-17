@@ -1,18 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// import { handleErrorApi } from '@common';
+import { handleErrorApi } from '@common';
 
-import { CurrentAddressData } from './deliveryAddress.types';
-import { fetchApiCurrentAddress } from './deliveryAddress.api';
+import {
+    CurrentAddressData,
+    AddressData,
+    RelatedAddressData,
+} from './deliveryAddress.types';
+import {
+    fetchApiCurrentAddress,
+    fetchApiDeleteAddress,
+    fetchApiListAddress,
+} from './deliveryAddress.api';
 
 const currentAddressData: CurrentAddressData = {
     isLoadingCurrentAddress: false,
+};
+
+const addressData: AddressData = {};
+const relatedAddressData: RelatedAddressData = {
+    isLoadingAddress: false,
 };
 
 const deliveryAddressSlice = createSlice({
     name: 'deliveryAddress',
     initialState: {
         currentAddress: currentAddressData,
+        address: addressData,
+        relatedAddress: relatedAddressData,
     },
     reducers: {
 
@@ -29,7 +44,22 @@ const deliveryAddressSlice = createSlice({
             .addCase(fetchApiCurrentAddress.rejected, (state) => {
                 state.currentAddress = {};
                 state.currentAddress.isLoadingCurrentAddress = false;
-                // handleErrorApi(action?.error);
+            })
+
+            .addCase(fetchApiListAddress.pending, (state) => {
+                state.relatedAddress.isLoadingAddress = true;
+            })
+            .addCase(fetchApiListAddress.fulfilled, (state, action) => {
+                state.relatedAddress.isLoadingAddress = false;
+                state.address = action.payload;
+            })
+            .addCase(fetchApiListAddress.rejected, (state, action) => {
+                state.relatedAddress.isLoadingAddress = false;
+                handleErrorApi(action?.error);
+            })
+
+            .addCase(fetchApiDeleteAddress.rejected, (_, action) => {
+                handleErrorApi(action?.error);
             });
     },
 });

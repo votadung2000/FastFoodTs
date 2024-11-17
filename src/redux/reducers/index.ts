@@ -54,6 +54,9 @@ import {
     deliveryAddressReducer,
     deliveryAddressSelector,
     fetchApiCurrentAddress,
+    fetchApiListAddress,
+    fetchApiDeleteAddress,
+    DeliveryAddressData,
 } from './delivery_address';
 
 import {
@@ -146,6 +149,8 @@ export {
     deliveryAddressReducer,
     deliveryAddressSelector,
     fetchApiCurrentAddress,
+    fetchApiListAddress,
+    fetchApiDeleteAddress,
 
     // cart
     cartReducer,
@@ -192,6 +197,9 @@ export type {
     // product
     ProductData,
     ProductsData,
+
+    // delivery address
+    DeliveryAddressData,
 
     // cart
     CartData,
