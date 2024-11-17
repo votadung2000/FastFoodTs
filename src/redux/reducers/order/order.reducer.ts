@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { handleErrorApi } from '@common';
-import { TAB_ORDER, TabOrder } from '@constants';
+import { TAB_ORDER, TabOrderProps } from '@constants';
 
 import {
   fetchApiCreateOrder,
@@ -28,7 +28,7 @@ const relatedOrderData: RelatedOrderData = {
 
 const rating: OrderData = {};
 
-const tab: TabOrder = TAB_ORDER.UPCOMING;
+const tab: TabOrderProps = TAB_ORDER.UPCOMING;
 
 const orderSlice = createSlice({
   name: 'order',
