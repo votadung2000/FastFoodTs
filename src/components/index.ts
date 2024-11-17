@@ -1,4 +1,4 @@
-import { Modal, ModalLoading, ModalSelect } from './Modals';
+import { Modal, ModalLoading, ModalSelect, ModalProps } from './Modals';
 import {
     Button,
     Back,
@@ -67,4 +67,5 @@ export {
 
 export type {
     PopupProps,
+    ModalProps,
 };
