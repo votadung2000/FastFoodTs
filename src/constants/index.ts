@@ -5,7 +5,7 @@ import radius from './radius';
 import DATA_CAROUSEL from './dataCarousel';
 import OPTION_IMAGE, { DATA_OPTION_IMAGE, OptionImageProps } from './dataOptionImage';
 import TAB_ORDER, { DATA_TAB_ORDER, TabOrderProps } from './dataTabOrder';
-// import POPUP_MENU, {DATA_POPUP_MENU} from './dataPopupMenu';
+import POPUP_MENU, { DATA_POPUP_MENU, PopupMenuProps } from './dataPopupMenu';
 /* The line `// import TAB_ORDER, {DATA_TAB_ORDER} from './dataTabOrder';` is a commented-out import
 statement in TypeScript. It is not being used in the current code but seems to be a reference to
 importing `TAB_ORDER` and `DATA_TAB_ORDER` from the file `dataTabOrder`. */
@@ -24,17 +24,18 @@ import STATUS_ORDER, {
   checkStatusFinishOrder,
 } from './statusOrder';
 
-// import TYPE_DELIVERY_ADDRESS, {
-//   DATA_TYPE_DELIVERY_ADDRESS,
-//   findTypeDeliveryAddress,
-// } from './typeDeliveryAddress';
+import TYPE_DELIVERY_ADDRESS, {
+  DATA_TYPE_DELIVERY_ADDRESS,
+  findTypeDeliveryAddress,
+  TypeDeliveryAddressProps,
+} from './typeDeliveryAddress';
 // import TYPE_RATING, {DATA_TYPE_RATING, findTypeRating} from './typeRating';
 
-// import DEFAULT_DELIVERY_ADDRESS, {
-//   DATA_DEFAULT_DELIVERY_ADDRESS,
-//   findDefaultDeliveryAddress,
-//   checkDefaultDeliveryAddress,
-// } from './defaultDeliveryAddress';
+import DEFAULT_DELIVERY_ADDRESS, {
+  DATA_DEFAULT_DELIVERY_ADDRESS,
+  findDefaultDeliveryAddress,
+  checkDefaultDeliveryAddress,
+} from './defaultDeliveryAddress';
 
 export {
   colors,
@@ -49,8 +50,8 @@ export {
   TAB_ORDER,
   DATA_TAB_ORDER,
 
-  // POPUP_MENU,
-  // DATA_POPUP_MENU,
+  POPUP_MENU,
+  DATA_POPUP_MENU,
 
   // STATUS_NOTIFY,
   // STATUS_SETTING_NOTIFY,
@@ -64,21 +65,23 @@ export {
   checkStatusCancelOrder,
   checkStatusFinishOrder,
 
-  // TYPE_DELIVERY_ADDRESS,
-  // DATA_TYPE_DELIVERY_ADDRESS,
-  // findTypeDeliveryAddress,
+  TYPE_DELIVERY_ADDRESS,
+  DATA_TYPE_DELIVERY_ADDRESS,
+  findTypeDeliveryAddress,
 
   // TYPE_RATING,
   // DATA_TYPE_RATING,
   // findTypeRating,
 
-  // DEFAULT_DELIVERY_ADDRESS,
-  // DATA_DEFAULT_DELIVERY_ADDRESS,
-  // findDefaultDeliveryAddress,
-  // checkDefaultDeliveryAddress,
+  DEFAULT_DELIVERY_ADDRESS,
+  DATA_DEFAULT_DELIVERY_ADDRESS,
+  findDefaultDeliveryAddress,
+  checkDefaultDeliveryAddress,
 };
 
 export type {
   TabOrderProps,
   OptionImageProps,
+  PopupMenuProps,
+  TypeDeliveryAddressProps,
 };
