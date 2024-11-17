@@ -3,8 +3,8 @@ import colors from './colors';
 import radius from './radius';
 
 import DATA_CAROUSEL from './dataCarousel';
-// import OPTION_IMAGE, {DATA_OPTION_IMAGE} from './dataOptionImage';
-import TAB_ORDER, { DATA_TAB_ORDER, TabOrder } from './dataTabOrder';
+import OPTION_IMAGE, { DATA_OPTION_IMAGE, OptionImageProps } from './dataOptionImage';
+import TAB_ORDER, { DATA_TAB_ORDER, TabOrderProps } from './dataTabOrder';
 // import POPUP_MENU, {DATA_POPUP_MENU} from './dataPopupMenu';
 /* The line `// import TAB_ORDER, {DATA_TAB_ORDER} from './dataTabOrder';` is a commented-out import
 statement in TypeScript. It is not being used in the current code but seems to be a reference to
@@ -43,8 +43,8 @@ export {
 
   DATA_CAROUSEL,
 
-  // OPTION_IMAGE,
-  // DATA_OPTION_IMAGE,
+  OPTION_IMAGE,
+  DATA_OPTION_IMAGE,
 
   TAB_ORDER,
   DATA_TAB_ORDER,
@@ -79,5 +79,6 @@ export {
 };
 
 export type {
-  TabOrder,
+  TabOrderProps,
+  OptionImageProps,
 };

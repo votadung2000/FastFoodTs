@@ -1,4 +1,4 @@
-export interface TabOrder {
+export interface TabOrderProps {
   id?: number;
   name?: string;
 }
