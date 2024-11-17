@@ -9,6 +9,9 @@
       "@apiLocation": [
         "./actions/ApiLocation"
       ],
+      "@apiUploadImg": [
+        "./actions/ApiUploadImg"
+      ],
       "@assets": [
         "./assets"
       ],
