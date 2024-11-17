@@ -9,6 +9,7 @@ import formatCart from './formatCart';
 import currencyUs from './currencyUs';
 import differentData from './differentData';
 import formatImage from './formatImage';
+import formatNaturalNumber from './formatNaturalNumber';
 
 export {
   resolutions,
@@ -22,4 +23,5 @@ export {
   currencyUs,
   differentData,
   formatImage,
+  formatNaturalNumber,
 };
