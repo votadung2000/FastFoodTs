@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { Button, Text } from '@components';
 import { hScale, scale, wScale } from '@resolutions';
-import { DATA_TAB_ORDER, TabOrder, colors, radius } from '@constants';
+import { DATA_TAB_ORDER, TabOrderProps, colors, radius } from '@constants';
 import { handleTabSwitch, orderSelector } from '@reducers';
 import { useAppDispatch } from '@store';
 
@@ -53,7 +53,7 @@ const TopTabs = ({ isVertical = false, handleActionSwitch }: TopTabsProps) => {
     outputRange: [0, outputRange],
   });
 
-  const clickAction = (ele: TabOrder) => {
+  const clickAction = (ele: TabOrderProps) => {
     if (tab.id !== ele?.id) {
       if (handleActionSwitch) {
         handleActionSwitch();
@@ -67,7 +67,7 @@ const TopTabs = ({ isVertical = false, handleActionSwitch }: TopTabsProps) => {
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.vwTab}>
-          {DATA_TAB_ORDER.map((ele: TabOrder, index) => {
+          {DATA_TAB_ORDER.map((ele: TabOrderProps, index) => {
             const isSelect = ele?.id === tab.id;
             return (
               <Button

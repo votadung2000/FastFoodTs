@@ -106,7 +106,7 @@ const RegisterScreen = () => {
       };
 
       let response = await dispatch(fetchApiRegister(body));
-      if (response.payload) {
+      if (response.payload?.status_code === 200) {
         setLoading({
           isVisible: false,
           onModalHide: async () => {

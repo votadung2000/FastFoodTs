@@ -47,7 +47,6 @@ const ProductsDetailScreen = () => {
       };
 
       let response = await dispatch(fetchApiCDFavorite(body));
-      console.log('response',response);
       if (response.payload?.status_code === 200) {
         setLoading({
           isVisible: false,
