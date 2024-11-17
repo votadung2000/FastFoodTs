@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import routes from '@routes';
 
 import {
+    DeliveryAddressScreen,
     DetailCardSearch,
     EditProfileScreen,
     HistoryOrderScreen,
@@ -36,6 +37,7 @@ const MainNavigator = () => {
             <Stack.Screen name={routes.OrderDetailsScreen} component={OrderDetailsScreen} />
             <Stack.Screen name={routes.ProfileScreen} component={ProfileScreen} />
             <Stack.Screen name={routes.EditProfileScreen} component={EditProfileScreen} />
+            <Stack.Screen name={routes.DeliveryAddressScreen} component={DeliveryAddressScreen} />
         </Stack.Navigator>
     );
 };

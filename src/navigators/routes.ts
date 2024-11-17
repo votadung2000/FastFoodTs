@@ -25,6 +25,8 @@ const routes = {
   OrderDetailsScreen: 'OrderDetailsScreen',
   ProfileScreen: 'ProfileScreen',
   EditProfileScreen: 'EditProfileScreen',
+  DeliveryAddressScreen: 'DeliveryAddressScreen',
+  CreateDeliveryAddressScreen: 'CreateDeliveryAddressScreen',
 
   Logging: 'Logging',
   OTPScreen: 'OTPScreen',
@@ -32,7 +34,6 @@ const routes = {
   SettingScreen: 'SettingScreen',
   ChangePasswordScreen: 'ChangePasswordScreen',
   PrivacyPolicyScreen: 'PrivacyPolicyScreen',
-  DeliveryAddressScreen: 'DeliveryAddressScreen',
   RatingScreen: 'RatingScreen',
   DetailDeliveryAddressScreen: 'DetailDeliveryAddressScreen',
   HelpsAndFAQsScreen: 'HelpsAndFAQsScreen',
