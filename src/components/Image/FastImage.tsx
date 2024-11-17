@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
-  // Image as RNImage,
   StyleProp,
 } from 'react-native';
 import RNFastImage, { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
@@ -30,25 +29,6 @@ const FastImage = ({
   ...rest
 }: FastImageFCProps) => {
   const [isError, setIsError] = useState<boolean>(false);
-  // const [aspectRatio, setAspectRatio] = useState<number>(1);
-
-  // useEffect(() => {
-  //   const fetchImageSize = async () => {
-  //     if (isPath) {
-  //       RNImage.getSize(`${Config.API_IMAGE}${source?.uri}`, (width, height) => {
-  //         console.log("width", width)
-  //         console.log("height", height)
-  //         setAspectRatio(width > 0 && height > 0 ? width / height : 1);
-  //       });
-  //     } else if (source?.uri) {
-  //       RNImage.getSize(source?.uri, (width, height) => {
-  //         setAspectRatio(width > 0 && height > 0 ? width / height : 1);
-  //       });
-  //     }
-  //   };
-
-  //   fetchImageSize();
-  // }, [isPath, source]);
 
   const onError = () => {
     const dataUri = source?.uri?.split('/');
@@ -76,7 +56,6 @@ const FastImage = ({
       {...rest}
       source={isPath ? { uri: `${Config.API_IMAGE}${source?.uri}` } : source}
       resizeMode={resizeMode || RNFastImage.resizeMode?.cover}
-      // style={[styles.img, { aspectRatio }, style]}
       style={[styles.img, style]}
       onError={onError}
     />
