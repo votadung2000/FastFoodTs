@@ -7,6 +7,8 @@ import handleDataOdd from './handleDataOdd';
 import findBgLg from './findBgLg';
 import formatCart from './formatCart';
 import currencyUs from './currencyUs';
+import differentData from './differentData';
+import formatImage from './formatImage';
 
 export {
   resolutions,
@@ -18,4 +20,6 @@ export {
   findBgLg,
   formatCart,
   currencyUs,
+  differentData,
+  formatImage,
 };
