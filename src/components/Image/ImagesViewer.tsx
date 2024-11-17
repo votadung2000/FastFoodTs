@@ -72,7 +72,6 @@ const ImagesViewer = ({ isPath, images, index = 0, closeModal, ...rest }: Images
     <ActivityIndicator size="small" color={colors.white} />
   );
 
-  console.log({ imageUrls });
   return (
     <Modal {...rest}>
       {/* <ImageZoom uri={currentImage} /> */}

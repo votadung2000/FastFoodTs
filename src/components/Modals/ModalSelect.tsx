@@ -1,30 +1,51 @@
 import React from 'react';
-import {StyleSheet, View, FlatList} from 'react-native';
+import { StyleSheet, View, FlatList, StyleProp, TextStyle } from 'react-native';
 
-import {colors, fontSize, radius} from '@constants';
-import {scale} from '@resolutions';
+import { colors, fontSize, radius } from '@constants';
+import { scale } from '@resolutions';
 
 import Modal from './Modal';
 import Text from '../Text';
 import Button from '../Buttons/Button';
 import Loading from '../Loading';
 
+interface ModalSelectProps {
+  isVector?: boolean,
+  value?: any;
+  title?: string;
+  data?: any;
+  stName?: StyleProp<TextStyle>;
+  labelValue?: string;
+  handleSelect?: (item: any) => void;
+}
+
 const ModalSelect = ({
+  isVector,
   value,
   title,
   data,
   stName,
-  labelValue,
-  onSelect,
+  labelValue = '',
+  handleSelect,
   ...rest
-}) => {
-  const keyExtractor = (_, index) => index?.toString();
+}: ModalSelectProps) => {
+  const keyExtractor = (_: any, index: number) => index?.toString();
 
-  const renderItem = ({item}) => {
+  const onSelect = (item: any) => {
+    if (handleSelect) {
+      handleSelect(item);
+    }
+  };
+
+  const renderItem = ({ item }: any) => {
     const isSelect = value?.id === item?.id;
     return (
       <Button key={item?.id} style={styles.btn} onPress={() => onSelect(item)}>
-        {item?.Icon && <View style={styles.vwIcon}>{item?.Icon}</View>}
+        {item?.Icon && <View style={styles.vwIcon}>
+          {isVector
+            ? (<item.Icon {...item.iconProps} />)
+            : item?.Icon}
+        </View>}
         <Text medium style={[isSelect && styles.txtBtnSelect, stName]}>
           {item[labelValue] || ''}
         </Text>
@@ -68,14 +89,14 @@ const styles = StyleSheet.create({
     borderTopEndRadius: radius.radius20,
   },
   title: {
-    fontSize: fontSize.large,
+    fontSize: fontSize.fontSize18,
     textAlign: 'center',
     marginTop: scale(10),
     marginBottom: scale(20),
   },
   stFL: {},
   btn: {
-    width: '70%',
+    maxWidth: '70%',
     marginBottom: scale(20),
     paddingBottom: scale(10),
     borderBottomWidth: 0.5,

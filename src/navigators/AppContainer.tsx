@@ -37,8 +37,8 @@ const AppContainer = () => {
 
         if (Platform.OS === 'ios') {
             request(PERMISSIONS.IOS.APP_TRACKING_TRANSPARENCY)
-                .then(result => console.log(result))
-                .catch(error => console.log(error));
+                .then(result => console.log('APP_TRACKING_TRANSPARENCY.result', result))
+                .catch(error => console.log('APP_TRACKING_TRANSPARENCY.error', error));
         }
 
         dispatch(refetchApiUserProfile());
