@@ -3,6 +3,7 @@ import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { isIphoneX } from 'react-native-iphone-x-helper';
 // import { ImageZoom } from '@likashefqet/react-native-image-zoom';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import Config from 'react-native-config';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { colors } from '@constants';
@@ -27,14 +28,18 @@ interface ImageProps {
 }
 
 interface ImagesViewerProps {
+  isPath?: boolean;
   images?: ImageProps[];
   index?: number;
   closeModal?: () => void;
 }
 
-const ImagesViewer = ({ images, index = 0, closeModal, ...rest }: ImagesViewerProps) => {
+const ImagesViewer = ({ isPath, images, index = 0, closeModal, ...rest }: ImagesViewerProps) => {
   const imageUrls = images?.map(ele => {
     if (ele?.uri) {
+      if (isPath) {
+        return { url: `${Config.API_IMAGE}${ele?.uri}` };
+      }
       return { url: ele?.uri };
       // return ele?.uri;
     }
@@ -56,7 +61,7 @@ const ImagesViewer = ({ images, index = 0, closeModal, ...rest }: ImagesViewerPr
       <Button onPress={closeModal} style={styles.btnClose}>
         <Ionicons
           size={scale(28)}
-          name="ios-close-circle-sharp"
+          name="close-circle"
           color={colors.white}
         />
       </Button>
@@ -67,13 +72,14 @@ const ImagesViewer = ({ images, index = 0, closeModal, ...rest }: ImagesViewerPr
     <ActivityIndicator size="small" color={colors.white} />
   );
 
+  console.log({ imageUrls });
   return (
     <Modal {...rest}>
       {/* <ImageZoom uri={currentImage} /> */}
       <ImageViewer
         useNativeDriver
         enableSwipeDown
-        index={index || 0}
+        index={index}
         imageUrls={imageUrls}
         loadingRender={loadingRender}
         renderHeader={renderHeader}

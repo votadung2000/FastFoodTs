@@ -46,10 +46,17 @@ const ProfileScreen = () => {
   };
 
   const handleZoomAvatar = () => {
-    setZoom({
-      isVisible: true,
-      images: [{ source: require('@images/avatar.png') }],
-    });
+    if (user?.avatar?.url) {
+      setZoom({
+        isVisible: true,
+        images: [{ uri: user?.avatar?.url }],
+      });
+    } else {
+      setZoom({
+        isVisible: true,
+        images: [{ source: require('@images/avatar.png') }],
+      });
+    }
   };
 
   const handleCloseZoom = () => {
@@ -108,7 +115,7 @@ const ProfileScreen = () => {
           />
         </View>
       </ScrollView>
-      <ImagesViewer {...zoom} closeModal={handleCloseZoom} />
+      <ImagesViewer isPath {...zoom} closeModal={handleCloseZoom} />
     </View>
   );
 };
