@@ -17,16 +17,16 @@ const routes = {
   FavoriteScreen: 'FavoriteScreen',
   NotificationScreen: 'NotificationScreen',
 
+  ProductsDetailScreen: 'ProductsDetailScreen',
+  DetailCardSearch: 'DetailCardSearch',
   OrderScreen: 'OrderScreen',
   UpcomingOrderScreen: 'UpcomingOrderScreen',
   HistoryOrderScreen: 'HistoryOrderScreen',
   OrderDetailsScreen: 'OrderDetailsScreen',
-
-  ProductsDetailScreen: 'ProductsDetailScreen',
-  Logging: 'Logging',
   ProfileScreen: 'ProfileScreen',
   EditProfileScreen: 'EditProfileScreen',
-  DetailCardSearch: 'DetailCardSearch',
+
+  Logging: 'Logging',
   OTPScreen: 'OTPScreen',
   ResetPasswordScreen: 'ResetPasswordScreen',
   SettingScreen: 'SettingScreen',

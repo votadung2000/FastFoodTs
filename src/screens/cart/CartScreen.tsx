@@ -53,7 +53,6 @@ const CartScreen = () => {
       };
 
       let response = await dispatch(fetchApiCreateOrder(body));
-      console.log('fetchApiCreateOrder.response', response);
       if (response.payload?.status_code === 200) {
         setLoading({
           isVisible: false,
