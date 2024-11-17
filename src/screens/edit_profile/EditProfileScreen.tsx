@@ -21,14 +21,14 @@ import {
 import { colors, fontSize, radius } from '@constants';
 import { hScale, scale, wScale } from '@resolutions';
 import { useAppDispatch } from '@store';
-import { fetchApiUpdateProfile, userSelector } from '@reducers';
-import { Image } from '@common';
+import { fetchApiUpdateProfile, fetchApiUploadImg, userSelector } from '@reducers';
+import { UploadImage } from '@common';
 import { differentData } from '@utils';
 
 import EditProfileSchema from './EditProfileSchema';
 
-interface ImageEditProfileProps extends Image {
-  uri?: any;
+interface ImageEditProfileProps extends UploadImage {
+  url?: any;
 }
 
 interface FormValues {
@@ -110,10 +110,18 @@ const EditProfileScreen = () => {
   const handleUploadImg = async () => {
     try {
       setLoading({ isVisible: true });
-      // let response = await fetchApiUploadImg(values.avatar);
-      // if (response) {
-      //   handleUpdateProfile(response);
-      // }
+      if (values.avatar) {
+        let response = await dispatch(fetchApiUploadImg(values.avatar));
+        if (response) {
+          handleUpdateProfile(response);
+        }
+      } else {
+        setLoading({ isVisible: false });
+        Notifer({
+          alertType: 'error',
+          title: 'Image Update Failed!',
+        });
+      }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });
     }

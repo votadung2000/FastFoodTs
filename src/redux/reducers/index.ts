@@ -93,6 +93,12 @@ import {
     FavoriteData,
 } from './favorite';
 
+import {
+    uploadReducer,
+    uploadSelector,
+    fetchApiUploadImg,
+} from './upload';
+
 export {
     // auth
     authReducer,
@@ -169,6 +175,11 @@ export {
     fetchApiListFavorites,
     loadMoreListFavorites,
     fetchApiCDFavorite,
+
+    // upload
+    uploadReducer,
+    uploadSelector,
+    fetchApiUploadImg,
 };
 
 export type {

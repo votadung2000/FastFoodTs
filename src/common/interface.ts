@@ -13,6 +13,15 @@ export interface Image {
     extension?: string
 }
 
+export interface UploadImage {
+    id?: string
+    name?: string
+    type?: string
+    uri?: string
+    size?: number
+    local?: boolean
+}
+
 interface Filter { }
 
 export interface Root {

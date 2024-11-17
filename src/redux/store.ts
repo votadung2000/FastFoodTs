@@ -13,6 +13,7 @@ import {
     cartReducer,
     orderReducer,
     favoriteReducer,
+    uploadReducer,
 } from '@reducers';
 
 const store = configureStore({
@@ -27,6 +28,7 @@ const store = configureStore({
         cart: cartReducer,
         order: orderReducer,
         favorite: favoriteReducer,
+        upload: uploadReducer,
     },
     // middleware: (getDefaultMiddleware) => {
     //     if (__DEV__) {

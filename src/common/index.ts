@@ -3,6 +3,7 @@ import { handleErrorApi } from './handleErrorApi';
 import {
     ApiBody,
     Image,
+    UploadImage,
     Root,
     Paging,
     Params,
@@ -16,6 +17,7 @@ export {
 export type {
     ApiBody,
     Image,
+    UploadImage,
     Root,
     Paging,
     Params,
