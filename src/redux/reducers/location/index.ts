@@ -4,8 +4,11 @@ import {
     handleUpdateFilterLWAddress,
     handleUpdateGeolocation,
 } from './location.reducer';
-
-import {locationSelector} from './location.selector';
+import { locationSelector } from './location.selector';
+import {
+    fetchApiLocationWithAddress,
+    fetchApiLocationWithGeolocation,
+} from './location.api';
 
 export {
     locationReducer,
@@ -14,4 +17,7 @@ export {
     handleUpdateGeolocation,
 
     locationSelector,
+
+    fetchApiLocationWithAddress,
+    fetchApiLocationWithGeolocation,
 };

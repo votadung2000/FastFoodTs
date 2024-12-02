@@ -10,8 +10,8 @@ import { handleUpdateFilterLWAddress, handleUpdateFilterLWGeo } from '@reducers'
 import {
     FilterLWAddress,
     FilterLWGeo,
+    GeoLocation,
     LWAddressData,
-    LWGeoData,
     NewFilterLWAddress,
     NewFilterLWGeo,
 } from './location.types';
@@ -29,19 +29,19 @@ const initFilterLWAddress: NewFilterLWAddress = {
 export const fetchApiLocationWithGeolocation = createAsyncThunk(
     'location/fetchApiLocationWithGeolocation',
     async (params: Params = {}, { getState, dispatch, rejectWithValue }) => {
-        const { geolocation } = getState() as { geolocation: { lwGeo: LWGeoData } };
-        const { filterLWGeo } = geolocation?.lwGeo || {};
+        const { location } = getState() as { location: { geolocation: GeoLocation } };
+        const { geolocation } = location;
 
         try {
-            const newFilter = { ...filterLWGeo, ...initFilterLWGeo, ...params };
+            const newFilter = { ...initFilterLWGeo, ...params };
             const filter: FilterLWGeo = { ...initFilterLWGeo };
 
-            if (newFilter?.geolocation?.lat) {
-                filter.lat = newFilter.geolocation.lat;
+            if (geolocation?.lat) {
+                filter.lat = geolocation.lat;
             }
 
-            if (newFilter?.geolocation?.lon) {
-                filter.lon = newFilter.geolocation.lon;
+            if (geolocation?.lon) {
+                filter.lon = geolocation.lon;
             }
 
             dispatch(handleUpdateFilterLWGeo(newFilter));
