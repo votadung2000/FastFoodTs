@@ -5,9 +5,13 @@ import { Root } from '@common';
 export const handleApiCall = async (apiCall: () => Promise<any>) => {
     try {
         const response: Root = await apiCall();
-
         if (response.data?.status_code === 200) {
             return response.data;
+        } else if (response?.status === 200) {
+            return {
+                status_code: 200,
+                data: response?.data,
+            };
         } else {
             return Promise.reject('No data returned');
         }

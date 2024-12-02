@@ -26,6 +26,7 @@ interface Filter { }
 
 export interface Root {
     status_code?: number
+    status?: number
     data?: any
     filter?: Filter
     paging?: Paging
