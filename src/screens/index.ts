@@ -21,6 +21,7 @@ import OrderDetailsScreen from './order_details';
 import ProfileScreen from './profile';
 import EditProfileScreen from './edit_profile';
 import DeliveryAddressScreen from './delivery_address';
+import DetailDeliveryAddressScreen from './detail_delivery_address';
 
 export {
     SplashScreen,
@@ -46,4 +47,5 @@ export {
     ProfileScreen,
     EditProfileScreen,
     DeliveryAddressScreen,
+    DetailDeliveryAddressScreen,
 };

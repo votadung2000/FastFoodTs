@@ -6,6 +6,7 @@ import routes from '@routes';
 import {
     DeliveryAddressScreen,
     DetailCardSearch,
+    DetailDeliveryAddressScreen,
     EditProfileScreen,
     HistoryOrderScreen,
     OrderDetailsScreen,
@@ -38,6 +39,7 @@ const MainNavigator = () => {
             <Stack.Screen name={routes.ProfileScreen} component={ProfileScreen} />
             <Stack.Screen name={routes.EditProfileScreen} component={EditProfileScreen} />
             <Stack.Screen name={routes.DeliveryAddressScreen} component={DeliveryAddressScreen} />
+            <Stack.Screen name={routes.DetailDeliveryAddressScreen} component={DetailDeliveryAddressScreen} />
         </Stack.Navigator>
     );
 };

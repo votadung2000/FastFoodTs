@@ -27,6 +27,7 @@ const routes = {
   EditProfileScreen: 'EditProfileScreen',
   DeliveryAddressScreen: 'DeliveryAddressScreen',
   CreateDeliveryAddressScreen: 'CreateDeliveryAddressScreen',
+  DetailDeliveryAddressScreen: 'DetailDeliveryAddressScreen',
 
   Logging: 'Logging',
   OTPScreen: 'OTPScreen',
@@ -35,7 +36,6 @@ const routes = {
   ChangePasswordScreen: 'ChangePasswordScreen',
   PrivacyPolicyScreen: 'PrivacyPolicyScreen',
   RatingScreen: 'RatingScreen',
-  DetailDeliveryAddressScreen: 'DetailDeliveryAddressScreen',
   HelpsAndFAQsScreen: 'HelpsAndFAQsScreen',
 } as const;
 

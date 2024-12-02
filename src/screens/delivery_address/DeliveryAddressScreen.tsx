@@ -43,7 +43,7 @@ const DeliveryAddressScreen = () => {
       <View style={styles.content}>
         <FlatList
           bounces={false}
-          data={address}
+          data={address?.data}
           keyExtractor={keyExtractor}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
