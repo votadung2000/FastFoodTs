@@ -15,7 +15,7 @@ import {
 import { Search } from './Search';
 import { Input, InputPassword } from './Input';
 import { FastImage, ImagesViewer } from './Image';
-// import { SelectType, SelectDefault } from './Selects';
+import { SelectType, SelectDefault } from './Selects';
 import Menu from './Menu';
 import Text from './Text';
 import EmptyComponent from './EmptyComponent';
@@ -25,7 +25,7 @@ import Popup, { PopupProps } from './Popup';
 import PopupMenu from './PopupMenu';
 import SignInSocial from './SignInSocial';
 import Notifer from './Notifer';
-// import Switch from './Switch';
+import Switch from './Switch';
 // import MyWeb from './MyWeb';
 // import Stars from './Stars';
 import Location from './Location';
@@ -49,8 +49,8 @@ export {
     InputPassword,
     FastImage,
     ImagesViewer,
-    // SelectType,
-    // SelectDefault,
+    SelectType,
+    SelectDefault,
     Menu,
     EmptyComponent,
     LoadingComponent,
@@ -59,7 +59,7 @@ export {
     PopupMenu,
     SignInSocial,
     Notifer,
-    // Switch,
+    Switch,
     // MyWeb,
     // Stars,
     Location,

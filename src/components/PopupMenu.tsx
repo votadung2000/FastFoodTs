@@ -85,6 +85,8 @@ const PopupMenu = ({ isVector, data, dataMenu, onSelectMenu }: PopupMenuFCProps)
             await dispatch(fetchApiListAddress({}));
           },
         });
+      } else {
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });
