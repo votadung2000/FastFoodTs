@@ -18,15 +18,15 @@ interface InputFCProps extends TextInputProps {
   isTouchStart?: boolean;
   label?: string;
   name: string;
-  touched?: { [key: string]: boolean };
-  errors?: { [key: string]: string };
+  touched?: any;
+  errors?: any;
   style?: ViewStyle;
   inputStyle?: TextStyle;
   onChangeText?: any;
   handleChange?: any;
   handleBlur?: any;
   onSubmitEditing?: () => void;
-  Icon?: JSX.Element;
+  Icon?: JSX.Element | null;
 }
 
 const Input = (

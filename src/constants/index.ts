@@ -35,6 +35,7 @@ import DEFAULT_DELIVERY_ADDRESS, {
   DATA_DEFAULT_DELIVERY_ADDRESS,
   findDefaultDeliveryAddress,
   checkDefaultDeliveryAddress,
+  DefaultDeliveryAddressProps,
 } from './defaultDeliveryAddress';
 
 export {
@@ -84,4 +85,5 @@ export type {
   OptionImageProps,
   PopupMenuProps,
   TypeDeliveryAddressProps,
+  DefaultDeliveryAddressProps,
 };

@@ -10,8 +10,8 @@ export interface TypeDeliveryAddressProps {
   id?: number;
   name?: string;
   type?: number;
-  Icon: React.ComponentType<any>;
-  iconProps: {
+  Icon?: React.ComponentType<any>;
+  iconProps?: {
     name?: string;
     size?: number;
     color?: string;

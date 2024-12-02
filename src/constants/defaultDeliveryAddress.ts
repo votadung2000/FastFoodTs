@@ -1,3 +1,9 @@
+export interface DefaultDeliveryAddressProps {
+  id?: number;
+  name?: string;
+  type?: number;
+}
+
 const DEFAULT_DELIVERY_ADDRESS = {
   DEFAULT: {
     id: 1,
