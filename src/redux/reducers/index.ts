@@ -48,15 +48,20 @@ import {
     handleUpdateFilterLWAddress,
     handleUpdateGeolocation,
     locationSelector,
+    fetchApiLocationWithAddress,
+    fetchApiLocationWithGeolocation,
 } from './location';
 
 import {
     deliveryAddressReducer,
+    clearDetailAddress,
     deliveryAddressSelector,
     fetchApiCurrentAddress,
     fetchApiListAddress,
     fetchApiDeleteAddress,
     fetchApiDetailAddress,
+    fetchApiCreateAddress,
+    fetchApiUpdateAddress,
     DeliveryAddressData,
 } from './delivery_address';
 
@@ -145,14 +150,19 @@ export {
     handleUpdateFilterLWAddress,
     handleUpdateGeolocation,
     locationSelector,
+    fetchApiLocationWithAddress,
+    fetchApiLocationWithGeolocation,
 
     // delivery address
     deliveryAddressReducer,
+    clearDetailAddress,
     deliveryAddressSelector,
     fetchApiCurrentAddress,
     fetchApiListAddress,
     fetchApiDeleteAddress,
     fetchApiDetailAddress,
+    fetchApiCreateAddress,
+    fetchApiUpdateAddress,
 
     // cart
     cartReducer,
