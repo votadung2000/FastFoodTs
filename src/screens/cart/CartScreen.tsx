@@ -64,6 +64,8 @@ const CartScreen = () => {
             dispatch(clearCart());
           },
         });
+      } else {
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });

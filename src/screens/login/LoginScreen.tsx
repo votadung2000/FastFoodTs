@@ -97,6 +97,8 @@ const LoginScreen = () => {
             await dispatch(fetchApiUserProfile());
           },
         });
+      }else{
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });

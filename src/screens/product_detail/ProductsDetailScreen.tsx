@@ -60,6 +60,8 @@ const ProductsDetailScreen = () => {
             await dispatch(fetchApiDetailProducts({ id: product?.id }));
           },
         });
+      }else{
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });

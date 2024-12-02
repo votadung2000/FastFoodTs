@@ -152,6 +152,8 @@ const EditProfileScreen = () => {
             navigation.goBack();
           },
         });
+      } else {
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });

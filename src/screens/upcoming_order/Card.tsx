@@ -85,6 +85,8 @@ const Card = ({ data }: { data: OrderData }) => {
             await dispatch(fetchApiListOrder({ is_upcoming: true }));
           },
         });
+      } else {
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });
