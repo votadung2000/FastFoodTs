@@ -6,10 +6,12 @@ import {
     CurrentAddressData,
     AddressData,
     RelatedAddressData,
+    DetailAddressData,
 } from './deliveryAddress.types';
 import {
     fetchApiCurrentAddress,
     fetchApiDeleteAddress,
+    fetchApiDetailAddress,
     fetchApiListAddress,
 } from './deliveryAddress.api';
 
@@ -22,12 +24,17 @@ const relatedAddressData: RelatedAddressData = {
     isLoadingAddress: false,
 };
 
+const detailAddressData: DetailAddressData = {
+    isLoadingDetailAddress: false,
+};
+
 const deliveryAddressSlice = createSlice({
     name: 'deliveryAddress',
     initialState: {
         currentAddress: currentAddressData,
         address: addressData,
         relatedAddress: relatedAddressData,
+        detailAddress: detailAddressData,
     },
     reducers: {
 
@@ -59,6 +66,18 @@ const deliveryAddressSlice = createSlice({
             })
 
             .addCase(fetchApiDeleteAddress.rejected, (_, action) => {
+                handleErrorApi(action?.error);
+            })
+
+            .addCase(fetchApiDetailAddress.pending, (state) => {
+                state.detailAddress.isLoadingDetailAddress = true;
+            })
+            .addCase(fetchApiDetailAddress.fulfilled, (state, action) => {
+                state.detailAddress.isLoadingDetailAddress = false;
+                state.detailAddress = action.payload?.data;
+            })
+            .addCase(fetchApiDetailAddress.rejected, (state, action) => {
+                state.detailAddress.isLoadingDetailAddress = false;
                 handleErrorApi(action?.error);
             });
     },

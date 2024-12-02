@@ -1,3 +1,5 @@
+import { Root } from '@common';
+
 export interface DeliveryAddressData {
     id?: number
     created_at?: string
@@ -28,4 +30,9 @@ export interface AddressData {
 
 export interface RelatedAddressData {
     isLoadingAddress?: boolean;
+}
+
+export interface DetailAddressData extends Root {
+    isLoadingDetailAddress?: boolean;
+    data?: DeliveryAddressData;
 }

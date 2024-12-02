@@ -17,18 +17,16 @@ import {
   TypeDeliveryAddressProps,
 } from '@constants';
 import { formatNaturalNumber } from '@utils';
-import { DeliveryAddressData } from '@reducers';
+import { DeliveryAddressData, fetchApiDetailAddress } from '@reducers';
+import { useAppDispatch } from '@store';
 import routes from '@routes';
 
 const Card = ({ data }: { data: DeliveryAddressData }) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
-
-  // const {
-  //   deliveryAddressStore: {fetchApiDetailAddress},
-  // } = useStore();
+  const dispatch = useAppDispatch();
 
   const handleDetail = () => {
-    // fetchApiDetailAddress(data?.id);
+    dispatch(fetchApiDetailAddress({ id: data?.id }));
     navigation.navigate(routes.DetailDeliveryAddressScreen);
   };
 

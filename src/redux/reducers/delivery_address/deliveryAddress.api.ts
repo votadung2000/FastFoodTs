@@ -1,7 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { handleApiCall, Params } from '@common';
-import { ApiCurrentAddress, ApiDeleteAddress, ApiDeliveryAddress } from '@api';
+import {
+    ApiCurrentAddress,
+    ApiDeleteAddress,
+    ApiDeliveryAddress,
+    ApiDetailDeliveryAddress,
+} from '@api';
 
 export const fetchApiCurrentAddress = createAsyncThunk(
     'deliveryAddress/fetchApiCurrentAddress',
@@ -32,6 +37,18 @@ export const fetchApiDeleteAddress = createAsyncThunk(
     async (params: Params = {}, { rejectWithValue }) => {
         try {
             const response = await handleApiCall(() => ApiDeleteAddress(params?.id));
+            return response;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
+
+export const fetchApiDetailAddress = createAsyncThunk(
+    'deliveryAddress/fetchApiDetailAddress',
+    async (params: Params = {}, { rejectWithValue }) => {
+        try {
+            const response = await handleApiCall(() => ApiDetailDeliveryAddress(params?.id));
             return response;
         } catch (error) {
             return rejectWithValue(error);

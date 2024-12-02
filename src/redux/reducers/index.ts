@@ -56,6 +56,7 @@ import {
     fetchApiCurrentAddress,
     fetchApiListAddress,
     fetchApiDeleteAddress,
+    fetchApiDetailAddress,
     DeliveryAddressData,
 } from './delivery_address';
 
@@ -151,6 +152,7 @@ export {
     fetchApiCurrentAddress,
     fetchApiListAddress,
     fetchApiDeleteAddress,
+    fetchApiDetailAddress,
 
     // cart
     cartReducer,

@@ -4,6 +4,7 @@ import {
     fetchApiCurrentAddress,
     fetchApiListAddress,
     fetchApiDeleteAddress,
+    fetchApiDetailAddress,
 } from './deliveryAddress.api';
 import { DeliveryAddressData } from './deliveryAddress.types';
 
@@ -13,6 +14,7 @@ export {
     fetchApiCurrentAddress,
     fetchApiListAddress,
     fetchApiDeleteAddress,
+    fetchApiDetailAddress,
 };
 
 export type {
