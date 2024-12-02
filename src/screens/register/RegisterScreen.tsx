@@ -118,6 +118,8 @@ const RegisterScreen = () => {
             navigation.navigate(routes.LoginScreen);
           },
         });
+      }else{
+        setLoading({ isVisible: false });
       }
     } catch ({ response }: any) {
       setLoading({ isVisible: false });
