@@ -1,6 +1,35 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# 🍔 FastFoodTs
+
+A fast and convenient food ordering app, built with React Native & TypeScript. Users can easily browse menus, place orders, and track deliveries — all in one smooth mobile experience.
+
+![Demo](./assets/intro/wellcome_screen.png) (./assets/intro/login_screen.png) (./assets/intro/register_screen.png) (./assets/intro/forgot_email_screen.png)
+
+---
+
+## ✨ Features
+
+- 🛒 **Easy Ordering** – Browse restaurants and place orders with a few taps.
+- 🗺️ **Order Tracking** – Track your food delivery in real-time.
+- 🔍 **Restaurant Search** – Find your favorite places with filters and search.
+- 💳 **Secure Payment** – Fast and secure checkout.
+
+---
+
+## 🛠 Tech Stack
+
+| Technology | Description |
+|------------|-------------|
+| React Native | Cross-platform mobile app framework |
+| TypeScript | Type-safe JavaScript |
+| Redux | State management |
+| React Navigation | Screen routing/navigation |
+| Axios | HTTP client for API communication |
+
+---
+
+## 🚀 Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
@@ -77,5 +106,4 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# FastFoodTs
 # FastFoodTs
