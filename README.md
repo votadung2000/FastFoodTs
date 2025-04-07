@@ -4,7 +4,11 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 A fast and convenient food ordering app, built with React Native & TypeScript. Users can easily browse menus, place orders, and track deliveries — all in one smooth mobile experience.
 
-<!-- ![Demo](./assets/intro/wellcome_screen.png) -->
+![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-green)
+![Language](https://img.shields.io/badge/language-TypeScript-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![React Native](https://img.shields.io/badge/framework-React%20Native-61dafb?logo=react)
+
 <p>
   <img src="./assets/intro/wellcome_screen.png" width="300" />
 </p>
@@ -22,12 +26,16 @@ A fast and convenient food ordering app, built with React Native & TypeScript. U
 
 ---
 
+
 ## ✨ Features
 
-- 🛒 **Easy Ordering** – Browse restaurants and place orders with a few taps.
-- 🗺️ **Order Tracking** – Track your food delivery in real-time.
-- 🔍 **Restaurant Search** – Find your favorite places with filters and search.
-- 💳 **Secure Payment** – Fast and secure checkout.
+- 🛒 **Easy Ordering** – Find your favorite products and place an order with just a few taps.
+- 🔍 **Product Search** – Search for your favorite products with filters and search options.
+- 🗺️ **Order Tracking** – Track your order and delivery address in real-time.
+- 💳 **Payment Methods** – Support multiple payment methods for a smooth checkout experience.
+- 💬 **Contact Us** – Get in touch with the store via chat for customer support.
+- 📍 **Manage Delivery Address** – Easily add, update, and manage your delivery addresses.
+- 👤 **Manage Personal Information** – View and update your personal details anytime.
 
 ---
 
