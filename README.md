@@ -4,7 +4,11 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 A fast and convenient food ordering app, built with React Native & TypeScript. Users can easily browse menus, place orders, and track deliveries — all in one smooth mobile experience.
 
-![Demo](./assets/intro/wellcome_screen.png) (./assets/intro/login_screen.png) (./assets/intro/register_screen.png) (./assets/intro/forgot_email_screen.png)
+![Demo](./assets/intro/wellcome_screen.png)
+
+| ![](./assets/intro/wellcome_screen.png) | ![](./assets/intro/login_screen.png) | ![](./assets/intro/register_screen.png) | ![](./assets/intro/forgot_email_screen.png) |
+|:--:|:--:|:--:|:--:|
+| Welcome | Login | Register | Forgot Password |
 
 ---
 
