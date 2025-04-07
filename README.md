@@ -9,13 +9,16 @@ A fast and convenient food ordering app, built with React Native & TypeScript. U
   <img src="./assets/intro/wellcome_screen.png" width="300" />
 </p>
 
+## 📱 App Screenshots
+
 | ![](./assets/intro/login_screen.png) | ![](./assets/intro/sign_up_screen.png) | ![](./assets/intro/forgot_email_screen.png) | ![](./assets/intro/home_screen.png) | ![](./assets/intro/search_screen.png) |
-|:--:|:--:|:--:||:--:||:--:|
+|:--:|:--:|:--:|:--:|:--:|
 | Login | Register | Forgot Password | Home | Search |
 
 | ![](./assets/intro/cart_screen.png) | ![](./assets/intro/favorite_screen.png) | ![](./assets/intro/order_screen.png) | ![](./assets/intro/profile_screen.png) | ![](./assets/intro/delivery_address_screen.png) |
 |:--:|:--:|:--:|:--:|:--:|
 | Cart | Favorite | Order | Profile | Delivery Address |
+
 
 ---
 
