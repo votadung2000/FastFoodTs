@@ -9,6 +9,7 @@ import { CarouselScreen, SplashScreen } from '@screens';
 import { Notifer } from '@components';
 import { useAppDispatch } from '@store';
 import { refetchApiUserProfile } from '@reducers';
+import { linking } from '@utils';
 import routes from '@routes';
 
 import RoutesNavigator from './RoutesNavigator';
@@ -54,7 +55,7 @@ const AppContainer = () => {
         <View style={styles.container}>
             {
                 isShowSplash ? <SplashScreen /> : (
-                    <NavigationContainer>
+                    <NavigationContainer linking={linking}>
                         <Stack.Navigator
                             screenOptions={{
                                 headerShown: false,

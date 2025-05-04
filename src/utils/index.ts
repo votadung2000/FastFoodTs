@@ -11,6 +11,8 @@ import differentData from './differentData';
 import formatImage from './formatImage';
 import formatNaturalNumber from './formatNaturalNumber';
 
+import linking from './linking'
+
 export {
   resolutions,
   checkIfValidUUID,
@@ -24,4 +26,6 @@ export {
   differentData,
   formatImage,
   formatNaturalNumber,
+
+  linking,
 };
