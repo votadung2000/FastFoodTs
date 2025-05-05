@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState, memo } from 'react';
 import { Animated, Platform, Dimensions, StyleSheet, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSelector } from 'react-redux';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import RNIonicons from 'react-native-vector-icons/Ionicons';
 
 import {
     HomeScreen,
@@ -19,6 +19,7 @@ import routes, { RouteNames } from '@routes';
 
 const { width } = Dimensions.get('window');
 
+const Ionicons = RNIonicons as any;
 interface BottomTabItem {
     id: number;
     name: RouteNames;

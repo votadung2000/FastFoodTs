@@ -1,12 +1,16 @@
 import { LinkingOptions } from '@react-navigation/native';
 
 interface RootParamList {
-
 }
 
 const config: LinkingOptions<RootParamList>['config'] = {
   screens: {
     NotFoundScreen: '*',
+    RoutesNavigator: {
+      screens: {
+        OrderScreen: 'order',
+      },
+    },
   },
 };
 
