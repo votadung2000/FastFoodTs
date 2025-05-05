@@ -1,16 +1,18 @@
-import { LinkingOptions } from "@react-navigation/native";
+import { LinkingOptions } from '@react-navigation/native';
 
 interface RootParamList {
 
 }
 
 const config: LinkingOptions<RootParamList>['config'] = {
-  screens: {}
-}
+  screens: {
+    NotFoundScreen: '*',
+  },
+};
 
 const linking: LinkingOptions<RootParamList> = {
   prefixes: [
-    "fastfood://app"
+    'fastfood://app',
   ],
   config,
 };

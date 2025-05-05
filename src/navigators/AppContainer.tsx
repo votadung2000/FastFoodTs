@@ -5,7 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PERMISSIONS, request } from 'react-native-permissions';
 import NetInfo from '@react-native-community/netinfo';
 
-import { CarouselScreen, SplashScreen } from '@screens';
+import {
+    CarouselScreen,
+    NotFoundScreen,
+    SplashScreen,
+} from '@screens';
 import { Notifer } from '@components';
 import { useAppDispatch } from '@store';
 import { refetchApiUserProfile } from '@reducers';
@@ -65,6 +69,7 @@ const AppContainer = () => {
                         >
                             <Stack.Screen name={routes.CarouselScreen} component={CarouselScreen} />
                             <Stack.Screen name={routes.RoutesNavigator} component={RoutesNavigator} />
+                            <Stack.Screen name={routes.NotFoundScreen} component={NotFoundScreen} />
                         </Stack.Navigator>
                     </NavigationContainer>
                 )

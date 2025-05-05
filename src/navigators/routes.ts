@@ -4,6 +4,8 @@ const routes = {
   RoutesNavigator: 'RoutesNavigator',
   BottomTabNavigator: 'BottomTabNavigator',
 
+  NotFoundScreen: 'NotFoundScreen',
+
   // Auth Nav
   SplashScreen: 'SplashScreen',
   CarouselScreen: 'CarouselScreen',

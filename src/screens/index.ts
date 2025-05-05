@@ -1,5 +1,6 @@
 import SplashScreen from './splash';
 import CarouselScreen from './carousel';
+import NotFoundScreen from './not_found';
 
 import WelcomeScreen from './welcome';
 import LoginScreen from './login';
@@ -26,6 +27,7 @@ import DetailDeliveryAddressScreen from './detail_delivery_address';
 export {
     SplashScreen,
     CarouselScreen,
+    NotFoundScreen,
 
     WelcomeScreen,
     LoginScreen,

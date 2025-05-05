@@ -11,7 +11,7 @@ import differentData from './differentData';
 import formatImage from './formatImage';
 import formatNaturalNumber from './formatNaturalNumber';
 
-import linking from './linking'
+import linking from './linking';
 
 export {
   resolutions,
