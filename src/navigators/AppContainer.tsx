@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import { View, StyleSheet, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PERMISSIONS, request } from 'react-native-permissions';
 import NetInfo from '@react-native-community/netinfo';
+import RNBootSplash from 'react-native-bootsplash';
 
 import {
     CarouselScreen,
     NotFoundScreen,
-    SplashScreen,
 } from '@screens';
 import { Notifer } from '@components';
 import { useAppDispatch } from '@store';
@@ -23,12 +23,9 @@ const AppContainer = () => {
 
     const dispatch = useAppDispatch();
 
-    const [isShowSplash, setShowSplash] = useState(true);
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            setShowSplash(false);
-        }, 2000);
+        RNBootSplash.hide();
 
         NetInfo.addEventListener(state => {
             if (!state?.isConnected) {
@@ -48,31 +45,25 @@ const AppContainer = () => {
 
         dispatch(refetchApiUserProfile());
 
-        return () => {
-            clearTimeout(timeout);
-        };
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
         <View style={styles.container}>
             {
-                isShowSplash ? <SplashScreen /> : (
-                    <NavigationContainer linking={linking}>
-                        <Stack.Navigator
-                            screenOptions={{
-                                headerShown: false,
-                                gestureEnabled: false,
-                                animation: 'slide_from_right',
-                            }}
-                        >
-                            <Stack.Screen name={routes.CarouselScreen} component={CarouselScreen} />
-                            <Stack.Screen name={routes.RoutesNavigator} component={RoutesNavigator} />
-                            <Stack.Screen name={routes.NotFoundScreen} component={NotFoundScreen} />
-                        </Stack.Navigator>
-                    </NavigationContainer>
-                )
+                <NavigationContainer linking={linking}>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerShown: false,
+                            gestureEnabled: false,
+                            animation: 'slide_from_right',
+                        }}
+                    >
+                        <Stack.Screen name={routes.CarouselScreen} component={CarouselScreen} />
+                        <Stack.Screen name={routes.RoutesNavigator} component={RoutesNavigator} />
+                        <Stack.Screen name={routes.NotFoundScreen} component={NotFoundScreen} />
+                    </Stack.Navigator>
+                </NavigationContainer>
             }
         </View >
     );
